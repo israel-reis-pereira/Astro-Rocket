@@ -12,7 +12,7 @@
  *
  * Altere os valores aqui. O `site.config.ts` lê os valores deste arquivo.
  */
-export const SITE_NAME = 'Astro Rocket';
+export const SITE_NAME = 'Israel Reis Pereira';
 
 /** Cor da barra do navegador e preenchimento atrás da letra do favicon. */
 export const THEME_COLOR = '#0083fe';

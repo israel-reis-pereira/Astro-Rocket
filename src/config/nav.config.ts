@@ -1,42 +1,45 @@
+
 /**
- * Navigation Configuration
+ * Configuração de navegação
  *
- * Defines navigation menus for the site. Astro handles routing via the
- * filesystem — this only controls which links appear in nav menus.
+ * Define os menus de navegação do site. O Astro gerencia o roteamento por meio
+ * do sistema de arquivos — esta configuração controla apenas quais links
+ * aparecem nos menus de navegação.
  *
- * - `navItems`       → main (header) navigation
- * - `footerNavItems` → footer navigation, configured independently from
- *                      the header so you can show different links in the
- *                      footer (e.g. add a Privacy link, drop About, etc.)
- * - `legalLinks`     → small legal-style links (Privacy, Terms, Imprint…)
- *                      shown in the footer's bottom row when supported
- *                      by the active footer layout.
+ * - `navItems`       → navegação principal (cabeçalho)
+ * - `footerNavItems` → navegação do rodapé, configurada independentemente
+ *                      do cabeçalho para permitir links diferentes no rodapé
+ *                      (por exemplo, adicionar um link de Privacidade ou
+ *                      remover o link Sobre)
+ * - `legalLinks`     → pequenos links de caráter legal (Privacidade, Termos,
+ *                      Aviso legal etc.) exibidos na linha inferior do rodapé
+ *                      quando suportados pelo layout de rodapé ativo.
  *
  * ## i18n
  *
- * You write each link once. When i18n is enabled, the Header and Footer
- * localize it automatically for the active locale:
+ * Você escreve cada link uma única vez. Quando o i18n está habilitado, o
+ * Header e o Footer fazem a localização automaticamente para o idioma ativo:
  *
- * - **href** is locale-prefixed via `localizedPath` — `/blog` stays `/blog`
- *   on the default locale and becomes `/<locale>/blog` elsewhere — so nav
- *   keeps the visitor inside their locale. External, `mailto:`/`tel:`, and
- *   `#anchor` hrefs are left untouched.
- * - **label** is translated when you give the item a `labelKey` pointing at
- *   a string in `src/i18n/<locale>.json` (resolved with `t()`); without one,
- *   the literal `label` is used as-is.
+ * - **href** recebe o prefixo do idioma via `localizedPath` — `/blog` permanece
+ *   `/blog` no idioma padrão e se torna `/<locale>/blog` nos demais idiomas —
+ *   mantendo o visitante dentro do idioma atual. Links externos, `mailto:`/`tel:`
+ *   e `#anchor` permanecem inalterados.
+ * - **label** é traduzido quando o item possui um `labelKey` apontando para uma
+ *   string em `src/i18n/<locale>.json` (resolvida com `t()`); sem um `labelKey`,
+ *   o `label` literal é utilizado como está.
  *
- * For the rare case where a locale needs a structurally different label or
- * path (e.g. a localized slug like `/over-ons`), add a `locales` override —
- * see `NavItemOverride`. With i18n off, none of this runs and the output is
- * identical to a single-locale site.
+ * No caso específico de um idioma precisar de um label ou caminho estruturalmente
+ * diferente (por exemplo, um slug localizado como `/sobre`), adicione uma
+ * substituição em `locales` — consulte `NavItemOverride`. Com o i18n desativado,
+ * nada disso é executado e a saída permanece idêntica à de um site de idioma único.
  */
 import { localizedPath, t, defaultLocale, type Locale } from '@/i18n';
 
-/** Per-locale override for a nav item or legal link's label and/or path. */
+/** Substituição por idioma para o label e/ou caminho de um item de navegação ou link legal. */
 export interface NavItemOverride {
-  /** Replaces the resolved label for this locale. */
+  /** Substitui o label resolvido para este idioma. */
   label?: string;
-  /** Replaces the canonical path for this locale (still locale-prefixed). */
+  /** Substitui o caminho canônico para este idioma (ainda recebe o prefixo do idioma). */
   href?: string;
 }
 
@@ -45,23 +48,23 @@ export interface NavItem {
   href: string;
   order: number;
   external?: boolean;
-  /** i18n dictionary key for the label (e.g. `'nav.items.blog'`). Falls back to `label`. */
+  /** Chave do dicionário i18n para o label (por exemplo, `'nav.items.blog'`). Usa `label` como fallback. */
   labelKey?: string;
-  /** Per-locale label/path overrides, keyed by locale code. */
+  /** Substituições de label/caminho por idioma, identificadas pelo código do idioma. */
   locales?: Record<string, NavItemOverride>;
 }
 
 /**
- * A footer column declared in config. `titleKey` is looked up in the locale
- * files when present, so a translated site gets a translated heading;
- * `title` is the fallback for a column that has no key.
+ * Uma coluna do rodapé declarada na configuração. `titleKey` é buscado nos
+ * arquivos de idioma quando presente, permitindo que um site traduzido tenha
+ * um título de coluna traduzido; `title` é o fallback para uma coluna sem chave.
  */
 export interface FooterLinkGroupConfig {
   titleKey?: string;
   title: string;
   /**
-   * `LegalLink` rather than `NavItem`: the two carry the same fields except
-   * `order`, which a group has no use for — the array is the order.
+   * `LegalLink` em vez de `NavItem`: os dois possuem os mesmos campos, exceto
+   * `order`, que não é necessário em um grupo — a ordem do array é utilizada.
    */
   links: LegalLink[];
 }
@@ -70,13 +73,13 @@ export interface LegalLink {
   label: string;
   href: string;
   external?: boolean;
-  /** i18n dictionary key for the label. Falls back to `label`. */
+  /** Chave do dicionário i18n para o label. Usa `label` como fallback. */
   labelKey?: string;
-  /** Per-locale label/path overrides, keyed by locale code. */
+  /** Substituições de label/caminho por idioma, identificadas pelo código do idioma. */
   locales?: Record<string, NavItemOverride>;
 }
 
-/** A nav item resolved for one locale: label translated, href locale-prefixed. */
+/** Item de navegação resolvido para um idioma: label traduzido e href com prefixo do idioma. */
 export interface ResolvedNavItem {
   label: string;
   href: string;
@@ -84,60 +87,62 @@ export interface ResolvedNavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
+  { label: 'Serviços', href: '/services', order: 1, labelKey: 'nav.items.services' },
+  { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contato', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
-  { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
+  { label: 'Serviços', href: '/services', order: 1, labelKey: 'nav.items.services' },
+  { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
-  { label: 'GitHub', href: 'https://github.com/hansmartensdev/Astro-Rocket', order: 6, external: true },
+  { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contato', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', order: 6, external: true },
 ];
 
 export const legalLinks: LegalLink[] = [];
 
 /**
- * Extra columns for the footer's `columns` layout.
+ * Colunas extras para o layout `columns` do rodapé.
  *
- * Leave this empty and the footer builds its own from the site: a Site column
- * from `footerNavItems`, a Topics column from the most-used blog tags, and a
- * Projects column from the visible projects. Each is dropped when it has
- * nothing in it, so a new site shows one column and fills out as it grows.
+ * Deixe vazio para que o rodapé construa suas próprias colunas a partir do
+ * site: uma coluna Site baseada em `footerNavItems`, uma coluna Tópicos baseada
+ * nas tags de blog mais utilizadas e uma coluna Projetos baseada nos projetos
+ * visíveis. Cada uma é removida quando não possui conteúdo, então um site novo
+ * começa com uma coluna e vai sendo preenchido conforme cresce.
  *
- * Anything here is *added* to those, which is what this is for: a column the
- * site has that cannot be derived — a support column, an offices column, a
- * second product. To replace the derived set entirely rather than add to it,
- * pass `linkGroups` to `<Footer>` directly.
+ * Tudo aqui é *adicionado* a essas colunas, servindo para uma coluna que não
+ * pode ser derivada automaticamente — uma coluna de suporte, escritórios ou
+ * um segundo produto, por exemplo. Para substituir completamente o conjunto
+ * derivado em vez de apenas adicionar colunas, passe `linkGroups` diretamente
+ * para `<Footer>`.
  *
- * Every link is real on the demo. A footer that pads itself out with links to
- * somewhere else is worse than a short one, and worse still on a theme people
- * fork: they inherit whatever is here.
+ * Todos os links são reais na demonstração. Um rodapé preenchido artificialmente
+ * com links para outros lugares é pior do que um rodapé curto, e pior ainda em
+ * um tema que outras pessoas utilizam como base: elas herdariam esses links.
  */
 export const footerLinkGroups: FooterLinkGroupConfig[] = [
   {
     titleKey: 'footer.groups.questions',
-    title: 'Got questions?',
+    title: 'Tem dúvidas?',
     links: [
       { label: 'FAQ', href: '/about#faq' },
-      { label: 'Email', href: 'mailto:hello@hansmartens.dev' },
-      { label: 'GitHub', href: 'https://github.com/hansmartensdev/Astro-Rocket', external: true },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/hansmartensdev', external: true },
-      { label: 'Bluesky', href: 'https://bsky.app/profile/hansmartensdev.bsky.social', external: true },
+      { label: 'E-mail', href: 'mailto:hello@hansmartens.dev' },
+      { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', external: true },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira', external: true },
+      { label: 'Discord', href: 'https://discord.com/users/926340772897370122', external: true },
     ],
   },
 ];
 
 /**
- * Hrefs that must never be locale-prefixed: absolute/protocol-relative URLs,
- * `mailto:`/`tel:` links, and in-page `#anchor`s.
+ * Hrefs que nunca devem receber o prefixo do idioma: URLs absolutas/relativas
+ * ao protocolo, links `mailto:`/`tel:` e âncoras internas `#anchor`.
  */
 function isExternalOrAnchorHref(href: string): boolean {
   return (
@@ -149,11 +154,13 @@ function isExternalOrAnchorHref(href: string): boolean {
 }
 
 /**
- * Resolve a single item for a locale: apply any per-locale override, translate
- * the label (when a `labelKey` is set), and locale-prefix the path (unless it's
- * external or an anchor). On the default locale with i18n off, this returns the
- * item's literal label and unmodified href. Exported for reuse in custom nav
- * components (and unit tests).
+ * Resolve um único item para um idioma: aplica qualquer substituição específica
+ * do idioma, traduz o label (quando `labelKey` está definido) e adiciona o
+ * prefixo do idioma ao caminho (exceto quando é externo ou uma âncora).
+ *
+ * No idioma padrão com o i18n desativado, retorna o label literal do item e o
+ * href sem alterações. Exportado para reutilização em componentes de navegação
+ * personalizados e testes unitários.
  */
 export function resolveNavItem(item: NavItem | LegalLink, locale: Locale): ResolvedNavItem {
   const override = item.locales?.[locale];
@@ -165,7 +172,8 @@ export function resolveNavItem(item: NavItem | LegalLink, locale: Locale): Resol
 }
 
 /**
- * Get header navigation items sorted by order, localized for `locale`.
+ * Obtém os itens de navegação do cabeçalho ordenados por `order` e localizados
+ * para o idioma especificado.
  */
 export function getNavItems(locale: Locale = defaultLocale): ResolvedNavItem[] {
   return [...navItems]
@@ -174,9 +182,11 @@ export function getNavItems(locale: Locale = defaultLocale): ResolvedNavItem[] {
 }
 
 /**
- * Get footer navigation items sorted by order, localized for `locale`.
- * Configured independently from the header — edit `footerNavItems`
- * above to add/remove links in the footer only.
+ * Obtém os itens de navegação do rodapé ordenados por `order` e localizados
+ * para o idioma especificado.
+ *
+ * Configurado independentemente do cabeçalho — edite `footerNavItems` acima
+ * para adicionar ou remover links somente do rodapé.
  */
 export function getFooterNavItems(locale: Locale = defaultLocale): ResolvedNavItem[] {
   return [...footerNavItems]
@@ -185,16 +195,16 @@ export function getFooterNavItems(locale: Locale = defaultLocale): ResolvedNavIt
 }
 
 /**
- * Get configured legal links (Privacy, Terms, etc.), localized for `locale`.
- * Returned in declaration order.
+ * Obtém os links legais configurados (Privacidade, Termos etc.), localizados
+ * para o idioma especificado. Retornados na ordem em que foram declarados.
  */
 export function getLegalLinks(locale: Locale = defaultLocale): ResolvedNavItem[] {
   return legalLinks.map((item) => resolveNavItem(item, locale));
 }
 
 /**
- * The site logo's link target for `locale` — the locale's home page
- * (`/` on the default locale, `/<locale>` elsewhere).
+ * Destino do link do logotipo do site para o idioma especificado — a página
+ * inicial do idioma (`/` no idioma padrão e `/<locale>` nos demais).
  */
 export function getLogoHref(locale: Locale = defaultLocale): string {
   return localizedPath('/', locale);

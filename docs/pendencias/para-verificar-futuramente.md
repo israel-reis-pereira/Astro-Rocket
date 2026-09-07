@@ -2,7 +2,7 @@
 
 ## Estado atual
 
-Após a instalação das dependências:
+Após a instalação das dependências e das primeiras validações:
 
 - `pnpm install` concluído com sucesso.
 - `pnpm check` concluído com:
@@ -18,21 +18,21 @@ Após a instalação das dependências:
   - `/services`
   - `/about`
 - O `manifest.webmanifest` também respondeu normalmente.
+- `pnpm build` concluiu a compilação das páginas, mas falhou posteriormente no hook do adapter da Vercel.
+- `pnpm verify` confirmou a geração das páginas, mas apontou arquivos de identidade/compartilhamento ausentes.
 
-Portanto, o projeto está funcional em desenvolvimento.
+Portanto, **o projeto está funcional em desenvolvimento**, mas ainda existem pontos de build e geração de assets que precisam ser investigados.
 
 ---
 
-# 1. Erro de build com @astrojs/vercel
+# 1. Erro de build com `@astrojs/vercel`
 
 ## Situação
 
-Durante o `build` ocorreu uma falha dentro do adapter da Vercel:
+Durante o `build`, a compilação da aplicação foi concluída, mas ocorreu uma falha dentro do adapter da Vercel ao tentar criar um symlink de dependência:
 
 ```text
-Stack trace:
-  at async Module.symlink (node:internal/fs/promises:1002:10)
-  at async copyDependenciesToFunction (...)
-  at async astro:build:done (...)
-  at async AstroBuilder.build (...)
-Command failed with exit code 1.
+[@astrojs/vercel] Bundling function ..\..\..\..\dist\server\entry.mjs
+[@astrojs/vercel] An unhandled error occurred while running the "astro:build:done" hook
+EPERM: operation not permitted, symlink '.pnpm\clsx\@2.1.1\node_modules\clsx' -> '...\Astro-Rocket\.vercel\output\functions\_render.func\node_modules\clsx'
+Command failed with exit code 1

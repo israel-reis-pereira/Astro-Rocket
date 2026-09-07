@@ -9,9 +9,9 @@ export type { I18nConfig };
 export interface SiteConfig {
   name: string;
   description: string;
-  /** Identity line under the logo in the centered footer */
+  /** Linha de identidade abaixo do logo no rodapé centralizado */
   tagline?: string;
-  /** Short facts line under the footer tagline (licensing, location, availability) */
+  /** Linha com informações resumidas abaixo do tagline do rodapé (licença, localização, disponibilidade) */
   footerNote?: string;
   url: string;
   ogImage: string;
@@ -27,10 +27,11 @@ export interface SiteConfig {
   };
   socialLinks: string[];
   /**
-   * Header options. Set `showSocialLinks: true` to render an icon link in the
-   * top-right for each entry in `socialLinks` (GitHub, X, etc. — the icon is
-   * inferred from the URL). Off by default; an explicit `<Header
-   * showSocialLinks>` prop still overrides this per-usage.
+   * Opções do cabeçalho. Defina `showSocialLinks: true` para exibir um ícone
+   * no canto superior direito para cada entrada em `socialLinks` (GitHub, X etc. —
+   * o ícone é identificado automaticamente pela URL). Desativado por padrão;
+   * uma propriedade explícita `<Header showSocialLinks>` ainda pode substituir
+   * essa configuração em cada uso.
    */
   header?: {
     showSocialLinks?: boolean;
@@ -43,64 +44,66 @@ export interface SiteConfig {
     google?: string;
     bing?: string;
   };
-  /** Path to author photo (relative to site root, e.g. '/avatar.jpg'). Used in Person schema. */
+  /** Caminho para a foto do autor (relativo à raiz do site, por exemplo, '/avatar.jpg'). Usado no schema Person. */
   authorImage?: string;
   /**
-   * Set to false if your blog post images already match your theme color
-   * and you don't want the brand color overlay applied on top of them.
+   * Defina como false se as imagens das publicações do blog já corresponderem
+   * à cor do seu tema e você não quiser que a sobreposição da cor da marca
+   * seja aplicada sobre elas.
    */
   blogImageOverlay?: boolean;
   /**
-   * Global, decorative visual effects (purely additive — the site works
-   * fully without them).
+   * Efeitos visuais decorativos globais (puramente adicionais — o site funciona
+   * completamente sem eles).
    */
   effects?: {
     /**
-     * Cursor trail on desktop (pointer dot + lagging ring + comet particles).
-     * `true` by default; set to `false` to turn it off site-wide as a
-     * visual-comfort / accessibility preference. The trail is already skipped
-     * automatically under `prefers-reduced-motion` and on coarse/touch
-     * pointers, regardless of this flag.
+     * Rastro do cursor no desktop (ponto do ponteiro + anel com atraso + partículas
+     * de cometa). `true` por padrão; defina como `false` para desativá-lo em todo
+     * o site como preferência de conforto visual / acessibilidade. O rastro já é
+     * automaticamente ignorado com `prefers-reduced-motion` e em ponteiros
+     * grosseiros/de toque, independentemente desta configuração.
      */
     cursorTrail?: boolean;
   };
   /**
-   * Article features — opt-in modules for blog posts.
-   * Each is OFF by default so the theme stays as light as it is today
-   * for users who don't enable them.
+   * Recursos dos artigos — módulos opcionais para publicações do blog.
+   * Cada recurso fica DESATIVADO por padrão para que o tema continue tão leve
+   * quanto é atualmente para os usuários que não os ativarem.
    */
   articleFeatures?: {
-    /** Table of contents shown on blog posts (auto-generated from headings) */
+    /** Sumário exibido nas publicações do blog (gerado automaticamente a partir dos títulos) */
     toc?: {
-      /** Master switch — set to true to enable site-wide */
+      /** Chave principal — defina como true para ativar em todo o site */
       enabled: boolean;
       /**
-       * Where to render the TOC.
-       * - 'inline'  → card at the top of every post (default; preserves
-       *               full reading width on desktop)
-       * - 'sidebar' → sticky sidebar on `xl+` viewports (≥1280px),
-       *               hidden on smaller screens
-       * - 'auto'    → sidebar on `xl+`, inline card below `xl` so phone
-       *               and tablet readers still get the navigation
+       * Onde exibir o sumário.
+       * - 'inline'  → cartão no topo de cada publicação (padrão; preserva
+       *               toda a largura de leitura no desktop)
+       * - 'sidebar' → barra lateral fixa em telas `xl+` (≥1280px),
+       *               oculta em telas menores
+       * - 'auto'    → barra lateral em telas `xl+`, cartão inline abaixo de
+       *               `xl`, para que leitores de celular e tablet ainda tenham
+       *               acesso à navegação
        */
       layout?: 'inline' | 'sidebar' | 'auto';
       /**
-       * Which side the sidebar TOC sits on (only applies when `layout` is
-       * 'sidebar' or 'auto'). Defaults to 'right'.
+       * Em qual lado o sumário da barra lateral será exibido (aplica-se apenas
+       * quando `layout` é 'sidebar' ou 'auto'). O padrão é 'right'.
        */
       sidebarPosition?: 'left' | 'right';
-      /** Minimum headings before the TOC renders (avoid TOCs on short posts) */
+      /** Número mínimo de títulos antes que o sumário seja exibido (evita sumários em publicações curtas) */
       minHeadings?: number;
-      /** Deepest heading level to include (2 = H2 only, 3 = H2+H3, etc.) */
+      /** Nível máximo de título a incluir (2 = somente H2, 3 = H2+H3 etc.) */
       maxDepth?: 2 | 3 | 4;
     };
-    /** Comments at the bottom of blog posts (powered by Giscus, Cusdis, or Artalk) */
+    /** Comentários no final das publicações do blog (compatível com Giscus, Cusdis ou Artalk) */
     comments?: {
-      /** Master switch — set to true to enable site-wide */
+      /** Chave principal — defina como true para ativar em todo o site */
       enabled: boolean;
-      /** Comments provider — 'giscus' (GitHub Discussions) or 'cusdis'. */
+      /** Provedor de comentários — 'giscus' (GitHub Discussions) ou 'cusdis'. */
       provider?: 'giscus' | 'cusdis' | 'artalk';
-      /** Giscus configuration. Get values from https://giscus.app */
+      /** Configuração do Giscus. Obtenha os valores em [https://giscus.app](https://giscus.app) */
       giscus?: {
         repo: `${string}/${string}`;
         repoId: string;
@@ -112,188 +115,195 @@ export interface SiteConfig {
         emitMetadata?: boolean;
         inputPosition?: 'top' | 'bottom';
         /**
-         * Giscus theme. Leave empty (the default) to follow the site's own
-         * light/dark mode — resolved on the client and kept in sync as the
-         * visitor toggles. Set a specific Giscus theme name (e.g.
-         * 'dark_dimmed', 'preferred_color_scheme') to override.
+         * Tema do Giscus. Deixe vazio (o padrão) para seguir o próprio modo
+         * claro/escuro do site — resolvido no cliente e mantido sincronizado
+         * enquanto o visitante alterna. Defina um nome de tema específico do
+         * Giscus (por exemplo, 'dark_dimmed', 'preferred_color_scheme') para
+         * substituir esse comportamento.
          */
         theme?: string;
         /**
-         * Giscus language. Leave empty (the default) to follow the site's
-         * current locale. Set a specific Giscus lang code (e.g. 'en', 'nl')
-         * to override.
+         * Idioma do Giscus. Deixe vazio (o padrão) para seguir o idioma atual
+         * do site. Defina um código de idioma específico do Giscus (por exemplo,
+         * 'en', 'nl') para substituir esse comportamento.
          */
         lang?: string;
       };
-      /** Cusdis configuration. Get your App ID from your Cusdis dashboard. */
+      /** Configuração do Cusdis. Obtenha o App ID no painel do Cusdis. */
       cusdis?: {
-        /** Cusdis App ID (from the Cusdis dashboard's "Embed Code"). */
+        /** App ID do Cusdis (obtido no "Embed Code" do painel do Cusdis). */
         appId: string;
         /**
-         * Cusdis instance host. Defaults to the hosted service
-         * 'https://cusdis.com'; set this to your own URL when self-hosting.
+         * Host da instância do Cusdis. O padrão é o serviço hospedado
+         * '[https://cusdis.com](https://cusdis.com)'; defina sua própria URL
+         * quando estiver usando hospedagem própria.
          */
         host?: string;
         /**
-         * Theme. Leave empty (the default) to follow the site's own light/dark
-         * mode — resolved on the client and re-rendered when the visitor
-         * toggles (Cusdis has no live theme API, so the thread briefly reloads
-         * on toggle). Use 'auto' to follow the OS preference instead, or
-         * 'light' / 'dark' for a fixed theme.
+         * Tema. Deixe vazio (o padrão) para seguir o modo claro/escuro do próprio
+         * site — resolvido no cliente e renderizado novamente quando o visitante
+         * alterna (o Cusdis não possui uma API de tema em tempo real, portanto
+         * a conversa é recarregada brevemente ao alternar). Use 'auto' para seguir
+         * a preferência do sistema operacional ou 'light' / 'dark' para um tema fixo.
          */
         theme?: '' | 'light' | 'dark' | 'auto';
         /**
-         * Language. Leave empty (the default) to follow the site's current
-         * locale. Set a Cusdis language code to override. Availability depends
-         * on Cusdis's language packs; an unknown code falls back to English.
+         * Idioma. Deixe vazio (o padrão) para seguir o idioma atual do site.
+         * Defina um código de idioma do Cusdis para substituir esse comportamento.
+         * A disponibilidade depende dos pacotes de idiomas do Cusdis; um código
+         * desconhecido retorna ao inglês.
          */
         lang?: string;
       };
-      /** Artalk configuration. Requires your own Artalk server. */
+      /** Configuração do Artalk. Requer seu próprio servidor Artalk. */
       artalk?: {
         /**
-         * Artalk server address, for example:
-         * 'https://comments.example.com'
+         * Endereço do servidor Artalk, por exemplo:
+         * '[https://comments.example.com](https://comments.example.com)'
          */
         server: string;
         /**
-         * Site name used by Artalk for multi-site isolation. This should match
-         * the site created in the Artalk dashboard/server config.
+         * Nome do site utilizado pelo Artalk para isolamento entre múltiplos sites.
+         * Deve corresponder ao site criado na configuração do painel/servidor Artalk.
          */
         site: string;
         /**
-         * Optional client JS URL. Defaults to `${server}/dist/Artalk.js`.
-         * Useful when serving the client from a CDN or custom asset path.
+         * URL opcional do JavaScript do cliente. O padrão é `${server}/dist/Artalk.js`.
+         * Útil quando o cliente é servido por uma CDN ou por um caminho de recurso personalizado.
          */
         jsUrl?: string;
         /**
-         * Optional client CSS URL. Defaults to `${server}/dist/Artalk.css`.
-         * Useful when serving the client from a CDN or custom asset path.
+         * URL opcional do CSS do cliente. O padrão é `${server}/dist/Artalk.css`.
+         * Útil quando o cliente é servido por uma CDN ou por um caminho de recurso personalizado.
          */
         cssUrl?: string;
         /**
-         * Dark mode. Leave empty (the default) to follow the site's own
-         * light/dark mode and keep it in sync live. Set 'auto' to follow the
-         * OS preference instead, or use true / false for a fixed mode.
+         * Modo escuro. Deixe vazio (o padrão) para seguir o próprio modo claro/escuro
+         * do site e mantê-lo sincronizado em tempo real. Defina 'auto' para seguir
+         * a preferência do sistema operacional ou use true / false para um modo fixo.
          */
         darkMode?: boolean | 'auto';
         /**
-         * Language. Leave empty (the default) to follow the site's current
-         * locale. Set a specific Artalk locale code such as 'zh-CN' or 'en'
-         * to override.
+         * Idioma. Deixe vazio (o padrão) para seguir o idioma atual do site.
+         * Defina um código de idioma específico do Artalk, como 'zh-CN' ou 'en',
+         * para substituir esse comportamento.
          */
         locale?: string;
       };
     };
   };
   /**
-   * Newsletter signup, shown in the "follow along" section of the blog index
-   * and the foot of every post.
+   * Inscrição na newsletter, exibida na seção "acompanhe" do índice do blog
+   * e no final de cada publicação.
    *
-   * Off by default, and deliberately so: the form posts to `/api/newsletter`,
-   * which needs `RESEND_API_KEY` and `RESEND_AUDIENCE_ID`. Without those the
-   * endpoint answers "Newsletter service is not configured", so a site that
-   * showed the form before its owner had a mailing list would be collecting
-   * failures. Set your keys, then turn this on.
+   * Desativada por padrão, intencionalmente: o formulário envia dados para
+   * `/api/newsletter`, que precisa de `RESEND_API_KEY` e `RESEND_AUDIENCE_ID`.
+   * Sem essas configurações, o endpoint responde "Newsletter service is not configured",
+   * portanto um site que exibisse o formulário antes que seu proprietário tivesse
+   * uma lista de e-mails estaria apenas acumulando falhas. Configure suas chaves
+   * e depois ative esta opção.
    */
   newsletter?: {
-    /** Master switch — set to true to show the signup site-wide */
+    /** Chave principal — defina como true para exibir a inscrição em todo o site */
     enabled: boolean;
   };
   /**
-   * Blog listing configuration. Counts that were previously hard-coded across
-   * `lib/blog.ts` and the route files live here so they're tunable in one
-   * place. (The existing `blogImageOverlay` / `articleFeatures` keys are left
-   * where they are for backwards compatibility and may fold in at a major.)
+   * Configuração da listagem do blog. As quantidades que anteriormente estavam
+   * definidas diretamente em `lib/blog.ts` e nos arquivos de rota ficam aqui
+   * para que possam ser ajustadas em um único lugar. (As chaves existentes
+   * `blogImageOverlay` / `articleFeatures` permanecem onde estão por
+   * compatibilidade retroativa e podem ser reorganizadas em uma versão principal.)
    */
   blog?: {
-    /** Regular (non-featured) posts shown per blog index page. Default 12. */
+    /** Publicações regulares (não destacadas) exibidas por página do índice do blog. Padrão: 12. */
     postsPerPage?: number;
-    /** How many of the most-used tags to surface in the blog tag cloud. Default 10. */
+    /** Quantidade das tags mais utilizadas exibidas na nuvem de tags do blog. Padrão: 10. */
     tagCloudLimit?: number;
   };
-  /** Projects listing configuration. */
+  /** Configuração da listagem de projetos. */
   projects?: {
-    /** Projects shown per page on the projects listing. Default 12. */
+    /** Projetos exibidos por página na listagem de projetos. Padrão: 12. */
     perPage?: number;
-    /** How many of the most-used tags to surface in the projects tag cloud. Default 10. */
+    /** Quantidade das tags mais utilizadas exibidas na nuvem de tags dos projetos. Padrão: 10. */
     tagCloudLimit?: number;
   };
   /**
-   * Internationalization (i18n) — see `src/config/i18n.config.ts`.
-   * Lives in a separate file so the i18n module can be imported by
-   * unit tests without pulling in `astro:env/server`.
+   * Internacionalização (i18n) — consulte `src/config/i18n.config.ts`.
+   * Mantida em um arquivo separado para que o módulo de i18n possa ser
+   * importado pelos testes unitários sem carregar `astro:env/server`.
    */
   i18n?: I18nConfig;
   /**
-   * Branding configuration
-   * Logo files: Replace SVGs in src/assets/branding/
-   * Favicon: Replace in public/favicon.svg
+   * Configuração da identidade visual
+   * Arquivos de logo: substitua os SVGs em src/assets/branding/
+   * Favicon: substitua em public/favicon.svg
    */
   branding: {
-    /** Logo alt text for accessibility */
+    /** Texto alternativo do logo para acessibilidade */
     logo: {
       alt: string;
       /**
-       * Optional path to a custom logo image in public/ (e.g. '/logo.svg').
-       * When set, it replaces the generated letter-monogram badge in the
-       * header, footer, and anywhere <Logo> is rendered — no layout edits
-       * needed. Leave unset to keep the monogram. Per-author byline avatars
-       * (which pass an explicit letter) are unaffected.
+       * Caminho opcional para uma imagem de logo personalizada em public/
+       * (por exemplo, '/logo.svg'). Quando definido, substitui o selo de
+       * monograma gerado por letras no cabeçalho, rodapé e em qualquer lugar
+       * onde `<Logo>` seja renderizado — sem necessidade de alterações no layout.
+       * Deixe indefinido para manter o monograma. Avatares de autoria
+       * (que passam uma letra explicitamente) não são afetados.
        */
       image?: string;
-      /** Path to logo image for structured data (e.g. '/logo.png'). Add a PNG to public/ and set this. */
+      /** Caminho para a imagem do logo usada nos dados estruturados (por exemplo, '/logo.png'). Adicione um PNG a public/ e defina este valor. */
       imageUrl?: string;
     };
-    /** Favicon path (lives in public/) */
+    /** Caminho do favicon (localizado em public/) */
     favicon: {
       svg: string;
     };
-    /** Theme colors for manifest and browser UI */
+    /** Cores do tema para o manifest e a interface do navegador */
     colors: {
-      /** Browser toolbar color (hex) */
+      /** Cor da barra do navegador (hexadecimal) */
       themeColor: string;
-      /** PWA splash screen background (hex) */
+      /** Cor de fundo da tela inicial do PWA (hexadecimal) */
       backgroundColor: string;
     };
   };
 }
 
 const siteConfig: SiteConfig = {
-  // Read from ./branding so the build-time favicon generator, which cannot
-  // import this file, uses the same values. Change them there.
+  // Lido de ./branding para que o gerador de favicon em tempo de build,
+  // que não pode importar este arquivo, use os mesmos valores. Altere-os lá.
   name: SITE_NAME,
   description:
-    'A free, fast Astro 7 starter theme to build anything on: 44 designed components, 12 colour themes, dark mode, and built-in i18n.',
-  tagline: 'Astro 7 starter theme to build anything on',
-  footerNote: 'Free & open source · MIT licensed',
+    'Site pessoal de Israel Reis, desenvolvedor em formação e estudante de Sistemas de Informação, com projetos, estudos e experiências em desenvolvimento de software.',
+  tagline: 'Desenvolvimento de software, projetos e aprendizado contínuo',
+  footerNote: 'Desenvolvedor em formação · Barretos, São Paulo, Brasil',
   url: SITE_URL || SITE_URL_FALLBACK,
-  // Generated at build time from `name`, `tagline` and the brand colour below.
-  // Point this at a file in `public/` to use your own — it has to be a raster
-  // (PNG or JPEG): social platforms don't render SVG share images.
+  // Gerado em tempo de build a partir de `name`, `tagline` e da cor da marca abaixo.
+  // Aponte para um arquivo em `public/` para usar o seu próprio — ele precisa
+  // ser rasterizado (PNG ou JPEG): as plataformas sociais não renderizam imagens
+  // de compartilhamento em SVG.
   ogImage: '/og/default.png',
-  author: 'Hans Martens',
-  email: 'hello@hansmartens.dev',
+  author: 'Israel Silva dos Reis Pereira',
+  email: 'SEU_EMAIL_AQUI',
   address: {
     street: '',
-    city: 'Amsterdam',
-    state: '',
+    city: 'Barretos',
+    state: 'São Paulo',
     zip: '',
-    country: 'the Netherlands',
+    country: 'Brasil',
   },
   socialLinks: [
-    'https://github.com/hansmartensdev',
-    'https://x.com/hansmartens_dev',
-    'https://www.linkedin.com/in/hansmartensdev',
-    'https://bsky.app/profile/hansmartensdev.bsky.social',
+    'https://github.com/israel-reis-pereira',
+    'https://x.com/israelsilvareis',
+    'https://www.linkedin.com/in/israel-silva-dos-reis-pereira',
+    'https://discord.com/users/926340772897370122',
   ],
   header: {
-    // Flip to `true` to show the social icons (incl. GitHub) in the header.
+    // Altere para `true` para exibir os ícones de redes sociais (incluindo GitHub) no cabeçalho.
     showSocialLinks: false,
   },
   twitter: {
-    site: 'https://x.com/hansmartens_dev',
-    creator: '@hansmartens_dev',
+    site: 'https://x.com/israelsilvareis',
+    creator: '@israelsilvareis',
   },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
@@ -325,40 +335,42 @@ const siteConfig: SiteConfig = {
         reactionsEnabled: true,
         emitMetadata: false,
         inputPosition: 'bottom',
-        // Empty → follow the site's light/dark mode and current locale.
+        // Vazio → seguir o modo claro/escuro do site e o idioma atual.
         theme: '',
         lang: '',
       },
-      // Used when provider is 'cusdis'. Get your App ID from the Cusdis
-      // dashboard (Embed Code); `host` defaults to the hosted service.
+      // Usado quando o provedor é 'cusdis'. Obtenha o App ID no painel do Cusdis
+      // (Embed Code); `host` usa o serviço hospedado como padrão.
       cusdis: {
         appId: '',
         host: 'https://cusdis.com',
-        // Empty → follow the site's light/dark mode and current locale.
+        // Vazio → seguir o modo claro/escuro do site e o idioma atual.
         theme: '',
         lang: '',
       },
-      // Used when provider is 'artalk'. Point `server` at your own Artalk
-      // service — use an https:// address in production (a plain http:// URL
-      // is blocked as mixed content on an https site and is open to
-      // tampering). Comments render only once both `server` and `site` are set.
+      // Usado quando o provedor é 'artalk'. Aponte `server` para seu próprio
+      // serviço Artalk — use um endereço https:// em produção (uma URL http://
+      // simples é bloqueada como conteúdo misto em um site https e fica aberta a
+      // adulterações). Os comentários só são renderizados quando `server` e `site`
+      // estiverem definidos.
       artalk: {
         server: '',
-        // The Artalk "site" name you configured in the Artalk dashboard
-        // (used for multi-site isolation).
+        // O nome "site" do Artalk configurado no painel do Artalk
+        // (usado para isolamento entre múltiplos sites).
         site: '',
-        // Optional: override the client asset URLs when needed.
+        // Opcional: substitua as URLs dos recursos do cliente quando necessário.
         // jsUrl: 'https://cdn.example.com/artalk/Artalk.js',
         // cssUrl: 'https://cdn.example.com/artalk/Artalk.css',
-        // Leave undefined → follow the site's light/dark mode and locale.
+        // Deixe indefinido → seguir o modo claro/escuro e o idioma do site.
         // darkMode: 'auto',
         // locale: 'en',
       },
     },
   },
   newsletter: {
-    // On by default: the form knows whether it has keys and says so itself,
-    // in dev only. Set RESEND_API_KEY and RESEND_AUDIENCE_ID to make it work.
+    // Ativado por padrão: o formulário verifica se possui as chaves e informa isso
+    // apenas no ambiente de desenvolvimento. Defina RESEND_API_KEY e
+    // RESEND_AUDIENCE_ID para fazê-lo funcionar.
     enabled: true,
   },
   blog: {
@@ -372,8 +384,8 @@ const siteConfig: SiteConfig = {
   i18n: i18nConfig,
   branding: {
     logo: {
-      alt: 'Astro Rocket',
-      // image: '/logo.svg', // Optional: set to a file in public/ to use a custom logo image instead of the letter monogram.
+      alt: 'Israel Reis',
+      // image: '/logo.svg', // Opcional: defina um arquivo em public/ para usar uma imagem de logo personalizada em vez do monograma de letras.
       imageUrl: '/favicon.svg',
     },
     favicon: {

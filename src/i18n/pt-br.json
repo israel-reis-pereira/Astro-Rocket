@@ -217,7 +217,7 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Theme by <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
+    "credit": "Créditos ao <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
     "builtWith": "Construído com Astro Rocket",
     "groups": {
       "site": "Site",
@@ -754,4 +754,3 @@
     }
   }
 }
-

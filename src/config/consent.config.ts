@@ -1,41 +1,42 @@
+
 import type { ConsentConfig } from '@/lib/consent.types';
 
 const consentConfig: ConsentConfig = {
-  /** Bump to force re-consent when categories change */
+  /** Incrementar para exigir um novo consentimento quando as categorias forem alteradas */
   version: 1,
 
-  /** 'consent_mode_v2' = scripts load with denied defaults, cookieless pings
-   *  'strict' = scripts fully blocked until consent granted */
+  /** 'consent_mode_v2' = scripts carregam com padrões de negação e enviam sinais sem cookies
+   *  'strict' = scripts ficam totalmente bloqueados até que o consentimento seja concedido */
   mode: 'consent_mode_v2',
 
-  /** localStorage key for stored preferences */
+  /** Chave do localStorage usada para armazenar as preferências */
   storageKey: 'cookie-consent',
 
   categories: {
     necessary: {
-      label: 'Necessary',
-      description: 'Essential cookies required for the website to function. These cannot be disabled.',
+      label: 'Necessários',
+      description: 'Cookies essenciais necessários para o funcionamento do site. Eles não podem ser desativados.',
       required: true,
       defaultEnabled: true,
       gcmTypes: ['security_storage'],
     },
     analytics: {
-      label: 'Analytics',
-      description: 'Help us understand how visitors interact with the website by collecting anonymous usage data.',
+      label: 'Análise',
+      description: 'Ajudam a entender como os visitantes interagem com o site por meio da coleta de dados anônimos de uso.',
       required: false,
       defaultEnabled: false,
       gcmTypes: ['analytics_storage'],
     },
     marketing: {
       label: 'Marketing',
-      description: 'Used to deliver relevant ads and track ad campaign performance across websites.',
+      description: 'Utilizados para exibir anúncios relevantes e acompanhar o desempenho de campanhas publicitárias em diferentes sites.',
       required: false,
       defaultEnabled: false,
       gcmTypes: ['ad_storage', 'ad_user_data', 'ad_personalization'],
     },
     preferences: {
-      label: 'Preferences',
-      description: 'Allow the website to remember choices you make, such as language or region.',
+      label: 'Preferências',
+      description: 'Permitem que o site se lembre das escolhas feitas por você, como idioma ou região.',
       required: false,
       defaultEnabled: false,
       gcmTypes: ['functionality_storage', 'personalization_storage'],
@@ -43,20 +44,20 @@ const consentConfig: ConsentConfig = {
   },
 
   ui: {
-    heading: 'Cookie Preferences',
-    description: 'We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.',
-    acceptAll: 'Accept All',
-    declineAll: 'Decline All',
-    customize: 'Customize',
-    savePreferences: 'Save Preferences',
-    settingsHeading: 'Privacy Settings',
-    alwaysOnLabel: 'Always on',
-    privacyPolicyLabel: 'Privacy Policy',
-    bannerAriaLabel: 'Cookie consent',
-    reopenerAriaLabel: 'Open cookie settings',
+    heading: 'Preferências de cookies',
+    description: 'Utilizamos cookies para melhorar sua experiência de navegação, oferecer conteúdo personalizado e analisar nosso tráfego.',
+    acceptAll: 'Aceitar todos',
+    declineAll: 'Recusar todos',
+    customize: 'Personalizar',
+    savePreferences: 'Salvar preferências',
+    settingsHeading: 'Configurações de privacidade',
+    alwaysOnLabel: 'Sempre ativo',
+    privacyPolicyLabel: 'Política de privacidade',
+    bannerAriaLabel: 'Consentimento de cookies',
+    reopenerAriaLabel: 'Abrir configurações de cookies',
   },
 
-  /** Milliseconds before banner slides in */
+  /** Milissegundos antes de o banner aparecer */
   showDelay: 500,
 };
 
