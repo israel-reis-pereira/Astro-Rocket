@@ -1,0 +1,757 @@
+
+{
+  "nav": {
+    "skipToContent": "Pular para o conteúdo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "selectLanguage": "Selecionar idioma",
+    "currentLanguage": "Idioma atual",
+    "mainNav": "Navegação principal",
+    "mobileNav": "Navegação móvel",
+    "toggleMenu": "Alternar menu",
+    "sectionNavigate": "Navegar",
+    "searchSite": "Pesquisar no site",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Idioma",
+    "sectionConnect": "Conectar",
+    "items": {
+      "home": "Início",
+      "services": "Serviços",
+      "projects": "Projetos",
+      "blog": "Blog",
+      "about": "Sobre",
+      "contact": "Contato"
+    }
+  },
+  "common": {
+    "readMore": "Leia mais",
+    "loading": "Carregando…",
+    "backToTop": "Voltar ao topo",
+    "search": "Pesquisar",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "home": "Início",
+    "map": "Mapa",
+    "mapConsentPrompt": "Aceite os cookies para carregar o mapa interativo.",
+    "viewOnGoogleMaps": "Ver no Google Maps",
+    "themeModeTitle": "Tema: {mode} (clique para alternar)",
+    "googleMaps": "Google Maps",
+    "progress": "Progresso",
+    "themeMode": "Tema: {mode}",
+    "browseByTag": "Navegar por tag",
+    "techStack": "Tecnologias",
+    "togglePassword": "Alternar visibilidade da senha",
+    "breadcrumb": "Trilha de navegação",
+    "copyCode": "Copiar código para a área de transferência",
+    "dismiss": "Dispensar",
+    "notifications": "Notificações",
+    "closeDialog": "Fechar diálogo",
+    "tabs": "Abas",
+    "verticalTabs": "Abas verticais"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artigos, ideias e atualizações",
+    "readingTime": "{minutes} min de leitura",
+    "publishedOn": "Publicado em {date}",
+    "updatedOn": "Atualizado em {date}",
+    "writtenBy": "Escrito por {author}",
+    "tagsLabel": "Tags",
+    "featured": "Destaque",
+    "draft": "Rascunho",
+    "noPostsFound": "Nenhum artigo encontrado.",
+    "tableOfContents": "Índice",
+    "shareThisPost": "Compartilhar este artigo",
+    "relatedPosts": "Artigos relacionados",
+    "share": "Compartilhar:",
+    "shareOn": "Compartilhar no {platform}",
+    "copyLink": "Copiar link",
+    "metaTitle": "Blog",
+    "metaDescription": "Artigos sobre desenvolvimento, tecnologia, aprendizado e as decisões que fazem parte dos meus projetos.",
+    "heroBadge": "Todos os artigos",
+    "heroDescription": "Ideias, aprendizados e decisões que fazem parte da minha evolução como desenvolvedor.",
+    "allPosts": "Todos os artigos",
+    "noPosts": "Nenhum artigo encontrado",
+    "pageMetaTitle": "Blog — Página {page}",
+    "pageMetaDescription": "Página {page} de {total} — artigos sobre desenvolvimento, tecnologia e aprendizado.",
+    "pageBadge": "Página {page} de {total}",
+    "newestPosts": "Artigos mais recentes",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Artigos marcados com \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} artigo marcado com \"{tag}\".",
+    "tagCountOther": "{count} artigos marcados com \"{tag}\".",
+    "tagEmpty": "Nenhum artigo encontrado para esta tag.",
+    "tagBackToAll": "Voltar para todos os artigos",
+    "onThisPage": "Nesta página",
+    "tocShow": "Mostrar",
+    "tocHide": "Ocultar",
+    "backToBlog": "Voltar ao Blog",
+    "updated": "Atualizado",
+    "rssFeed": "Feed RSS",
+    "cta": {
+      "heading": "Quer acompanhar minha evolução?",
+      "description": "Acompanhe os artigos, projetos e aprendizados que fazem parte da minha trajetória em tecnologia.",
+      "button": "Ver artigos"
+    }
+  },
+  "comments": {
+    "title": "Comentários",
+    "loadError": "Não foi possível carregar os comentários. Atualize a página e tente novamente.",
+    "requiresJs": "Os comentários precisam do JavaScript para serem carregados."
+  },
+  "projects": {
+    "title": "Projetos",
+    "description": "Projetos que desenvolvi",
+    "viewProject": "Ver projeto",
+    "viewSource": "Ver código-fonte",
+    "noProjectsFound": "Nenhum projeto encontrado.",
+    "carouselChooseSlide": "Escolher slide",
+    "carouselNextSlide": "Próximo slide",
+    "carouselPreviousSlide": "Slide anterior",
+    "galleryLabel": "Galeria de mídia",
+    "galleryClose": "Fechar galeria",
+    "galleryNextImage": "Próxima imagem",
+    "galleryPreviousImage": "Imagem anterior",
+    "metaTitle": "Projetos",
+    "metaDescription": "Projetos selecionados envolvendo desenvolvimento web, aplicações, experimentos e estudos em tecnologia.",
+    "heroBadge": "Projetos selecionados",
+    "heroDescription": "Uma seleção de projetos que representam minha evolução prática.",
+    "allProjects": "Todos os projetos",
+    "pageMetaTitle": "Projetos — Página {page}",
+    "pageMetaDescription": "Página {page} de {total} — projetos, aplicações e experimentos de desenvolvimento.",
+    "pageBadge": "Página {page} de {total}",
+    "tagMetaTitle": "#{tag} — Projetos",
+    "tagMetaDescription": "Projetos marcados com \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} projeto marcado com \"{tag}\".",
+    "tagCountOther": "{count} projetos marcados com \"{tag}\".",
+    "tagEmpty": "Nenhum projeto encontrado para esta tag.",
+    "tagBackToAll": "Voltar para todos os projetos",
+    "backToProjects": "Voltar aos Projetos",
+    "moreProjects": "Mais projetos",
+    "ctaBadge": "Vamos conversar",
+    "ctaHeading": "Tem uma ideia ou projeto?",
+    "ctaLead": "Gosto de entender o problema antes de escolher a tecnologia. Se você tem uma ideia, projeto ou necessidade, entre em contato.",
+    "ctaPrimary": "Enviar mensagem",
+    "ctaSecondary": "Mais sobre mim",
+    "closingHeading": "Tem um projeto em mente?",
+    "closingLead": "Seja um novo projeto ou algo que precisa de uma nova perspectiva, podemos conversar sobre o que você tem em mente."
+  },
+  "pagination": {
+    "page": "Página {current} de {total}",
+    "label": "Paginação",
+    "previousPage": "Página anterior",
+    "nextPage": "Próxima página",
+    "morePages": "Mais páginas"
+  },
+  "errors": {
+    "pageNotFound": "Página não encontrada",
+    "pageNotFoundMessage": "A página que você procura não existe ou foi movida.",
+    "goHome": "Ir para a página inicial",
+    "metaTitle": "Página não encontrada",
+    "metaDescription": "Esta página foi movida, removida ou nunca existiu.",
+    "badge": "404 — página não encontrada",
+    "titleLead": "Página não",
+    "titleHighlight": "encontrada.",
+    "description": "Esta página foi movida, removida ou nunca existiu. Vamos voltar ao caminho certo.",
+    "backHome": "Voltar ao início",
+    "browseBlog": "Ver o blog",
+    "tryInstead": "Tente uma destas opções",
+    "projectsDesc": "Projetos e trabalhos selecionados.",
+    "blogDesc": "Anotações sobre desenvolvimento, tecnologia e aprendizado.",
+    "contactTitle": "Contato",
+    "contactDesc": "Entre em contato para conversar sobre um projeto."
+  },
+  "newsletter": {
+    "heading": "Assine a newsletter",
+    "description": "Receba os artigos mais recentes diretamente no seu e-mail.",
+    "emailPlaceholder": "Digite seu e-mail",
+    "subscribe": "Assinar",
+    "subscribing": "Assinando…",
+    "success": "Obrigado por assinar!",
+    "genericError": "Algo deu errado",
+    "notConfigured": "Ainda não configurado — defina RESEND_API_KEY e RESEND_AUDIENCE_ID para ativar este recurso. Somente você pode ver esta mensagem.",
+    "unavailable": "As inscrições não estão disponíveis no momento.",
+    "error": "Não foi possível concluir a inscrição. Tente novamente."
+  },
+  "contact": {
+    "heading": "Entre em contato",
+    "name": "Nome",
+    "email": "E-mail",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "send": "Enviar mensagem",
+    "sending": "Enviando…",
+    "success": "Mensagem enviada com sucesso!",
+    "genericError": "Algo deu errado",
+    "notConfigured": "Ainda não configurado — defina RESEND\\_API\\_KEY para ativar este recurso. Somente você pode ver esta mensagem.",
+    "unavailable": "Este formulário não está disponível no momento.",
+    "error": "Não foi possível enviar a mensagem. Tente novamente."
+  },
+  "theme": {
+    "selectColourTheme": "Selecionar tema de cores",
+    "colourTheme": "Tema de cores",
+    "colourMode": "Modo de cores",
+    "modeTrigger": "Tema: {mode}. Clique para alterar.",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "currentlyLight": "Atualmente claro",
+    "currentlyDark": "Atualmente escuro",
+    "swatchLabel": "Tema {name}"
+  },
+  "search": {
+    "placeholder": "Pesquisar artigos, projetos e páginas…",
+    "inputLabel": "Consulta de pesquisa",
+    "resultsLabel": "Resultados da pesquisa",
+    "hint": "Comece a digitar para pesquisar no site.",
+    "noResults": "Nenhum resultado para “{query}”",
+    "unavailable": "O índice de pesquisa é gerado durante o build e não está disponível no <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Run <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> para testá-lo localmente."
+  },
+  "video": {
+    "playLabel": "Reproduzir vídeo: {title}",
+    "watchOn": "Assistir no YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "credit": "Theme by <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
+    "builtWith": "Construído com Astro Rocket",
+    "groups": {
+      "site": "Site",
+      "topics": "Tópicos",
+      "projects": "Projetos",
+      "questions": "Dúvidas?"
+    },
+    "followOn": "Siga no {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "Sobre — Israel Reis Pereira",
+        "description": "Conheça Israel Reis Pereira, estudante de Sistemas de Informação e desenvolvedor em formação, seus projetos, interesses e trajetória em tecnologia."
+      },
+      "hero": {
+        "badge": "Sobre mim",
+        "titleLead": "Israel Reis Pereira —",
+        "typingWords": [
+          "Sistemas de Informação",
+          "Desenvolvimento Web",
+          "Aprendizado contínuo",
+          "Projetos práticos",
+          "Arquitetura de software",
+          "Tecnologia"
+        ],
+        "typingWordsMobile": [
+          "Sistemas de Informação",
+          "Desenvolvimento Web",
+          "Projetos práticos",
+          "Tecnologia"
+        ],
+        "description": "Sou estudante de Sistemas de Informação e desenvolvedor em formação. Não estudo tecnologia apenas para saber usar ferramentas. Construo coisas para entender como elas funcionam."
+      },
+      "whatYouGet": {
+        "badge": "Como penso",
+        "heading": "Aprender construindo",
+        "lead": "Minha evolução acontece principalmente quando transformo conhecimento em projetos, testo ideias e documento o que aprendo.",
+        "items": [
+          {
+            "icon": "component",
+            "title": "Construção prática",
+            "description": "Uso projetos para transformar conceitos estudados em experiências concretas de desenvolvimento."
+          },
+          {
+            "icon": "layout",
+            "title": "Investigação",
+            "description": "Procuro entender como as tecnologias funcionam antes de simplesmente adotá-las."
+          },
+          {
+            "icon": "palette",
+            "title": "Experimentação",
+            "description": "Testo abordagens diferentes para descobrir o que funciona melhor em cada contexto."
+          },
+          {
+            "icon": "book-open",
+            "title": "Documentação",
+            "description": "Registro decisões, problemas e aprendizados para tornar a evolução mais organizada."
+          },
+          {
+            "icon": "image",
+            "title": "Projetos reais",
+            "description": "Cada projeto serve como uma oportunidade de aprender uma tecnologia, resolver um problema ou consolidar um conceito."
+          },
+          {
+            "icon": "globe",
+            "title": "Visão de longo prazo",
+            "description": "Busco construir uma base técnica que continue útil conforme minha carreira evolui."
+          },
+          {
+            "icon": "search",
+            "title": "Dados e investigação",
+            "description": "Tenho interesse em entender dados, processos e informações como parte da construção de sistemas."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Evolução incremental",
+            "description": "Prefiro melhorar sistemas em etapas, aprendendo com cada versão em vez de tentar resolver tudo de uma vez."
+          },
+          {
+            "icon": "server",
+            "title": "Infraestrutura",
+            "description": "Tenho interesse crescente em infraestrutura, automação, ambientes e nos processos que sustentam aplicações."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Princípios",
+        "heading": "Construir com intenção",
+        "lead": "Alguns princípios orientam a forma como estudo tecnologia e desenvolvo meus projetos.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Problema antes da tecnologia",
+            "description": "Procuro entender o problema antes de escolher ferramentas ou arquiteturas."
+          },
+          {
+            "icon": "award",
+            "title": "Evolução incremental",
+            "description": "Prefiro construir uma base funcional e evoluir o projeto conforme novos problemas e aprendizados aparecem."
+          },
+          {
+            "icon": "rocket",
+            "title": "Objetividade",
+            "description": "Busco soluções simples, documentadas e coerentes com o tamanho e a finalidade de cada projeto."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Ferramentas e tecnologias",
+        "title": "Minha base atual",
+        "description": "Tecnologias que fazem parte dos meus estudos e projetos atuais, em diferentes níveis de experiência."
+      },
+      "faq": {
+        "badge": "Formação",
+        "heading": "Perguntas frequentes",
+        "lead": "Um pouco mais sobre minha formação, interesses e trajetória.",
+        "cards": [
+          {
+            "icon": "rocket",
+            "title": "Formação acadêmica",
+            "items": [
+              {
+                "question": "O que você estuda?",
+                "answer": "Sou estudante de Sistemas de Informação na UniBarretos. Entrei no curso em 2025 e venho utilizando os projetos paralelos para complementar a formação acadêmica com prática."
+              },
+              {
+                "question": "Você possui formação técnica?",
+                "answer": "Sim. Concluí o curso Técnico em Desenvolvimento de Sistemas na ETEC Coronel Raphael Brandão, realizado entre 2022 e 2024."
+              },
+              {
+                "question": "Por que você desenvolve tantos projetos?",
+                "answer": "Porque uso projetos como laboratório. Construir algo me obriga a pesquisar, tomar decisões, lidar com erros e entender melhor os conceitos estudados."
+              },
+              {
+                "question": "Quais áreas de tecnologia mais despertam seu interesse?",
+                "answer": "Tenho interesse principalmente em arquitetura de software, infraestrutura, DevOps, SRE, engenharia de dados e desenvolvimento de aplicações."
+              },
+              {
+                "question": "Qual é seu objetivo profissional?",
+                "answer": "Construir uma carreira sólida em tecnologia, desenvolvendo uma base técnica consistente e buscando gerar valor profissional e financeiro no longo prazo."
+              }
+            ]
+          },
+          {
+            "icon": "code-2",
+            "title": "Desenvolvimento",
+            "items": [
+              {
+                "question": "Quais tecnologias você utiliza?",
+                "answer": "Entre as tecnologias presentes nos meus estudos e projetos estão PHP, Node.js, JavaScript, C#/.NET, Blazor, Astro, MySQL, MariaDB, Git e Docker."
+              },
+              {
+                "question": "Você se considera especialista nessas tecnologias?",
+                "answer": "Não. Estou em formação e considero importante diferenciar conhecimento de estudo, experiência prática e domínio profissional. Este site mostra justamente essa evolução."
+              },
+              {
+                "question": "Onde posso acompanhar seus projetos?",
+                "answer": "Os projetos públicos, experimentos e estudos que decido disponibilizar podem ser acompanhados pelo meu perfil no GitHub."
+              },
+              {
+                "question": "Você trabalha apenas com desenvolvimento web?",
+                "answer": "Grande parte dos meus projetos atuais está relacionada ao desenvolvimento web, mas meus interesses vão além dele e incluem arquitetura, infraestrutura, dados, automação e engenharia de software."
+              },
+              {
+                "question": "Por que você documenta seus projetos?",
+                "answer": "Porque documentação ajuda a entender decisões, registrar problemas e acompanhar a evolução de um projeto. Também transforma o desenvolvimento em uma fonte de aprendizado mais organizada."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Código aberto",
+        "heading": "Aprendendo em público",
+        "description": "Alguns dos meus estudos e projetos são desenvolvidos de forma aberta, permitindo acompanhar decisões, experimentos, problemas e evolução.",
+        "button": "Ver no GitHub",
+        "cards": [
+          {
+            "title": "Projetos práticos",
+            "text": "Uso projetos pessoais e acadêmicos como laboratório para transformar conceitos estudados em aplicações concretas."
+          },
+          {
+            "title": "Aprendizado contínuo",
+            "text": "Minha formação não termina em uma tecnologia específica. Estou construindo uma base que possa acompanhar minha evolução profissional."
+          },
+          {
+            "title": "Evolução documentada",
+            "text": "Sempre que possível, registro decisões e etapas do desenvolvimento para compreender não apenas o resultado, mas também o caminho até ele."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Vamos conversar",
+        "heading": "Quer conhecer meu trabalho?",
+        "description": "Veja meus projetos, acompanhe minha evolução ou entre em contato para conversar sobre tecnologia e desenvolvimento.",
+        "button": "Ver projetos"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Serviços — Desenvolvimento Web e Tecnologia",
+        "description": "Desenvolvimento web, criação de sites e soluções digitais com foco em organização, desempenho, manutenção e evolução contínua."
+      },
+      "includedLabel": "O que faço",
+      "hero": {
+        "badge": "Serviços",
+        "titleLead": "Desenvolvimento,",
+        "titleHighlight": "tecnologia e evolução",
+        "description": "Projetos desenvolvidos com atenção ao problema, à organização do código e à possibilidade de evolução futura.",
+        "jumpLabels": [
+          "Desenvolvimento web",
+          "Dados e aplicações",
+          "Infraestrutura"
+        ]
+      },
+      "design": {
+        "badge": "Desenvolvimento",
+        "heading": "Desenvolvimento web",
+        "paragraphs": [
+          "Desenvolvimento web é transformar uma necessidade em uma aplicação que funcione de forma clara, organizada e adequada ao seu contexto.",
+          "Trabalho principalmente com projetos web e utilizo tecnologias diferentes conforme o problema. O objetivo não é usar a ferramenta mais nova, mas construir uma solução coerente, compreensível e possível de evoluir."
+        ],
+        "included": [
+          {
+            "lead": "Interfaces organizadas",
+            "text": "páginas estruturadas para apresentar informações de forma clara e facilitar a interação."
+          },
+          {
+            "lead": "Código estruturado",
+            "text": "projetos organizados para facilitar entendimento, manutenção e evolução."
+          },
+          {
+            "lead": "Tecnologia adequada",
+            "text": "escolhas técnicas orientadas pelo problema e pelas necessidades do projeto."
+          },
+          {
+            "lead": "Responsividade",
+            "text": "interfaces pensadas para diferentes tamanhos de tela e formas de acesso."
+          },
+          {
+            "lead": "Evolução contínua",
+            "text": "uma base que possa receber melhorias e novas funcionalidades conforme as necessidades aparecem."
+          }
+        ],
+        "ctaLabel": "Conhecer meus projetos"
+      },
+      "development": {
+        "badge": "Aplicações",
+        "heading": "Desenvolvimento de aplicações",
+        "paragraphs": [
+          "Também desenvolvo aplicações voltadas para estudo e resolução de problemas específicos, utilizando diferentes tecnologias e arquiteturas.",
+          "Projetos como aplicações em PHP, sistemas em C#/.NET e experimentos com Astro fazem parte desse processo. Cada um tem um objetivo diferente e contribui para minha formação."
+        ],
+        "included": [
+          {
+            "lead": "Aplicações web",
+            "text": "sistemas desenvolvidos para resolver problemas específicos por meio de interfaces e lógica de aplicação."
+          },
+          {
+            "lead": "C# e .NET",
+            "text": "estudos e projetos utilizando o ecossistema .NET e Blazor."
+          },
+          {
+            "lead": "PHP e bancos de dados",
+            "text": "experiência prática com aplicações PHP e bancos como MySQL e MariaDB."
+          },
+          {
+            "lead": "Astro",
+            "text": "desenvolvimento de sites modernos utilizando Astro, TypeScript e Tailwind CSS."
+          },
+          {
+            "lead": "Projetos como laboratório",
+            "text": "cada aplicação também serve como ambiente para testar conceitos, ferramentas e decisões arquiteturais."
+          }
+        ],
+        "ctaLabel": "Ver projetos"
+      },
+      "performance": {
+        "badge": "Infraestrutura",
+        "heading": "Infraestrutura e evolução",
+        "paragraphs": [
+          "Um sistema não termina quando o código funciona. Ambiente, versionamento, documentação, segurança e automação também fazem parte do desenvolvimento.",
+          "Tenho interesse crescente nessa área e venho estudando ferramentas e práticas relacionadas a infraestrutura, DevOps e SRE."
+        ],
+        "included": [
+          {
+            "lead": "Versionamento",
+            "text": "uso Git para acompanhar mudanças, organizar versões e registrar a evolução dos projetos."
+          },
+          {
+            "lead": "Documentação",
+            "text": "registro de decisões, configurações, pendências e processos para tornar os projetos mais compreensíveis."
+          },
+          {
+            "lead": "Infraestrutura",
+            "text": "estudos relacionados a ambientes, hospedagem, servidores e funcionamento das aplicações."
+          },
+          {
+            "lead": "Automação",
+            "text": "interesse em automatizar processos repetitivos e melhorar a confiabilidade do desenvolvimento."
+          },
+          {
+            "lead": "Segurança",
+            "text": "preocupação com práticas básicas de segurança desde o desenvolvimento e a configuração das aplicações."
+          }
+        ],
+        "ctaLabel": "Conhecer minha trajetória"
+      },
+      "process": {
+        "badge": "Como trabalho",
+        "heading": "Como um projeto evolui",
+        "lead": "Do problema inicial até uma solução funcional e documentada.",
+        "steps": [
+          {
+            "title": "Entendimento",
+            "description": "Primeiro procuro entender o problema, o objetivo do projeto e as restrições existentes."
+          },
+          {
+            "title": "Planejamento",
+            "description": "Organizo as necessidades, decisões técnicas e etapas antes de começar a implementar."
+          },
+          {
+            "title": "Desenvolvimento",
+            "description": "Construo a solução em etapas menores, testando e ajustando conforme o projeto evolui."
+          },
+          {
+            "title": "Validação e documentação",
+            "description": "Depois de implementar, verifico o funcionamento, registro decisões e identifico o que pode ser melhorado."
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Perguntas",
+        "heading": "Perguntas e respostas",
+        "lead": "Algumas informações sobre meu trabalho e minha forma de desenvolver projetos.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Projetos",
+            "items": [
+              {
+                "question": "Você desenvolve sites?",
+                "answer": "Sim. Desenvolvimento web faz parte dos meus projetos atuais, especialmente utilizando tecnologias como Astro, TypeScript e outras ferramentas do ecossistema web."
+              },
+              {
+                "question": "Você desenvolve sistemas?",
+                "answer": "Sim. Também desenvolvo aplicações e sistemas como parte dos meus estudos e projetos, incluindo trabalhos com PHP, C#/.NET e bancos de dados."
+              },
+              {
+                "question": "Você aceita qualquer projeto?",
+                "answer": "Não. Como ainda estou em formação, procuro avaliar cada projeto de acordo com minha capacidade técnica, o problema envolvido e a possibilidade de entregar algo com qualidade."
+              },
+              {
+                "question": "Você trabalha sozinho?",
+                "answer": "Meus projetos pessoais e estudos são desenvolvidos individualmente, embora isso não impeça a colaboração quando um projeto exige outras pessoas ou conhecimentos."
+              },
+              {
+                "question": "Você trabalha presencialmente?",
+                "answer": "Projetos podem ser conduzidos de forma remota, utilizando comunicação digital, versionamento e documentação para organizar o trabalho."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Sobre meu desenvolvimento",
+            "items": [
+              {
+                "question": "Você já domina todas essas tecnologias?",
+                "answer": "Não. Algumas fazem parte de experiências práticas mais consolidadas e outras estão em processo de estudo. Prefiro apresentar isso com transparência em vez de tratar toda tecnologia estudada como domínio profissional."
+              },
+              {
+                "question": "Por que você estuda tantas tecnologias?",
+                "answer": "Não procuro acumular ferramentas. Uso tecnologias diferentes para compreender problemas diferentes e construir uma base mais ampla de desenvolvimento."
+              },
+              {
+                "question": "Qual área você pretende seguir?",
+                "answer": "Tenho interesse em desenvolvimento de software, arquitetura, infraestrutura, DevOps/SRE e engenharia de dados. Minha trajetória ainda está em construção."
+              },
+              {
+                "question": "Onde você pretende chegar profissionalmente?",
+                "answer": "Quero construir uma carreira sólida em tecnologia, desenvolver uma base técnica consistente e, ao longo do tempo, assumir problemas e responsabilidades cada vez maiores."
+              },
+              {
+                "question": "Como posso acompanhar sua evolução?",
+                "answer": "O melhor caminho é acompanhar meus projetos, código público e os conteúdos que eu publicar aqui no site."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Vamos conversar",
+        "heading": "Tem uma ideia ou projeto?",
+        "description": "Se você tem uma necessidade, uma ideia ou simplesmente quer conversar sobre uma solução, entre em contato.",
+        "primary": "Enviar mensagem",
+        "secondary": "Mais sobre mim"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contato — Israel Reis Pereira",
+        "description": "Entre em contato para conversar sobre projetos, desenvolvimento web, tecnologia ou oportunidades."
+      },
+      "hero": {
+        "badge": "Contato",
+        "titleLead": "Vamos conversar sobre",
+        "titleHighlight": "tecnologia e projetos",
+        "description": "Se você quer conversar sobre um projeto, desenvolvimento, tecnologia ou uma oportunidade, envie uma mensagem."
+      },
+      "formTitle": "Mensagem",
+      "channelsTitle": "Outros canais",
+      "channelsSubtitle": "Prefere outro canal? Escolha a opção que funcionar melhor para você.",
+      "emailLabel": "E-mail",
+      "emailNote": "Entre em contato",
+      "socialNote": "Acompanhe meu trabalho",
+      "basedIn": "Localizado em {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Israel Reis Pereira — Sistemas de Informação e Desenvolvimento",
+        "description": "Site pessoal de Israel Reis Pereira, estudante de Sistemas de Informação e desenvolvedor em formação. Projetos, tecnologia, aprendizado e trajetória."
+      },
+      "hero": {
+        "badge": "Estudante de Sistemas de Informação",
+        "titleLine1": "Israel Reis Pereira —",
+        "titleLine2": "Desenvolvedor",
+        "titleLine3": "em formação",
+        "description": "Sou estudante de Sistemas de Informação e desenvolvedor em formação. Construo projetos para aprender, experimentar e entender como a tecnologia funciona.",
+        "descriptionMobile": "Estudante de Sistemas de Informação e desenvolvedor em formação, construindo projetos para aprender e evoluir.",
+        "github": "Ver no GitHub",
+        "getStarted": "Conhecer meu trabalho"
+      },
+      "services": {
+        "badge": "O que faço",
+        "heading": "Construo, estudo e evoluo",
+        "lead": "Meus projetos combinam desenvolvimento prático, investigação e aprendizado contínuo.",
+        "learnMore": "Saiba mais",
+        "cards": [
+          {
+            "icon": "layout",
+            "title": "Desenvolvimento Web",
+            "description": "Criação de sites e interfaces com foco em organização, responsividade, desempenho e possibilidade de evolução."
+          },
+          {
+            "icon": "code",
+            "title": "Desenvolvimento de aplicações",
+            "description": "Projetos e sistemas desenvolvidos para estudar tecnologias, resolver problemas e transformar conceitos em aplicações funcionais."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Tecnologia e infraestrutura",
+            "description": "Estudos envolvendo arquitetura, versionamento, documentação, infraestrutura, automação, DevOps e evolução de sistemas."
+          }
+        ]
+      },
+      "workWithMe": {
+        "badge": "Minha forma de trabalhar",
+        "heading": "Construir para entender",
+        "lead": "Projetos são parte central da minha forma de aprender tecnologia.",
+        "cards": [
+          {
+            "icon": "palette",
+            "title": "Projetos práticos",
+            "description": "Transformo conceitos estudados em aplicações e experimentos concretos."
+          },
+          {
+            "icon": "zap",
+            "title": "Aprendizado contínuo",
+            "description": "Uso cada projeto para descobrir problemas, testar soluções e consolidar conhecimentos."
+          },
+          {
+            "icon": "search",
+            "title": "Investigação",
+            "description": "Procuro entender o funcionamento das ferramentas e as consequências das decisões técnicas."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Organização",
+            "description": "Valorizo versionamento, documentação, segurança e evolução incremental dos projetos."
+          }
+        ],
+        "cta": "Conhecer mais sobre mim"
+      },
+      "portfolio": {
+        "badge": "Projetos selecionados",
+        "heading": "Projetos que desenvolvi",
+        "lead": "Uma seleção de projetos que representam diferentes etapas da minha evolução.",
+        "viewAll": "Ver todos os projetos"
+      },
+      "testimonials": {
+        "badge": "Aprendizados",
+        "heading": "Cada projeto deixa uma lição",
+        "lead": "Mais do que resultados finais, meus projetos representam problemas resolvidos e conhecimentos adquiridos.",
+        "items": [
+          {
+            "quote": "Construir um projeto me força a sair da teoria e tomar decisões concretas sobre código, arquitetura, dados e infraestrutura.",
+            "name": "Israel Reis Pereira",
+            "role": "Desenvolvedor em formação"
+          },
+          {
+            "quote": "Nem todo experimento precisa virar um produto. Alguns existem justamente para descobrir o que funciona, o que não funciona e por quê.",
+            "name": "Israel Reis Pereira",
+            "role": "Estudante de Sistemas de Informação"
+          }
+        ]
+      },
+      "aboutTeaser": {
+        "badge": "Sobre mim",
+        "headingLine1": "Estudante, desenvolvedor,",
+        "headingLine2": "e aprendiz contínuo.",
+        "para1WithLocation": "Sou estudante de Sistemas de Informação, localizado em {location}, e venho construindo minha trajetória por meio de estudos, projetos práticos e experimentação.",
+        "para1NoLocation": "Sou estudante de Sistemas de Informação e venho construindo minha trajetória por meio de estudos, projetos práticos e experimentação.",
+        "para2": "Aqui compartilho parte dessa trajetória, incluindo projetos, tecnologias estudadas e aprendizados ao longo do caminho.",
+        "moreAboutMe": "Mais sobre mim",
+        "statsIntro": "Algumas informações sobre minha trajetória.",
+        "stat1": "Sistemas de Informação",
+        "stat2": "Projetos práticos",
+        "stat3": "Aprendizado contínuo",
+        "basedIn": "Localizado em"
+      },
+      "blog": {
+        "badge": "Do blog",
+        "heading": "Artigos e aprendizados",
+        "viewAll": "Ver todos os artigos"
+      },
+      "cta": {
+        "badge": "Contato",
+        "heading": "Vamos conversar",
+        "description": "Se você quer conhecer meu trabalho, conversar sobre tecnologia ou discutir um projeto, entre em contato.",
+        "primary": "Enviar mensagem",
+        "secondary": "Mais sobre mim"
+      }
+    }
+  }
+}
+

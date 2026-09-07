@@ -1,18 +1,10 @@
-/**
- * Internationalization (i18n) configuration.
- *
- * Off by default — when `enabled: false` or `locales` has a single entry,
- * Astro Rocket emits the same single-locale routes it always has and the
- * `LanguageSwitcher`/`hreflang` machinery is skipped, so there is no
- * runtime or bundle-size cost.
- *
- * Turn on by setting `enabled: true` and listing at least two `locales`.
- * The default locale stays at the site root (`/about`); additional
- * locales live under a prefix (`/nl/about`).
- *
- * Lives in its own file (not `site.config.ts`) so the i18n module can
- * be imported by unit tests without pulling in `astro:env/server`.
- */
+/** * Configuração de internacionalização (i18n). * 
+ * * Desativada por padrão — quando `enabled: false` ou `locales` possui uma única entrada, 
+ * * o Astro Rocket gera as mesmas rotas de idioma único que sempre gerou e 
+ * * os mecanismos `LanguageSwitcher`/`hreflang` são ignorados, portanto não há 
+ * * custo de execução nem aumento no tamanho do bundle. * 
+ * * Ative definindo `enabled: true` e listando pelo menos dois `locales`. 
+ * * O idioma padrão permanece na raiz do site (`/about`); idiomas adicionais * ficam sob um prefixo (`/nl/about`). * * Mantida em seu próprio arquivo (e não em `site.config.ts`) para que o módulo * de i18n possa ser importado pelos testes unitários sem carregar * `astro:env/server`. */
 
 export interface I18nConfig {
   /** Master switch — must be true AND `locales.length > 1` to take effect */
@@ -32,11 +24,12 @@ export interface I18nConfig {
 }
 
 const i18nConfig: I18nConfig = {
-  enabled: false,
-  defaultLocale: 'en',
-  locales: ['en'],
+  enabled: true,
+  defaultLocale: 'pt-br',
+  locales: ['pt-br', 'en'],
   localeNames: {
     en: 'English',
+    'pt-br': 'Português (Brasil)',
     nl: 'Nederlands',
     de: 'Deutsch',
     fr: 'Français',
