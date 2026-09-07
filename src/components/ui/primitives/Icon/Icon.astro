@@ -1,11 +1,12 @@
 ---
 /**
- * Icon component
- * UI icons  → Lucide  (lucide.dev)
- * Brand/social icons → Simple Icons (simpleicons.org)
+ * Componente de ícone
+ * Ícones de UI → Lucide (lucide.dev)
+ * Ícones de marcas/redes sociais → Simple Icons (simpleicons.org)
  *
- * Same public API as before — callers pass the short name (e.g. "arrow-right",
- * "github", "x-twitter"). This wrapper resolves it to the correct Iconify set.
+ * Mesma API pública de antes — os componentes informam o nome curto
+ * (por exemplo, "arrow-right", "github", "x-twitter").
+ * Este wrapper resolve o nome para o conjunto correto do Iconify.
  */
 import { Icon as AstroIcon } from 'astro-icon/components';
 import { cn } from '@/lib/cn';
@@ -29,18 +30,32 @@ const sizes: Record<string, string> = {
 };
 
 /**
- * Maps short legacy names → fully-qualified Iconify names.
- * Social / brand icons use simple-icons; everything else uses lucide.
+ * Mapeia nomes curtos legados → nomes completos do Iconify.
+ * Ícones de redes sociais/marcas usam Simple Icons;
+ * todos os demais usam Lucide.
  */
 const iconMap: Record<string, string> = {
-  // Social & brand → Simple Icons
+  // Redes sociais e marcas → Simple Icons
   github:           'simple-icons:github',
   'x-twitter':      'simple-icons:x',
   twitter:          'simple-icons:x',
   instagram:        'simple-icons:instagram',
   linkedin:         'simple-icons:linkedin',
   bluesky:          'simple-icons:bluesky',
-  // Tech stack → Simple Icons
+  facebook:         'simple-icons:facebook',
+  whatsapp:         'simple-icons:whatsapp',
+  discord:          'simple-icons:discord',
+  youtube:          'simple-icons:youtube',
+  tiktok:           'simple-icons:tiktok',
+  telegram:         'simple-icons:telegram',
+  threads:          'simple-icons:threads',
+  twitch:           'simple-icons:twitch',
+  reddit:           'simple-icons:reddit',
+  medium:           'simple-icons:medium',
+  devto:            'simple-icons:devdotto',
+  stackoverflow:    'simple-icons:stackoverflow',
+
+  // Stack tecnológico → Simple Icons
   'brand-astro':      'simple-icons:astro',
   'brand-tailwind':   'simple-icons:tailwindcss',
   'brand-typescript': 'simple-icons:typescript',

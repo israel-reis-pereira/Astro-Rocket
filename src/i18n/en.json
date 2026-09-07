@@ -9,7 +9,7 @@
     "mobileNav": "Mobile navigation",
     "toggleMenu": "Toggle menu",
     "sectionNavigate": "Navigate",
-    "searchSite": "Search this site",
+    "searchSite": "Search the site",
     "sectionTheme": "Theme",
     "sectionLanguage": "Language",
     "sectionConnect": "Connect",
@@ -35,12 +35,12 @@
     "map": "Map",
     "mapConsentPrompt": "Accept cookies to load the interactive map.",
     "viewOnGoogleMaps": "View on Google Maps",
-    "themeModeTitle": "Theme: {mode} (click to cycle)",
+    "themeModeTitle": "Theme: {mode} (click to switch)",
     "googleMaps": "Google Maps",
     "progress": "Progress",
     "themeMode": "Theme: {mode}",
     "browseByTag": "Browse by tag",
-    "techStack": "Tech stack",
+    "techStack": "Technologies",
     "togglePassword": "Toggle password visibility",
     "breadcrumb": "Breadcrumb",
     "copyCode": "Copy code to clipboard",
@@ -52,7 +52,7 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Latest articles and updates",
+    "description": "Articles, ideas, and updates",
     "readingTime": "{minutes} min read",
     "publishedOn": "Published on {date}",
     "updatedOn": "Updated on {date}",
@@ -60,30 +60,30 @@
     "tagsLabel": "Tags",
     "featured": "Featured",
     "draft": "Draft",
-    "noPostsFound": "No posts found.",
+    "noPostsFound": "No articles found.",
     "tableOfContents": "Table of contents",
-    "shareThisPost": "Share this post",
-    "relatedPosts": "Related Posts",
+    "shareThisPost": "Share this article",
+    "relatedPosts": "Related articles",
     "share": "Share:",
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
     "metaTitle": "Blog",
-    "metaDescription": "The Astro Rocket blog: practical guides to setting up, configuring, and building with the theme.",
-    "heroBadge": "All posts",
-    "heroDescription": "Everything you need to know about Astro\u00a0Rocket, explained in practical guides.",
-    "allPosts": "All posts",
-    "noPosts": "No posts found",
+    "metaDescription": "Articles about development, technology, learning, and the decisions that are part of my projects.",
+    "heroBadge": "All articles",
+    "heroDescription": "Ideas, lessons learned, and decisions that are part of my evolution as a developer.",
+    "allPosts": "All articles",
+    "noPosts": "No articles found",
     "pageMetaTitle": "Blog — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — practical guides to setting up, configuring, and building with Astro Rocket.",
+    "pageMetaDescription": "Page {page} of {total} — articles about development, technology, and learning.",
     "pageBadge": "Page {page} of {total}",
-    "newestPosts": "Newest posts",
+    "newestPosts": "Latest articles",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Posts tagged \"{tag}\".",
+    "tagMetaDescription": "Articles tagged with \"{tag}\".",
     "tagBadge": "Tag",
-    "tagCountOne": "{count} post tagged \"{tag}\".",
-    "tagCountOther": "{count} posts tagged \"{tag}\".",
-    "tagEmpty": "No posts found for this tag.",
-    "tagBackToAll": "Back to all posts",
+    "tagCountOne": "{count} article tagged with \"{tag}\".",
+    "tagCountOther": "{count} articles tagged with \"{tag}\".",
+    "tagEmpty": "No articles found for this tag.",
+    "tagBackToAll": "Back to all articles",
     "onThisPage": "On this page",
     "tocShow": "Show",
     "tocHide": "Hide",
@@ -91,53 +91,53 @@
     "updated": "Updated",
     "rssFeed": "RSS Feed",
     "cta": {
-      "heading": "Ready to build?",
-      "description": "Clone Astro Rocket, pick a theme, and launch your next project in minutes.",
-      "button": "Get Started"
+      "heading": "Want to follow my evolution?",
+      "description": "Follow the articles, projects, and lessons learned that are part of my journey in technology.",
+      "button": "View articles"
     }
   },
   "comments": {
     "title": "Comments",
-    "loadError": "Comments failed to load. Please refresh and try again.",
+    "loadError": "Unable to load comments. Refresh the page and try again.",
     "requiresJs": "Comments require JavaScript to load."
   },
   "projects": {
     "title": "Projects",
-    "description": "Things I've built",
+    "description": "Projects I have developed",
     "viewProject": "View project",
-    "viewSource": "View source",
+    "viewSource": "View source code",
     "noProjectsFound": "No projects found.",
     "carouselChooseSlide": "Choose slide",
     "carouselNextSlide": "Next slide",
     "carouselPreviousSlide": "Previous slide",
-    "galleryLabel": "Media lightbox",
-    "galleryClose": "Close lightbox",
+    "galleryLabel": "Media gallery",
+    "galleryClose": "Close gallery",
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and open-source projects built by Astro Rocket.",
-    "heroBadge": "Selected work",
-    "heroDescription": "Work I'm most proud of.",
+    "metaDescription": "Selected projects involving web development, applications, experiments, and technology studies.",
+    "heroBadge": "Selected projects",
+    "heroDescription": "A selection of projects that represent my practical evolution.",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and open-source projects by Astro Rocket.",
+    "pageMetaDescription": "Page {page} of {total} — projects, applications, and development experiments.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
-    "tagMetaDescription": "Projects tagged \"{tag}\".",
+    "tagMetaDescription": "Projects tagged with \"{tag}\".",
     "tagBadge": "Tag",
-    "tagCountOne": "{count} project tagged \"{tag}\".",
-    "tagCountOther": "{count} projects tagged \"{tag}\".",
+    "tagCountOne": "{count} project tagged with \"{tag}\".",
+    "tagCountOther": "{count} projects tagged with \"{tag}\".",
     "tagEmpty": "No projects found for this tag.",
     "tagBackToAll": "Back to all projects",
     "backToProjects": "Back to Projects",
     "moreProjects": "More projects",
     "ctaBadge": "Let's talk",
-    "ctaHeading": "Let's talk about what you need",
-    "ctaLead": "Every website I build is its own custom design, made with the care you see here. Tell me what you have in mind.",
-    "ctaPrimary": "Send a message",
+    "ctaHeading": "Have an idea or project?",
+    "ctaLead": "I like to understand the problem before choosing the technology. If you have an idea, project, or need, get in touch.",
+    "ctaPrimary": "Send message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
-    "closingLead": "Whether it's a new build or something that needs a fresh perspective — I'd love to hear about it."
+    "closingLead": "Whether it is a new project or something that needs a fresh perspective, we can talk about what you have in mind."
   },
   "pagination": {
     "page": "Page {current} of {total}",
@@ -148,33 +148,33 @@
   },
   "errors": {
     "pageNotFound": "Page not found",
-    "pageNotFoundMessage": "The page you're looking for doesn't exist or has moved.",
-    "goHome": "Go to homepage",
+    "pageNotFoundMessage": "The page you are looking for does not exist or has been moved.",
+    "goHome": "Go to home page",
     "metaTitle": "Page not found",
-    "metaDescription": "This page has moved, been removed, or never existed in the first place.",
+    "metaDescription": "This page was moved, removed, or never existed.",
     "badge": "404 — page not found",
     "titleLead": "Page not",
     "titleHighlight": "found.",
-    "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
-    "backHome": "Back to home",
-    "browseBlog": "Browse the blog",
-    "tryInstead": "Try one of these instead",
-    "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on design, code, and the craft.",
+    "description": "This page was moved, removed, or never existed. Let's get back on track.",
+    "backHome": "Back home",
+    "browseBlog": "View the blog",
+    "tryInstead": "Try one of these options",
+    "projectsDesc": "Selected projects and work.",
+    "blogDesc": "Notes about development, technology, and learning.",
     "contactTitle": "Contact",
-    "contactDesc": "Start a conversation about your project."
+    "contactDesc": "Get in touch to talk about a project."
   },
   "newsletter": {
     "heading": "Subscribe to the newsletter",
-    "description": "Get the latest posts in your inbox.",
+    "description": "Receive the latest articles directly in your inbox.",
     "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
     "subscribing": "Subscribing…",
-    "success": "Thanks for subscribing!",
+    "success": "Thank you for subscribing!",
     "genericError": "Something went wrong",
-    "notConfigured": "Not configured yet — set RESEND_API_KEY and RESEND_AUDIENCE_ID to switch this on. Only you can see this line.",
-    "unavailable": "Signups are not available right now.",
-    "error": "Subscription failed. Please try again."
+    "notConfigured": "Not configured yet — set RESEND_API_KEY and RESEND_AUDIENCE_ID to enable this feature. Only you can see this message.",
+    "unavailable": "Subscriptions are currently unavailable.",
+    "error": "Unable to complete the subscription. Please try again."
   },
   "contact": {
     "heading": "Get in touch",
@@ -186,9 +186,9 @@
     "sending": "Sending…",
     "success": "Message sent successfully!",
     "genericError": "Something went wrong",
-    "notConfigured": "Not configured yet — set RESEND_API_KEY to switch this on. Only you can see this line.",
-    "unavailable": "This form is not available right now.",
-    "error": "Failed to send message. Please try again."
+    "notConfigured": "Not configured yet — set RESEND_API_KEY to enable this feature. Only you can see this message.",
+    "unavailable": "This form is currently unavailable.",
+    "error": "Unable to send the message. Please try again."
   },
   "theme": {
     "selectColourTheme": "Select colour theme",
@@ -200,15 +200,15 @@
     "dark": "Dark",
     "currentlyLight": "Currently light",
     "currentlyDark": "Currently dark",
-    "swatchLabel": "{name} theme"
+    "swatchLabel": "Theme {name}"
   },
   "search": {
-    "placeholder": "Search posts, projects, and pages…",
+    "placeholder": "Search articles, projects, and pages…",
     "inputLabel": "Search query",
     "resultsLabel": "Search results",
     "hint": "Start typing to search the site.",
     "noResults": "No results for “{query}”",
-    "unavailable": "The search index is generated at build time and isn’t available in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Run <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> to try it locally."
+    "unavailable": "The search index is generated during the build and is not available in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Run <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> to test it locally."
   },
   "video": {
     "playLabel": "Play video: {title}",
@@ -216,393 +216,538 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Theme by <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
+    "credit": "Credits to <a href=\"https://hansmartens.dev\" class=\"transition-colors hover:text-foreground\" target=\"_blank\" rel=\"noopener noreferrer\">Hans Martens Dev</a>",
     "builtWith": "Built with Astro Rocket",
     "groups": {
       "site": "Site",
       "topics": "Topics",
       "projects": "Projects",
-      "questions": "Got questions?"
+      "questions": "Questions?"
     },
-    "followOn": "Follow us on {platform}"
+    "followOn": "Follow on {platform}"
   },
   "pages": {
     "about": {
       "meta": {
-        "title": "About — Free Open-Source Astro 7 Theme",
-        "description": "What Astro Rocket is and how it's built: a free Astro 7 starter theme with 44 designed components, 12 colour themes, i18n, and dark mode."
+        "title": "About — Israel Reis Pereira",
+        "description": "Meet Israel Reis Pereira, Information Systems student and developer in training, his projects, interests, and journey in technology."
       },
       "hero": {
-        "badge": "About",
-        "titleLead": "Astro Rocket —",
-        "typingWords": ["Lightning-fast", "Starter theme", "44 Components", "12 Themes", "Dark Mode", "Built-in i18n"],
-        "typingWordsMobile": ["Lightning-fast", "Starter theme", "12 Themes", "Dark Mode", "Built-in i18n"],
-        "description": "A free, open-source Astro 7 starter\u00a0theme to build anything on."
+        "badge": "About me",
+        "titleLead": "Israel Reis Pereira —",
+        "typingWords": [
+          "Information Systems",
+          "Web Development",
+          "Continuous learning",
+          "Practical projects",
+          "Software architecture",
+          "Technology"
+        ],
+        "typingWordsMobile": [
+          "Information Systems",
+          "Web Development",
+          "Practical projects",
+          "Technology"
+        ],
+        "description": "I am an Information Systems student and developer in training. I do not study technology just to know how to use tools. I build things to understand how they work."
       },
       "whatYouGet": {
-        "badge": "What you get",
-        "heading": "Everything a website needs",
-        "lead": "The component library is the heart of the theme. Everything else is already on board.",
+        "badge": "How I think",
+        "heading": "Learn by building",
+        "lead": "My growth happens mainly when I turn knowledge into projects, test ideas, and document what I learn.",
         "items": [
           {
             "icon": "component",
-            "title": "44 designed components",
-            "description": "From buttons to hero sections: typed, accessible, consistent, and documented in a live showcase."
+            "title": "Practical building",
+            "description": "I use projects to turn studied concepts into concrete development experiences."
           },
           {
             "icon": "layout",
-            "title": "Pages to start from",
-            "description": "Home, about, services, contact, blog, projects, and 404, fully designed and responsive, ready to make your own."
+            "title": "Investigation",
+            "description": "I try to understand how technologies work before simply adopting them."
           },
           {
             "icon": "palette",
-            "title": "12 colour themes",
-            "description": "Switch the whole site's palette live from the header. Light and dark mode included."
+            "title": "Experimentation",
+            "description": "I test different approaches to discover what works best in each context."
           },
           {
             "icon": "book-open",
-            "title": "Blog with table of contents",
-            "description": "MDX, RSS, tags, comments, related posts, and a scroll-spy table of contents. Write and publish."
+            "title": "Documentation",
+            "description": "I record decisions, problems, and lessons learned to make my evolution more organized."
           },
           {
             "icon": "image",
-            "title": "Projects with galleries",
-            "description": "A portfolio section with image galleries, video slides, tags, and its own table of contents."
+            "title": "Real projects",
+            "description": "Each project is an opportunity to learn a technology, solve a problem, or consolidate a concept."
           },
           {
             "icon": "globe",
-            "title": "Full i18n, opt-in",
-            "description": "Blog, projects, navigation, forms, and 404: all localized per locale. Off by default, at zero cost when unused."
+            "title": "Long-term vision",
+            "description": "I aim to build a technical foundation that remains useful as my career evolves."
           },
           {
             "icon": "search",
-            "title": "Site search",
-            "description": "Fast static search (Pagefind) with a ⌘K modal: zero JavaScript until it's opened."
+            "title": "Data and investigation",
+            "description": "I am interested in understanding data, processes, and information as part of building systems."
           },
           {
             "icon": "trending-up",
-            "title": "SEO toolkit",
-            "description": "Metadata, sitemaps, structured data, and OG images, correct out of the box."
+            "title": "Incremental evolution",
+            "description": "I prefer improving systems in stages, learning from each version instead of trying to solve everything at once."
           },
           {
             "icon": "server",
-            "title": "Forms & deploy",
-            "description": "Spam-protected contact and newsletter forms, and one-switch deploys to Vercel, Netlify, or Cloudflare."
+            "title": "Infrastructure",
+            "description": "I have a growing interest in infrastructure, automation, environments, and the processes that support applications."
           }
         ]
       },
       "principles": {
-        "badge": "Design Principles",
-        "heading": "Built with intention",
-        "lead": "Every decision in Astro Rocket, from component structure to default config, is driven by the same three principles.",
+        "badge": "Principles",
+        "heading": "Build with intention",
+        "lead": "Some principles guide the way I study technology and develop my projects.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Zero JavaScript by default. Every component is optimised for speed, Core Web Vitals, and lean output." },
-          { "icon": "award", "title": "Developer Experience", "description": "TypeScript throughout, sensible defaults, and a component library you can drop straight into any page." },
-          { "icon": "rocket", "title": "Modern from the Ground Up", "description": "Astro 7, Tailwind CSS 4, and a clean architecture that's easy to extend and maintain." }
+          {
+            "icon": "zap",
+            "title": "Problem before technology",
+            "description": "I try to understand the problem before choosing tools or architectures."
+          },
+          {
+            "icon": "award",
+            "title": "Incremental evolution",
+            "description": "I prefer building a functional foundation and evolving the project as new problems and lessons emerge."
+          },
+          {
+            "icon": "rocket",
+            "title": "Objectivity",
+            "description": "I seek simple, documented solutions that are coherent with the size and purpose of each project."
+          }
         ]
       },
       "stack": {
-        "badge": "Tools & Tech",
-        "title": "The Stack",
-        "description": "The technologies powering Astro Rocket, chosen for performance, great developer experience, and long-term reliability."
+        "badge": "Tools and technologies",
+        "title": "My current foundation",
+        "description": "Technologies that are part of my current studies and projects, with different levels of experience."
       },
       "faq": {
-        "badge": "Good to know",
+        "badge": "Education",
         "heading": "Frequently asked questions",
-        "lead": "Everything you need to know before getting started.",
+        "lead": "A little more about my education, interests, and journey.",
         "cards": [
           {
             "icon": "rocket",
-            "title": "About Astro",
+            "title": "Academic background",
             "items": [
-              { "question": "What is Astro?", "answer": "Astro is a modern web framework built for content-driven sites. It ships zero JavaScript by default — only sending what the page actually needs. The result is fast load times, excellent Core Web Vitals scores, and lean, maintainable code." },
-              { "question": "Why build with Astro?", "answer": "Astro is the right tool for content-heavy sites: minimal JavaScript, clean HTML, great SEO out of the box, and a developer experience that stays out of your way. It's lean, purposeful, and built to last." },
-              { "question": "What can I build with Astro Rocket?", "answer": "Portfolios, business sites, marketing pages, blogs, documentation sites — any content-driven project. Astro Rocket gives you the structure, components, and defaults to hit the ground running." },
-              { "question": "Is Astro Rocket listed on the official Astro themes directory?", "answer": "Yes. <a href=\"https://astro.build/themes/details/astro-rocket/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Astro Rocket</a> is listed on the official Astro themes directory as a free, production-ready theme." },
-              { "question": "Will Astro Rocket keep up with new Astro releases?", "answer": "Yes. Astro Rocket is actively maintained and updated to track new Astro releases. Follow along on the blog or watch the GitHub repository for updates." }
+              {
+                "question": "What are you studying?",
+                "answer": "I am an Information Systems student at UniBarretos. I started the course in 2025 and have been using side projects to complement my academic education with practical experience."
+              },
+              {
+                "question": "Do you have a technical qualification?",
+                "answer": "Yes. I completed the Technical Course in Systems Development at ETEC Coronel Raphael Brandão, which I attended between 2022 and 2024."
+              },
+              {
+                "question": "Why do you develop so many projects?",
+                "answer": "Because I use projects as a laboratory. Building something forces me to research, make decisions, deal with errors, and better understand the concepts I study."
+              },
+              {
+                "question": "Which areas of technology interest you the most?",
+                "answer": "I am mainly interested in software architecture, infrastructure, DevOps, SRE, data engineering, and application development."
+              },
+              {
+                "question": "What is your professional goal?",
+                "answer": "To build a solid career in technology, developing a consistent technical foundation and seeking to create professional and financial value in the long term."
+              }
             ]
           },
           {
             "icon": "code-2",
-            "title": "Using the theme",
+            "title": "Development",
             "items": [
-              { "question": "Is it free to use?", "answer": "Yes, completely free. Astro Rocket is MIT licensed — use it for personal and commercial projects, no attribution required." },
-              { "question": "How do I switch themes?", "answer": "Change a single line in your config. Astro Rocket ships with 12 hand-crafted colour themes — swap between them instantly without touching a line of CSS." },
-              { "question": "Does it support TypeScript?", "answer": "Yes, TypeScript is used throughout. All components, configs, and utilities are fully typed." },
-              { "question": "How do I add my own language for i18n?", "answer": "Astro Rocket's i18n is config-driven. Add your locale to the i18n config file, create a matching translation file, and the routing and UI adapt automatically." },
-              { "question": "Where do I report bugs or suggest features?", "answer": "Open an issue or start a discussion on the <a href=\"https://github.com/hansmartensdev/astro-rocket\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub repository</a>. Contributions and feedback are always welcome." }
+              {
+                "question": "Which technologies do you use?",
+                "answer": "The technologies present in my studies and projects include PHP, Node.js, JavaScript, C#/.NET, Blazor, Astro, MySQL, MariaDB, Git, and Docker."
+              },
+              {
+                "question": "Do you consider yourself an expert in these technologies?",
+                "answer": "No. I am still in training, and I believe it is important to distinguish between knowledge gained through study, practical experience, and professional mastery. This website reflects that evolution."
+              },
+              {
+                "question": "Where can I follow your projects?",
+                "answer": "The public projects, experiments, and studies that I choose to make available can be followed through my GitHub profile."
+              },
+              {
+                "question": "Do you work only with web development?",
+                "answer": "Many of my current projects are related to web development, but my interests go beyond it and include architecture, infrastructure, data, automation, and software engineering."
+              },
+              {
+                "question": "Why do you document your projects?",
+                "answer": "Because documentation helps understand decisions, record problems, and track a project's evolution. It also turns development into a more organized source of learning."
+              }
             ]
           }
         ]
       },
       "openSource": {
-        "badge": "Open Source",
-        "heading": "Built in the open",
-        "description": "Astro Rocket is free, open source, and MIT licensed. Browse the source, open issues, submit PRs, or just clone it and build something great.",
+        "badge": "Open source",
+        "heading": "Learning in public",
+        "description": "Some of my studies and projects are developed openly, allowing others to follow decisions, experiments, problems, and evolution.",
         "button": "View on GitHub",
         "cards": [
-          { "title": "Made by Hans Martens Dev", "text": "Astro Rocket was designed and built by <a href=\"https://hansmartens.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">Hans Martens Dev</a> — an Astro theme developer in Veghel, the Netherlands." },
-          { "title": "MIT License", "text": "Free to use in personal and commercial projects. No attribution required, though a star on GitHub is always appreciated." },
-          { "title": "Actively maintained", "text": "The theme is kept up to date with new Astro releases and regularly improved based on community feedback." }
+          {
+            "title": "Practical projects",
+            "text": "I use personal and academic projects as a laboratory to turn studied concepts into concrete applications."
+          },
+          {
+            "title": "Continuous learning",
+            "text": "My education does not end with a specific technology. I am building a foundation that can keep pace with my professional growth."
+          },
+          {
+            "title": "Documented evolution",
+            "text": "Whenever possible, I record decisions and development stages to understand not only the result, but also the path taken to reach it."
+          }
         ]
       },
       "cta": {
-        "badge": "Get started",
-        "heading": "Ready to build?",
-        "description": "Clone Astro Rocket, pick a theme, and launch your next project in minutes.",
-        "button": "Get Started"
+        "badge": "Let's talk",
+        "heading": "Want to see my work?",
+        "description": "Explore my projects, follow my evolution, or get in touch to talk about technology and development.",
+        "button": "View projects"
       }
     },
     "services": {
       "meta": {
-        "title": "Services — Web Design, Development & Optimisation",
-        "description": "Freelance web design, development, and optimisation: sleek, lightning-fast custom Astro websites. A free first talk, one clear proposal, one fixed price."
+        "title": "Services — Web Development and Technology",
+        "description": "Web development, website creation, and digital solutions focused on organization, performance, maintenance, and continuous evolution."
       },
-      "includedLabel": "What you get",
+      "includedLabel": "What I do",
       "hero": {
         "badge": "Services",
-        "titleLead": "Web design, development,",
-        "titleHighlight": "and optimisation",
-        "description": "Three services, one product: a sleek, lightning-fast custom Astro website you're proud to put your name on.",
-        "jumpLabels": ["Web design", "Web development", "Web optimisation"]
+        "titleLead": "Development,",
+        "titleHighlight": "technology and evolution",
+        "description": "Projects developed with attention to the problem, code organization, and the possibility of future evolution.",
+        "jumpLabels": [
+          "Web development",
+          "Data and applications",
+          "Infrastructure"
+        ]
       },
       "design": {
-        "badge": "Design",
-        "heading": "Web design",
-        "paragraphs": [
-          "Web design is how your website looks and feels: the layout, the colours, the images, and the way visitors find their way around.",
-          "I design every website around your business — your brand, your content, and the customers you want to reach — so it makes a strong first impression and guides people straight to what matters. Clean, modern, and made to work on every screen, from a desktop monitor to a phone."
-        ],
-        "included": [
-          {
-            "lead": "A design that's yours",
-            "text": "shaped around your business, your brand, and the customers you want to reach."
-          },
-          {
-            "lead": "A strong first impression",
-            "text": "a clean, modern look that shows people who you are the moment your page opens."
-          },
-          {
-            "lead": "Clear navigation",
-            "text": "a layout that guides visitors straight to what matters to them."
-          },
-          {
-            "lead": "A design for every screen",
-            "text": "looks and works beautifully on phone, tablet, and desktop."
-          },
-          {
-            "lead": "Your content at its best",
-            "text": "your words and images given a layout that makes them easy to read and good to look at."
-          }
-        ],
-        "ctaLabel": "Discuss a design project"
-      },
-      "development": {
         "badge": "Development",
         "heading": "Web development",
         "paragraphs": [
-          "Web development is the building of your website: turning the design into the code that runs in your visitor's browser.",
-          "I build with Astro, a modern framework trusted for some of the fastest websites online. That makes your site quick to load, safe, and easy to look after for years to come. And it's yours from day one, with the code, the domain, and the hosting all in your name."
+          "Web development means turning a need into an application that works clearly, is well organized, and is appropriate to its context.",
+          "I mainly work on web projects and use different technologies depending on the problem. The goal is not to use the newest tool, but to build a coherent, understandable solution that can evolve."
         ],
         "included": [
           {
-            "lead": "A lightning-fast website",
-            "text": "built with Astro, the framework behind some of the fastest websites online."
+            "lead": "Organized interfaces",
+            "text": "structured pages designed to present information clearly and make interaction easier."
           },
           {
-            "lead": "A secure, reliable website",
-            "text": "one that stays safe and keeps working, year after year."
+            "lead": "Structured code",
+            "text": "projects organized to make understanding, maintenance, and evolution easier."
           },
           {
-            "lead": "Full ownership",
-            "text": "the code, the domain, and the hosting all in your name from day one."
+            "lead": "Appropriate technology",
+            "text": "technical choices guided by the problem and the project's needs."
           },
           {
-            "lead": "Care after launch",
-            "text": "your website kept updated and secure with the monthly care plan, while you run your business."
+            "lead": "Responsiveness",
+            "text": "interfaces designed for different screen sizes and ways of accessing them."
           },
           {
-            "lead": "Room to grow",
-            "text": "space to add new pages and features whenever your business needs them."
+            "lead": "Continuous evolution",
+            "text": "a foundation that can receive improvements and new features as needs arise."
           }
         ],
-        "ctaLabel": "See recent projects"
+        "ctaLabel": "Explore my projects"
+      },
+      "development": {
+        "badge": "Applications",
+        "heading": "Application development",
+        "paragraphs": [
+          "I also develop applications for study and solving specific problems, using different technologies and architectures.",
+          "Projects such as PHP applications, C#/.NET systems, and Astro experiments are part of this process. Each has a different purpose and contributes to my development."
+        ],
+        "included": [
+          {
+            "lead": "Web applications",
+            "text": "systems developed to solve specific problems through interfaces and application logic."
+          },
+          {
+            "lead": "C# and .NET",
+            "text": "studies and projects using the .NET ecosystem and Blazor."
+          },
+          {
+            "lead": "PHP and databases",
+            "text": "practical experience with PHP applications and databases such as MySQL and MariaDB."
+          },
+          {
+            "lead": "Astro",
+            "text": "development of modern websites using Astro, TypeScript, and Tailwind CSS."
+          },
+          {
+            "lead": "Projects as a laboratory",
+            "text": "each application also serves as an environment to test concepts, tools, and architectural decisions."
+          }
+        ],
+        "ctaLabel": "View projects"
       },
       "performance": {
-        "badge": "Optimisation",
-        "heading": "Web optimisation",
+        "badge": "Infrastructure",
+        "heading": "Infrastructure and evolution",
         "paragraphs": [
-          "Web optimisation is the work that makes your website perform: loading quickly, ranking well in search, and working for everyone.",
-          "I build speed, SEO, and accessibility in from the very first line, not as an afterthought. That means your website is easy for Google to find and understand, opens fast for every visitor, and can be used by everyone who lands on it."
+          "A system does not end when the code works. Environment, version control, documentation, security, and automation are also part of development.",
+          "I have a growing interest in this area and have been studying tools and practices related to infrastructure, DevOps, and SRE."
         ],
         "included": [
           {
-            "lead": "A website Google and AI can find",
-            "text": "built so search engines and AI assistants can read, understand, and recommend your pages."
+            "lead": "Version control",
+            "text": "I use Git to track changes, organize versions, and record the evolution of projects."
           },
           {
-            "lead": "Speed on every device",
-            "text": "pages that stay quick, even on a phone or a slower connection."
+            "lead": "Documentation",
+            "text": "recording decisions, configurations, pending issues, and processes to make projects easier to understand."
           },
           {
-            "lead": "A website for everyone",
-            "text": "accessible for every visitor, whatever their device or ability."
+            "lead": "Infrastructure",
+            "text": "studies related to environments, hosting, servers, and how applications operate."
           },
           {
-            "lead": "High performance scores",
-            "text": "strong marks on Google's own speed and quality checks (Lighthouse)."
+            "lead": "Automation",
+            "text": "interest in automating repetitive processes and improving development reliability."
           },
           {
-            "lead": "Optimisation from day one",
-            "text": "speed, SEO, and accessibility built in from the very first line."
+            "lead": "Security",
+            "text": "attention to basic security practices from the development and application configuration stages."
           }
         ],
-        "ctaLabel": "Start a project"
+        "ctaLabel": "Learn about my journey"
       },
       "process": {
-        "badge": "How it works",
-        "heading": "How a project runs",
-        "lead": "From your first message to a live website.",
+        "badge": "How I work",
+        "heading": "How a project evolves",
+        "lead": "From the initial problem to a functional and documented solution.",
         "steps": [
-          { "title": "First contact", "description": "You send a message through the contact form. I reply within a working day, and we plan a free, informational talk about what you need. No obligations." },
-          { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
-          { "title": "Design & build", "description": "I work in short cycles. You follow the progress on a staging link, and you see your website take shape." },
-          { "title": "Launch & support", "description": "Your website goes live on your own domain and hosting, in your name. Afterwards I stay reachable, and there's a monthly care plan if you want regular updates." }
+          {
+            "title": "Understanding",
+            "description": "First, I try to understand the problem, the project's goal, and the existing constraints."
+          },
+          {
+            "title": "Planning",
+            "description": "I organize the requirements, technical decisions, and stages before starting implementation."
+          },
+          {
+            "title": "Development",
+            "description": "I build the solution in smaller stages, testing and adjusting as the project evolves."
+          },
+          {
+            "title": "Validation and documentation",
+            "description": "After implementation, I verify that everything works, record decisions, and identify what can be improved."
+          }
         ]
       },
       "faq": {
         "badge": "Questions",
         "heading": "Questions and answers",
-        "lead": "The things clients ask before we start.",
+        "lead": "Some information about my work and how I develop projects.",
         "cards": [
           {
             "icon": "tag",
-            "title": "Before we start",
+            "title": "Projects",
             "items": [
-              { "question": "What does a website cost?", "answer": "Every project gets one fixed price, agreed before we start. No hourly billing, no surprises afterwards. The free talk — and the free check, if there's already a website — tells me what your project needs, and you get the price in one clear proposal." },
-              { "question": "How long does a project take?", "answer": "That depends on the size of the website. The proposal names the timeline together with the price, so you know both before we start." },
-              { "question": "What happens with my current website?", "answer": "It stays online until the new one is ready. Your content, your web address, and your Google rankings come along. I check your current website before our first talk, so you get clear answers from the start." },
-              { "question": "Do I need to arrange hosting or a domain?", "answer": "No. I set up the hosting and the domain for you, in your own name. If you already have a domain, we simply keep it." },
-              { "question": "Do we need to meet in person?", "answer": "It's not needed. Most projects run entirely by phone, video, and email. I work with clients worldwide, and time zones are rarely a problem." }
+              {
+                "question": "Do you develop websites?",
+                "answer": "Yes. Web development is part of my current projects, especially using technologies such as Astro, TypeScript, and other tools from the web ecosystem."
+              },
+              {
+                "question": "Do you develop systems?",
+                "answer": "Yes. I also develop applications and systems as part of my studies and projects, including work with PHP, C#/.NET, and databases."
+              },
+              {
+                "question": "Do you accept every project?",
+                "answer": "No. Since I am still in training, I try to evaluate each project according to my technical ability, the problem involved, and the possibility of delivering something with quality."
+              },
+              {
+                "question": "Do you work alone?",
+                "answer": "My personal projects and studies are developed individually, although that does not prevent collaboration when a project requires other people or knowledge."
+              },
+              {
+                "question": "Do you work on-site?",
+                "answer": "Projects can be conducted remotely, using digital communication, version control, and documentation to organize the work."
+              }
             ]
           },
           {
             "icon": "user",
-            "title": "Working with me",
+            "title": "About my development",
             "items": [
-              { "question": "Are you a company or agency?", "answer": "I'm a one-person business: a freelancer, not an agency. You work directly with the person doing the work, from the first talk to the finished website. No sales team, no account managers, no handoffs." },
-              { "question": "Can I change the website myself after launch?", "answer": "You can simply send me your changes, and the monthly care plan exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it." },
-              { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
-              { "question": "Is the website really mine?", "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in." },
-              { "question": "What happens if something breaks after launch?", "answer": "Very little can break: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan." }
+              {
+                "question": "Do you already master all these technologies?",
+                "answer": "No. Some are part of more established practical experience, while others are still being studied. I prefer to present this transparently rather than treat every technology I study as professional mastery."
+              },
+              {
+                "question": "Why do you study so many technologies?",
+                "answer": "I am not trying to accumulate tools. I use different technologies to understand different problems and build a broader development foundation."
+              },
+              {
+                "question": "Which area do you intend to pursue?",
+                "answer": "I am interested in software development, architecture, infrastructure, DevOps/SRE, and data engineering. My journey is still being built."
+              },
+              {
+                "question": "Where do you intend to go professionally?",
+                "answer": "I want to build a solid career in technology, develop a consistent technical foundation, and over time take on increasingly complex problems and responsibilities."
+              },
+              {
+                "question": "How can I follow your evolution?",
+                "answer": "The best way is to follow my projects, public code, and the content I publish here on the website."
+              }
             ]
           }
         ]
       },
       "cta": {
         "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations: by phone, video, or email. You get honest answers, and after the talk one clear proposal with a timeline and a fixed price.",
-        "primary": "Send a message",
+        "heading": "Have an idea or project?",
+        "description": "If you have a need, an idea, or simply want to talk about a solution, get in touch.",
+        "primary": "Send message",
         "secondary": "More about me"
       }
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Starting something new? I design and build new websites from scratch — tell me about your project and I'll get back to you within 1 business day."
+        "title": "Contact — Israel Reis Pereira",
+        "description": "Get in touch to talk about projects, web development, technology, or opportunities."
       },
       "hero": {
-        "badge": "Start a project",
-        "titleLead": "Tell me about your",
-        "titleHighlight": "new project",
-        "description": "I'd love to hear from you. Send a message with the form below, or reach out on one of the other channels below."
+        "badge": "Contact",
+        "titleLead": "Let's talk about",
+        "titleHighlight": "technology and projects",
+        "description": "If you want to talk about a project, development, technology, or an opportunity, send me a message."
       },
-      "formTitle": "Project details",
+      "formTitle": "Message",
       "channelsTitle": "Other channels",
-      "channelsSubtitle": "Prefer a direct channel? Pick whichever works best.",
+      "channelsSubtitle": "Prefer another channel? Choose the option that works best for you.",
       "emailLabel": "Email",
-      "emailNote": "Drop us a line",
-      "socialNote": "Follow along",
+      "emailNote": "Get in touch",
+      "socialNote": "Follow my work",
       "basedIn": "Based in {country}"
     },
     "home": {
       "meta": {
-        "title": "Free open-source Astro 7 theme",
-        "description": "A free, fast Astro 7 starter theme to build anything on: 44 designed components, 12 colour themes, dark mode, and built-in i18n."
+        "title": "Israel Reis Pereira — Information Systems and Development",
+        "description": "Personal website of Israel Reis Pereira, Information Systems student and developer in training. Projects, technology, learning, and journey."
       },
       "hero": {
-        "badge": "Available for new projects",
-        "titleLine1": "Astro Rocket —",
-        "titleLine2": "Web Designer",
-        "titleLine3": "& Developer",
-        "description": "A free, lightning-fast Astro 7 starter theme to build anything on: 44 designed components, 12 colour themes, and dark mode.",
-        "descriptionMobile": "A free, lightning-fast Astro 7 starter theme to build anything on: 44 designed components and 12 colour themes.",
-        "github": "Get it on GitHub",
-        "getStarted": "Get started"
+        "badge": "Information Systems student",
+        "titleLine1": "Israel Reis Pereira —",
+        "titleLine2": "Developer",
+        "titleLine3": "in training",
+        "description": "I am an Information Systems student and developer in training. I build projects to learn, experiment, and understand how technology works.",
+        "descriptionMobile": "Information Systems student and developer in training, building projects to learn and grow.",
+        "github": "View on GitHub",
+        "getStarted": "Explore my work"
       },
       "services": {
         "badge": "What I do",
-        "heading": "Design, build, optimise",
-        "lead": "Every project gets all three services.",
+        "heading": "I build, study, and evolve",
+        "lead": "My projects combine practical development, investigation, and continuous learning.",
         "learnMore": "Learn more",
         "cards": [
-          { "icon": "layout", "title": "Web Design", "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen." },
-          { "icon": "code", "title": "Web Development", "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500." },
-          { "icon": "trending-up", "title": "Web Optimisation", "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor." }
+          {
+            "icon": "layout",
+            "title": "Web Development",
+            "description": "Creating websites and interfaces focused on organization, responsiveness, performance, and room for evolution."
+          },
+          {
+            "icon": "code",
+            "title": "Application Development",
+            "description": "Projects and systems developed to study technologies, solve problems, and turn concepts into functional applications."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Technology and Infrastructure",
+            "description": "Studies involving architecture, version control, documentation, infrastructure, automation, DevOps, and system evolution."
+          }
         ]
       },
       "workWithMe": {
-        "badge": "Work with me",
-        "heading": "Let's build your website",
-        "lead": "What you get when we work together.",
+        "badge": "How I work",
+        "heading": "Build to understand",
+        "lead": "Projects are central to the way I learn technology.",
         "cards": [
-          { "icon": "palette", "title": "Custom design", "description": "Designed around your business, your content, and your customers." },
-          { "icon": "zap", "title": "A lightning-fast website", "description": "Pages that open instantly, on every phone and every connection." },
-          { "icon": "search", "title": "Found by Google and AI", "description": "Every page built so search engines and AI assistants read it cleanly and customers can find you." },
-          { "icon": "shield-check", "title": "Zero maintenance", "description": "Kept up to date and secure with the care plan, so you can focus on your business." }
+          {
+            "icon": "palette",
+            "title": "Practical projects",
+            "description": "I turn studied concepts into concrete applications and experiments."
+          },
+          {
+            "icon": "zap",
+            "title": "Continuous learning",
+            "description": "I use each project to discover problems, test solutions, and consolidate knowledge."
+          },
+          {
+            "icon": "search",
+            "title": "Investigation",
+            "description": "I try to understand how tools work and the consequences of technical decisions."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Organization",
+            "description": "I value version control, documentation, security, and incremental project evolution."
+          }
         ],
-        "cta": "Read my services page"
+        "cta": "Learn more about me"
       },
       "portfolio": {
-        "badge": "Selected work",
-        "heading": "Projects I've built",
-        "lead": "A selection of recent work.",
+        "badge": "Selected projects",
+        "heading": "Projects I have developed",
+        "lead": "A selection of projects representing different stages of my evolution.",
         "viewAll": "View all projects"
       },
       "testimonials": {
-        "badge": "Testimonials",
-        "heading": "What clients say",
-        "lead": "Real words from finished projects.",
+        "badge": "Lessons learned",
+        "heading": "Every project leaves a lesson",
+        "lead": "More than final results, my projects represent problems solved and knowledge gained.",
         "items": [
-          { "quote": "The new site launched on time and hit every goal we set. Performance improved dramatically — load times dropped and the feedback from our customers has been overwhelmingly positive.", "name": "Alex Morgan", "role": "Founder, Bright Studio" },
-          { "quote": "Straightforward from first conversation to final handover. The right questions were asked, we were kept in the loop throughout, and the end result exceeded what we imagined. Would recommend without hesitation.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
+          {
+            "quote": "Building a project forces me to move beyond theory and make concrete decisions about code, architecture, data, and infrastructure.",
+            "name": "Israel Reis Pereira",
+            "role": "Developer in training"
+          },
+          {
+            "quote": "Not every experiment needs to become a product. Some exist precisely to discover what works, what does not, and why.",
+            "name": "Israel Reis Pereira",
+            "role": "Information Systems student"
+          }
         ]
       },
       "aboutTeaser": {
         "badge": "About me",
-        "headingLine1": "Designer, developer,",
-        "headingLine2": "and blogger.",
-        "para1WithLocation": "Sixteen years of hands-on experience, based in {location} and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para1NoLocation": "Sixteen years of hands-on experience and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para2": "On the blog, I share the ideas and decisions that shape my work.",
+        "headingLine1": "Student, developer,",
+        "headingLine2": "and continuous learner.",
+        "para1WithLocation": "I am an Information Systems student based in {location}, building my journey through studies, practical projects, and experimentation.",
+        "para1NoLocation": "I am an Information Systems student building my journey through studies, practical projects, and experimentation.",
+        "para2": "Here I share part of that journey, including projects, technologies I study, and lessons learned along the way.",
         "moreAboutMe": "More about me",
-        "statsIntro": "A few things about me.",
-        "stat1": "16 Years Experience",
-        "stat2": "Building with Astro",
-        "stat3": "Working worldwide",
+        "statsIntro": "Some information about my journey.",
+        "stat1": "Information Systems",
+        "stat2": "Practical projects",
+        "stat3": "Continuous learning",
         "basedIn": "Based in"
       },
       "blog": {
         "badge": "From the blog",
-        "heading": "Featured",
-        "viewAll": "View all posts"
+        "heading": "Articles and lessons learned",
+        "viewAll": "View all articles"
       },
       "cta": {
-        "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations. And from the first conversation to the final delivery, it's me.",
-        "primary": "Send a message",
+        "badge": "Contact",
+        "heading": "Let's talk",
+        "description": "If you want to learn more about my work, talk about technology, or discuss a project, get in touch.",
+        "primary": "Send message",
         "secondary": "More about me"
       }
     }
