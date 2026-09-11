@@ -132,10 +132,12 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
     title: 'Tem dúvidas?',
     links: [
       { label: 'FAQ', href: '/about#faq' },
-      { label: 'E-mail', href: 'mailto:hello@hansmartens.dev' },
+      { label: 'E-mail', href: 'mailto:israelsilvapereirareis@gmail.com' },
       { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', external: true },
+      { label: 'X/Twitter', href: 'https://x.com/israelsilvareis', external: true },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira', external: true },
       { label: 'Discord', href: 'https://discord.com/users/926340772897370122', external: true },
+      { label: 'Instagram', href: 'https://www.instagram.com/israelsilvadosreispereira/', external: true },
     ],
   },
 ];

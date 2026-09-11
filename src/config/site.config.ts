@@ -273,7 +273,7 @@ const siteConfig: SiteConfig = {
   // que não pode importar este arquivo, use os mesmos valores. Altere-os lá.
   name: SITE_NAME,
   description:
-    'Site pessoal de Israel Reis, desenvolvedor em formação e estudante de Sistemas de Informação, com projetos, estudos e experiências em desenvolvimento de software.',
+    'Site pessoal de Israel Silva dos Reis Pereira, desenvolvedor em formação e estudante de Sistemas de Informação, com projetos, estudos e experiências em desenvolvimento de software.',
   tagline: 'Desenvolvimento de software, projetos e aprendizado contínuo',
   footerNote: 'Desenvolvedor em formação · Barretos, São Paulo, Brasil',
   url: SITE_URL || SITE_URL_FALLBACK,
@@ -283,7 +283,7 @@ const siteConfig: SiteConfig = {
   // de compartilhamento em SVG.
   ogImage: '/og/default.png',
   author: 'Israel Silva dos Reis Pereira',
-  email: 'SEU_EMAIL_AQUI',
+  email: 'israelsilvapereirareis@gmail.com',
   address: {
     street: '',
     city: 'Barretos',
@@ -296,6 +296,7 @@ const siteConfig: SiteConfig = {
     'https://x.com/israelsilvareis',
     'https://www.linkedin.com/in/israel-silva-dos-reis-pereira',
     'https://discord.com/users/926340772897370122',
+    'https://www.instagram.com/israelsilvadosreispereira/',
   ],
   header: {
     // Altere para `true` para exibir os ícones de redes sociais (incluindo GitHub) no cabeçalho.
@@ -384,7 +385,7 @@ const siteConfig: SiteConfig = {
   i18n: i18nConfig,
   branding: {
     logo: {
-      alt: 'Israel Reis',
+      alt: 'Israel Silva dos Reis Pereira',
       // image: '/logo.svg', // Opcional: defina um arquivo em public/ para usar uma imagem de logo personalizada em vez do monograma de letras.
       imageUrl: '/favicon.svg',
     },
