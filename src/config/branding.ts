@@ -15,4 +15,4 @@
 export const SITE_NAME = 'Israel Reis Pereira';
 
 /** Cor da barra do navegador e preenchimento atrás da letra do favicon. */
-export const THEME_COLOR = '#0083fe';
+export const THEME_COLOR = '#006f36';
