@@ -10,6 +10,8 @@ import {
   getSecondaryLocales,
   stripLocaleFromPath,
   swapLocaleInPath,
+  localizedPagePath,
+  getPageKeyFromPath,
 } from '../i18n';
 
 describe('i18n t() helper', () => {
@@ -22,8 +24,8 @@ describe('i18n t() helper', () => {
   });
 
   it('falls back to the default-locale string when the locale has no entry', () => {
-    // 'de' has no dictionary loaded yet — should fall back to English
-    expect(t('common.readMore', 'de')).toBe('Read more');
+    // 'de' has no dictionary loaded yet — should fall back to pt-br.
+    expect(t('common.readMore', 'de')).toBe('Leia mais');
   });
 
   it('returns the key itself when no translation exists in any dictionary', () => {
@@ -79,26 +81,49 @@ describe('i18n tData() helper', () => {
 });
 
 describe('i18n getSecondaryLocales()', () => {
-  it('returns an empty list when i18n is disabled (single locale)', () => {
-    // Default config: enabled is false and locales is ['en'], so there are no
-    // extra locales to generate prefixed routes for.
-    expect(getSecondaryLocales()).toEqual([]);
+  it('returns the configured non-default locale', () => {
+    expect(getSecondaryLocales()).toEqual(['en']);
   });
 });
 
 describe('i18n localizedPath()', () => {
-  it('returns the path unchanged when i18n is disabled (single locale)', () => {
-    // With default config (locales: ['en']), i18n is effectively off
+  it('keeps default-locale paths at the site root', () => {
     expect(localizedPath('/about')).toBe('/about');
     expect(localizedPath('/')).toBe('/');
     expect(localizedPath('blog/hello')).toBe('/blog/hello');
+  });
+
+  describe('i18n localizedPagePath()', () => {
+    it('resolves the localized Services slug for the default locale', () => {
+      expect(localizedPagePath('services', 'pt-br')).toBe('/servicos');
+    });
+
+    it('resolves the localized Services slug for English', () => {
+      expect(localizedPagePath('services', 'en')).toBe('/en/services');
+    });
+
+    it('keeps the page key as the slug when no localized override exists', () => {
+      expect(localizedPagePath('about', 'pt-br')).toBe('/about');
+      expect(localizedPagePath('about', 'en')).toBe('/en/about');
+    });
+  });
+
+  describe('i18n static page path lookup', () => {
+    it('maps localized Services paths back to the page key', () => {
+      expect(getPageKeyFromPath('/servicos')).toBe('services');
+      expect(getPageKeyFromPath('/en/services')).toBe('services');
+    });
+
+    it('does not claim unknown content paths as static pages', () => {
+      expect(getPageKeyFromPath('/blog/post')).toBeUndefined();
+    });
   });
 });
 
 describe('i18n locale helpers', () => {
   it('resolves an unknown locale to the default', () => {
-    expect(resolveLocale('xx')).toBe('en');
-    expect(resolveLocale(undefined)).toBe('en');
+    expect(resolveLocale('xx')).toBe('pt-br');
+    expect(resolveLocale(undefined)).toBe('pt-br');
   });
 
   it('validates a configured locale', () => {
@@ -117,22 +142,22 @@ describe('i18n locale helpers', () => {
 
 describe('i18n getLocaleFromPath()', () => {
   it('returns the default locale for the root path', () => {
-    expect(getLocaleFromPath('/')).toBe('en');
+    expect(getLocaleFromPath('/')).toBe('pt-br');
   });
 
   it('returns the default locale when no recognized prefix is present', () => {
-    expect(getLocaleFromPath('/about')).toBe('en');
-    expect(getLocaleFromPath('/blog/hello-world')).toBe('en');
+    expect(getLocaleFromPath('/about')).toBe('pt-br');
+    expect(getLocaleFromPath('/blog/hello-world')).toBe('pt-br');
   });
 
   it('returns the default locale when the first segment is not a configured locale', () => {
-    // Default config only has 'en' active — 'nl' is not recognized
-    expect(getLocaleFromPath('/nl/about')).toBe('en');
-    expect(getLocaleFromPath('/zh-cn/blog')).toBe('en');
+    // 'nl' and 'zh-cn' are not configured locales.
+    expect(getLocaleFromPath('/nl/about')).toBe('pt-br');
+    expect(getLocaleFromPath('/zh-cn/blog')).toBe('pt-br');
   });
 
   it('normalizes paths without a leading slash', () => {
-    expect(getLocaleFromPath('about')).toBe('en');
+    expect(getLocaleFromPath('about')).toBe('pt-br');
   });
 });
 
@@ -148,13 +173,22 @@ describe('i18n stripLocaleFromPath()', () => {
 });
 
 describe('i18n swapLocaleInPath()', () => {
-  it('returns the path unchanged when targeting the default locale (no prefix added)', () => {
-    expect(swapLocaleInPath('/about', 'en')).toBe('/about');
+  it('prefixes a path when targeting the secondary locale', () => {
+    expect(swapLocaleInPath('/about', 'en')).toBe('/en/about');
   });
 
-  it('returns the same path when i18n is disabled, regardless of target', () => {
-    // With default config (single locale), localizedPath is a no-op
-    expect(swapLocaleInPath('/about', 'nl')).toBe('/about');
+  it('returns the path without a prefix when targeting the default locale', () => {
+    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/about');
+  });
+
+  it('swaps localized static page slugs in both directions', () => {
+    expect(swapLocaleInPath('/servicos', 'en')).toBe('/en/services');
+    expect(swapLocaleInPath('/en/services', 'pt-br')).toBe('/servicos');
+  });
+
+  it('keeps the existing same-slug behavior for static pages without overrides', () => {
+    expect(swapLocaleInPath('/about', 'en')).toBe('/en/about');
+    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/about');
   });
 });
 

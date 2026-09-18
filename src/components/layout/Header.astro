@@ -1,4 +1,4 @@
----
+﻿---
 /**
  * Header Component
  * Flexible navigation header with variant-based configuration
@@ -39,6 +39,7 @@ import { isEnabled as i18nIsEnabled, getLocaleFromPath, stripLocaleFromPath, t }
 export interface NavItem {
   label: string;
   href: string;
+  pageKey?: string;
 }
 
 export interface HeaderAction {
@@ -139,6 +140,7 @@ const isLandingPage = currentPath === '/';
 const defaultNav = getNavItems(locale).map((item) => ({
   label: item.label,
   href: item.href,
+  pageKey: item.pageKey,
 }));
 const navItems: NavItem[] = nav || [...extraNav, ...defaultNav];
 const logoHref = getLogoHref(locale);
@@ -194,11 +196,11 @@ function getSocialIconData(url: string): { icon: string; label: string } {
   return { icon: 'link', label: 'Social' };
 }
 
-function getNavIcon(href: string): string {
+function getNavIcon(href: string, pageKey?: string): string {
   if (href === '/' || href === '') return 'home';
   if (href.startsWith('/blog'))     return 'pen-line';
   if (href.startsWith('/projects')) return 'layers';
-  if (href.startsWith('/services')) return 'sparkles';
+  if (pageKey === 'services' || href.startsWith('/services') || href.startsWith('/servicos')) return 'sparkles';
   if (href.startsWith('/about'))    return 'user';
   if (href.startsWith('/contact'))  return 'mail';
   if (href.startsWith('#'))         return 'hash';
@@ -476,7 +478,7 @@ const buttonId = `${menuId}-button`;
             <section class="mobile-menu-section">
               <p class="mobile-menu-label">{t('nav.sectionNavigate', locale)}</p>
               <ul class="space-y-0.5">
-                {navItems.map(({ label, href }, idx) => {
+                {navItems.map(({ label, href, pageKey }, idx) => {
                   const active = isActive(href);
                   const resolvedHref = href.startsWith('#') && !isLandingPage ? `/${href}` : href;
                   return (
@@ -493,7 +495,7 @@ const buttonId = `${menuId}-button`;
                         aria-current={active ? 'page' : undefined}
                       >
                         <span class="mobile-menu-tile">
-                          <Icon name={getNavIcon(href)} size="sm" />
+                          <Icon name={getNavIcon(href, pageKey)} size="sm" />
                         </span>
                         <span class="flex-1">{label}</span>
                         <Icon name="chevron-right" size="sm" class="mobile-menu-chevron" />

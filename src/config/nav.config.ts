@@ -1,4 +1,3 @@
-
 /**
  * Configuração de navegação
  *
@@ -33,7 +32,14 @@
  * substituição em `locales` — consulte `NavItemOverride`. Com o i18n desativado,
  * nada disso é executado e a saída permanece idêntica à de um site de idioma único.
  */
-import { localizedPath, t, defaultLocale, type Locale } from '@/i18n';
+import {
+  localizedPagePath,
+  localizedPath,
+  t,
+  defaultLocale,
+  type Locale,
+  type PageKey,
+} from '@/i18n';
 
 /** Substituição por idioma para o label e/ou caminho de um item de navegação ou link legal. */
 export interface NavItemOverride {
@@ -48,6 +54,8 @@ export interface NavItem {
   href: string;
   order: number;
   external?: boolean;
+  /** Static page key resolved through the centralized localized slug registry. */
+  pageKey?: PageKey;
   /** Chave do dicionário i18n para o label (por exemplo, `'nav.items.blog'`). Usa `label` como fallback. */
   labelKey?: string;
   /** Substituições de label/caminho por idioma, identificadas pelo código do idioma. */
@@ -73,6 +81,8 @@ export interface LegalLink {
   label: string;
   href: string;
   external?: boolean;
+  /** Static page key resolved through the centralized localized slug registry. */
+  pageKey?: PageKey;
   /** Chave do dicionário i18n para o label. Usa `label` como fallback. */
   labelKey?: string;
   /** Substituições de label/caminho por idioma, identificadas pelo código do idioma. */
@@ -84,11 +94,18 @@ export interface ResolvedNavItem {
   label: string;
   href: string;
   external?: boolean;
+  pageKey?: PageKey;
 }
 
 export const navItems: NavItem[] = [
   { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Serviços', href: '/services', order: 1, labelKey: 'nav.items.services' },
+  {
+    label: 'Serviços',
+    href: '/services',
+    pageKey: 'services',
+    order: 1,
+    labelKey: 'nav.items.services',
+  },
   { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
@@ -97,7 +114,13 @@ export const navItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Serviços', href: '/services', order: 1, labelKey: 'nav.items.services' },
+  {
+    label: 'Serviços',
+    href: '/services',
+    pageKey: 'services',
+    order: 1,
+    labelKey: 'nav.items.services',
+  },
   { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
@@ -135,9 +158,17 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
       { label: 'E-mail', href: 'mailto:israelsilvapereirareis@gmail.com' },
       { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', external: true },
       { label: 'X/Twitter', href: 'https://x.com/israelsilvareis', external: true },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira', external: true },
+      {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira',
+        external: true,
+      },
       { label: 'Discord', href: 'https://discord.com/users/926340772897370122', external: true },
-      { label: 'Instagram', href: 'https://www.instagram.com/israelsilvadosreispereira/', external: true },
+      {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/israelsilvadosreispereira/',
+        external: true,
+      },
     ],
   },
 ];
@@ -169,8 +200,12 @@ export function resolveNavItem(item: NavItem | LegalLink, locale: Locale): Resol
   const label = override?.label ?? (item.labelKey ? t(item.labelKey, locale) : item.label);
   const rawHref = override?.href ?? item.href;
   const href =
-    item.external || isExternalOrAnchorHref(rawHref) ? rawHref : localizedPath(rawHref, locale);
-  return { label, href, external: item.external };
+    item.external || isExternalOrAnchorHref(rawHref)
+      ? rawHref
+      : item.pageKey && !override?.href
+        ? localizedPagePath(item.pageKey, locale)
+        : localizedPath(rawHref, locale);
+  return { label, href, external: item.external, pageKey: item.pageKey };
 }
 
 /**

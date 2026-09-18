@@ -1,8 +1,8 @@
----
+﻿---
 /**
  * ServicesView — the Services page body.
  *
- * Shared by the default-locale route (`/services`) and the locale-prefixed
+ * Shared by the default-locale route (`/servicos`) and the locale-prefixed
  * route (`/<locale>/services`). All copy is read from the `pages.services.*`
  * keys in the locale dictionaries via `t()` / `tData()`; internal links are
  * built with `localizedPath` so they stay inside the active locale. Untranslated
@@ -383,7 +383,7 @@ const aboutUrl = localizedPath('/about', locale);
     .services-hero .hero-jump-arrow { animation: none; }
   }
 
-  /* Page-local override: anchor links on /services should land the
+  /* Page-local override: anchor links on /servicos should land the
      section's coloured edge flush against the fixed header. */
   html { scroll-padding-top: 4rem; }
   @media (max-height: 600px) { html { scroll-padding-top: 4rem; } }
@@ -405,7 +405,7 @@ const aboutUrl = localizedPath('/about', locale);
 
 <script is:inline>
   /* When a hero section button is clicked — or the page is opened directly on
-     one of those sections (e.g. /services#development) — the destination (and
+     one of those sections (e.g. /servicos#development) — the destination (and
      everything the jump scrolls past) is snapped to its revealed state before
      the scroll lands, so cards don't slide in mid-jump. Sections below the
      target stay observed, so natural scrolling still animates normally. */

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   collectSlugRecords,
+  collectStaticPageSlugRecords,
   findSlugCollisions,
   formatSlugCollisions,
   type SlugRecord,
@@ -18,9 +19,7 @@ describe('collectSlugRecords', () => {
 
   it('maps pages to /<slug> at the site root', () => {
     const records = collectSlugRecords([], [post('en/about')]);
-    expect(records).toEqual([
-      { source: 'pages: en/about', locale: 'en', path: '/about' },
-    ]);
+    expect(records).toEqual([{ source: 'pages: en/about', locale: 'en', path: '/about' }]);
   });
 
   it('keeps nested slugs intact after the locale prefix', () => {
@@ -41,6 +40,36 @@ describe('findSlugCollisions', () => {
       { source: 'blog: en/b', locale: 'en', path: '/blog/b' },
     ];
     expect(findSlugCollisions(records)).toEqual([]);
+  });
+
+  describe('collectStaticPageSlugRecords', () => {
+    it('maps configured static page slugs per locale', () => {
+      expect(
+        collectStaticPageSlugRecords(
+          { services: { 'pt-br': 'servicos', en: 'services' }, about: {} },
+          ['pt-br', 'en']
+        )
+      ).toEqual([
+        { source: 'static page: services', locale: 'pt-br', path: '/servicos' },
+        { source: 'static page: services', locale: 'en', path: '/services' },
+        { source: 'static page: about', locale: 'pt-br', path: '/about' },
+        { source: 'static page: about', locale: 'en', path: '/about' },
+      ]);
+    });
+
+    it('can detect a static page colliding with content in the same locale', () => {
+      const staticRecords = collectStaticPageSlugRecords({ services: { 'pt-br': 'servicos' } }, [
+        'pt-br',
+      ]);
+      const contentRecords = collectSlugRecords([], [post('pt-br/servicos', 'pt-br')]);
+      expect(findSlugCollisions([...staticRecords, ...contentRecords])).toEqual([
+        {
+          locale: 'pt-br',
+          path: '/servicos',
+          sources: ['pages: pt-br/servicos', 'static page: services'],
+        },
+      ]);
+    });
   });
 
   it('does not flag the same path across different locales', () => {

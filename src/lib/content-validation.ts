@@ -14,6 +14,9 @@
  * point that loads the collections and throws.
  */
 
+import { pageSlugs, type PageSlugMap } from '@/config/page-routes';
+import { getLocales } from '@/i18n';
+
 /** A single URL a piece of content will be published at, within a locale. */
 export interface SlugRecord {
   /** Human-readable origin for diagnostics, e.g. `blog: en/getting-started`. */
@@ -91,6 +94,20 @@ export function collectSlugRecords(
   return records;
 }
 
+/** Build URL records for configured static pages across the active locales. */
+export function collectStaticPageSlugRecords(
+  slugs: PageSlugMap = pageSlugs,
+  locales: string[] = getLocales()
+): SlugRecord[] {
+  return Object.entries(slugs).flatMap(([pageKey, localeSlugs]) =>
+    locales.map((locale) => ({
+      source: `static page: ${pageKey}`,
+      locale,
+      path: `/${localeSlugs[locale] ?? pageKey}`,
+    }))
+  );
+}
+
 /**
  * Group records by (locale, path) and return every path that more than one
  * entry resolves to. Output is sorted (locale, then path) and each collision's
@@ -150,9 +167,10 @@ export async function assertNoSlugCollisions(): Promise<void> {
 
   const publishablePosts = posts.filter((post) => post.data.draft !== true);
   const publishableProjects = projects.filter((project) => project.data.draft !== true);
-  const collisions = findSlugCollisions(
-    collectSlugRecords(publishablePosts, pages, publishableProjects)
-  );
+  const collisions = findSlugCollisions([
+    ...collectSlugRecords(publishablePosts, pages, publishableProjects),
+    ...collectStaticPageSlugRecords(),
+  ]);
 
   if (collisions.length > 0) {
     throw new Error(formatSlugCollisions(collisions));

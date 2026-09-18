@@ -83,4 +83,15 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
   it('falls back to the literal label when no labelKey is set', () => {
     expect(resolveNavItem({ label: 'Docs', href: '/docs', order: 1 }, 'nl').label).toBe('Docs');
   });
+
+  it('resolves a static page key through the shared URL helper', () => {
+    expect(
+      resolveNavItem({ label: 'Services', href: '/services', pageKey: 'services', order: 1 }, 'en')
+        .href
+    ).toBe('/services');
+    expect(
+      resolveNavItem({ label: 'Services', href: '/services', pageKey: 'services', order: 1 }, 'nl')
+        .href
+    ).toBe('/nl/services');
+  });
 });

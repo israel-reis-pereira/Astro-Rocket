@@ -1,4 +1,4 @@
----
+﻿---
 /**
  * HomeView — the landing page body.
  *
@@ -25,7 +25,7 @@ import siteConfig from '@/config/site.config';
 import { getPostUrl, getPublishedPosts } from '@/lib/blog';
 import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
-import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { t, tData, defaultLocale, localizedPagePath, localizedPath } from '@/i18n';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -125,7 +125,7 @@ const cta = tData<{ badge: string; heading: string; description: string; primary
   locale
 )!;
 
-const servicesUrl = localizedPath('/services', locale);
+const servicesUrl = localizedPagePath('services', locale);
 const projectsUrl = localizedPath('/projects', locale);
 const aboutUrl = localizedPath('/about', locale);
 const contactUrl = localizedPath('/contact', locale);

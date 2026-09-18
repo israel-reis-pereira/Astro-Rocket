@@ -1,13 +1,14 @@
-
 import en from './en.json';
 
 import i18nConfig from '../config/i18n.config';
+import { pageSlugs, type PageKey } from '../config/page-routes';
 
 export { i18nConfig };
 
 export type { I18nConfig } from '../config/i18n.config';
 
 export type Locale = string;
+export type { PageKey } from '../config/page-routes';
 
 // `en.json` é o dicionário canônico que todos os outros idiomas seguem,
 // servindo também como referência de tipos para todos os dicionários.
@@ -26,7 +27,7 @@ const dictionaries: Record<string, Dictionary> = Object.fromEntries(
   Object.entries(modules).map(([filePath, mod]) => {
     const locale = filePath.slice(filePath.lastIndexOf('/') + 1).replace(/\.json$/, '');
     return [locale, mod.default];
-  }),
+  })
 );
 
 export const defaultLocale: Locale = i18nConfig.defaultLocale;
@@ -100,10 +101,15 @@ function interpolate(template: string, vars?: Record<string, string | number>): 
  *
  * Também suporta placeholders no formato `{name}` por meio de `vars`.
  */
-export function t(key: string, locale: Locale = defaultLocale, vars?: Record<string, string | number>): string {
+export function t(
+  key: string,
+  locale: Locale = defaultLocale,
+  vars?: Record<string, string | number>
+): string {
   const dict = dictionaries[locale] ?? dictionaries[defaultLocale];
   const fallback = dictionaries[defaultLocale];
-  const value = asString(getNestedValue(dict, key)) ?? asString(getNestedValue(fallback, key)) ?? key;
+  const value =
+    asString(getNestedValue(dict, key)) ?? asString(getNestedValue(fallback, key)) ?? key;
   return interpolate(value, vars);
 }
 
@@ -140,6 +146,31 @@ export function localizedPath(path: string, locale: Locale = defaultLocale): str
 }
 
 /**
+ * Resolves a static page key to its locale-specific URL. The page key is the
+ * fallback slug when a locale has no explicit override.
+ */
+export function localizedPagePath(pageKey: PageKey, locale: Locale = defaultLocale): string {
+  const slug = pageSlugs[pageKey]?.[locale] ?? pageKey;
+  return slug === '' ? localizedPath('/', locale) : localizedPath(`/${slug}`, locale);
+}
+
+/**
+ * Finds the static page key represented by a path without its locale prefix.
+ * Returns undefined for dynamic/content routes and unknown static paths.
+ */
+export function getPageKeyFromPath(path: string): PageKey | undefined {
+  const base = stripLocaleFromPath(path).replace(/^\/+|\/+$/g, '');
+  if (!base) return 'home';
+
+  const pageKeys = new Set(Object.keys(pageSlugs));
+  for (const pageKey of pageKeys) {
+    const slugs = pageSlugs[pageKey];
+    if (pageKey === base || Object.values(slugs).includes(base)) return pageKey;
+  }
+  return undefined;
+}
+
+/**
  * Remove um segmento inicial `/<locale>` de um caminho, quando presente.
  * Retorna o caminho sem alterações quando o primeiro segmento não é um idioma
  * configurado. Sempre retorna um caminho iniciado por `/`.
@@ -164,6 +195,8 @@ export function stripLocaleFromPath(path: string): string {
  * adicionado.
  */
 export function swapLocaleInPath(path: string, targetLocale: Locale): string {
+  const pageKey = getPageKeyFromPath(path);
+  if (pageKey) return localizedPagePath(pageKey, targetLocale);
   const base = stripLocaleFromPath(path);
   return localizedPath(base, targetLocale);
 }
