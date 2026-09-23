@@ -99,32 +99,20 @@ export interface ResolvedNavItem {
 
 export const navItems: NavItem[] = [
   { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
-  {
-    label: 'Serviços',
-    href: '/services',
-    pageKey: 'services',
-    order: 1,
-    labelKey: 'nav.items.services',
-  },
-  { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contato', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Serviços', href: '/services', pageKey: 'services', order: 1, labelKey: 'nav.items.services', },
+  { label: 'Projetos', href: '/projects', pageKey: 'projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', pageKey: 'blog', order: 3, labelKey: 'nav.items.blog' },
+  { label: 'Sobre', href: '/about', pageKey: 'about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contato', href: '/contact', pageKey: 'contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
-  {
-    label: 'Serviços',
-    href: '/services',
-    pageKey: 'services',
-    order: 1,
-    labelKey: 'nav.items.services',
-  },
-  { label: 'Projetos', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'Sobre', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contato', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Serviços', href: '/services', pageKey: 'services', order: 1, labelKey: 'nav.items.services', },
+  { label: 'Projetos', href: '/projects', pageKey: 'projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', pageKey: 'blog', order: 3, labelKey: 'nav.items.blog' },
+  { label: 'Sobre', href: '/about', pageKey: 'about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contato', href: '/contact', pageKey: 'contact', order: 5, labelKey: 'nav.items.contact' },
   { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', order: 6, external: true },
 ];
 

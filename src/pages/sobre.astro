@@ -1,0 +1,10 @@
+---
+import AboutView from '@/components/pages/views/AboutView.astro';
+import { defaultLocale } from '@/i18n';
+
+// A página Sobre para o idioma padrão. Idiomas adicionais são servidos por
+// `src/pages/[locale]/about.astro`, que renderiza a mesma visualização.
+---
+
+<AboutView locale={defaultLocale} />
+    

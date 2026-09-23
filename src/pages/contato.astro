@@ -1,0 +1,9 @@
+---
+import ContactView from '@/components/pages/views/ContactView.astro';
+import { defaultLocale } from '@/i18n';
+
+// A página de contato para o idioma padrão. Idiomas adicionais são servidos por
+// `src/pages/[locale]/contact.astro`, que renderiza a mesma visualização.
+---
+
+<ContactView locale={defaultLocale} />
