@@ -50,7 +50,7 @@ interface TitleText {
 
 const { locale = defaultLocale } = Astro.props;
 
-const GITHUB_URL = 'https://github.com/hansmartensdev/astro-rocket';
+const GITHUB_URL = 'https://github.com/israel-reis-pereira/';
 
 const hero = tData<{
   badge: string;
@@ -128,12 +128,12 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
          ProjectImageSVG switches on the image's own width rather than the
          viewport's: 896px keeps the wide one, a phone's ~382px column takes
          the tall one. -->
-    <div class="mt-[calc(var(--space-section-gap)_-_var(--space-stack-lg))] w-full max-w-4xl mx-auto">
+   <!--  <div class="mt-[calc(var(--space-section-gap)_-_var(--space-stack-lg))] w-full max-w-4xl mx-auto">
       <ProjectImageSVG
         slug="astro-rocket"
         title="Launch your next site with Astro Rocket — the rocket mark over a lit planet's edge, against a starfield."
       />
-    </div>
+    </div> -->
   </Hero>
 
   <!-- What you get -->
@@ -170,7 +170,7 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
       <div class="mb-8 text-center flex flex-col items-center gap-4" data-reveal>
         <div class="flex flex-col items-center gap-6">
           <Badge variant="brand" pill>
-            <Icon name="pen-tool" size="sm" />
+            <Icon name="target" size="sm" />
             {principles.badge}
           </Badge>
           <h2 class="font-display text-4xl font-bold text-foreground">
@@ -312,7 +312,7 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
       <p class="text-lg text-foreground-muted mb-8 text-balance">
         {cta.description}
       </p>
-      <Button size="lg" href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hero-btn-brand">
+      <Button size="lg" href="projetos/" class="hero-btn-brand">
         {cta.button}
         <Icon name="arrow-right" size="sm" />
       </Button>

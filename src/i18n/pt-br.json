@@ -230,7 +230,7 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "Sobre — Israel Reis Pereira",
+        "title": "Sobre",
         "description": "Conheça Israel Reis Pereira, estudante de Sistemas de Informação e desenvolvedor em formação, seus projetos, interesses e trajetória em tecnologia."
       },
       "hero": {
@@ -258,17 +258,17 @@
         "lead": "Minha evolução acontece principalmente quando transformo conhecimento em projetos, testo ideias e documento o que aprendo.",
         "items": [
           {
-            "icon": "component",
+            "icon": "hammer",
             "title": "Construção prática",
             "description": "Uso projetos para transformar conceitos estudados em experiências concretas de desenvolvimento."
           },
           {
-            "icon": "layout",
+            "icon": "search-check",
             "title": "Investigação",
             "description": "Procuro entender como as tecnologias funcionam antes de simplesmente adotá-las."
           },
           {
-            "icon": "palette",
+            "icon": "flask-conical",
             "title": "Experimentação",
             "description": "Testo abordagens diferentes para descobrir o que funciona melhor em cada contexto."
           },
@@ -278,27 +278,27 @@
             "description": "Registro decisões, problemas e aprendizados para tornar a evolução mais organizada."
           },
           {
-            "icon": "image",
+            "icon": "folder-code",
             "title": "Projetos reais",
             "description": "Cada projeto serve como uma oportunidade de aprender uma tecnologia, resolver um problema ou consolidar um conceito."
           },
           {
-            "icon": "globe",
+            "icon": "telescope",
             "title": "Visão de longo prazo",
             "description": "Busco construir uma base técnica que continue útil conforme minha carreira evolui."
           },
           {
-            "icon": "search",
+            "icon": "database-search",
             "title": "Dados e investigação",
             "description": "Tenho interesse em entender dados, processos e informações como parte da construção de sistemas."
           },
           {
-            "icon": "trending-up",
+            "icon": "git-branch",
             "title": "Evolução incremental",
             "description": "Prefiro melhorar sistemas em etapas, aprendendo com cada versão em vez de tentar resolver tudo de uma vez."
           },
           {
-            "icon": "server",
+            "icon": "server-cog",
             "title": "Infraestrutura",
             "description": "Tenho interesse crescente em infraestrutura, automação, ambientes e nos processos que sustentam aplicações."
           }
@@ -310,17 +310,17 @@
         "lead": "Alguns princípios orientam a forma como estudo tecnologia e desenvolvo meus projetos.",
         "items": [
           {
-            "icon": "zap",
+            "icon": "search",
             "title": "Problema antes da tecnologia",
             "description": "Procuro entender o problema antes de escolher ferramentas ou arquiteturas."
           },
           {
-            "icon": "award",
+            "icon": "git-branch-plus",
             "title": "Evolução incremental",
             "description": "Prefiro construir uma base funcional e evoluir o projeto conforme novos problemas e aprendizados aparecem."
           },
           {
-            "icon": "rocket",
+            "icon": "focus",
             "title": "Objetividade",
             "description": "Busco soluções simples, documentadas e coerentes com o tamanho e a finalidade de cada projeto."
           }
@@ -337,7 +337,7 @@
         "lead": "Um pouco mais sobre minha formação, interesses e trajetória.",
         "cards": [
           {
-            "icon": "rocket",
+            "icon": "graduation-cap",
             "title": "Formação acadêmica",
             "items": [
               {
@@ -419,7 +419,7 @@
     },
     "services": {
       "meta": {
-        "title": "Serviços — Desenvolvimento Web e Tecnologia",
+        "title": "Serviços",
         "description": "Desenvolvimento web, criação de sites e soluções digitais com foco em organização, desempenho, manutenção e evolução contínua."
       },
       "includedLabel": "O que faço",
@@ -619,7 +619,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Contato — Israel Reis Pereira",
+        "title": "Contato",
         "description": "Entre em contato para conversar sobre projetos, desenvolvimento web, tecnologia ou oportunidades."
       },
       "hero": {
@@ -638,7 +638,7 @@
     },
     "home": {
       "meta": {
-        "title": "Israel Reis Pereira — Sistemas de Informação e Desenvolvimento",
+        "title": "Início",
         "description": "Site pessoal de Israel Reis Pereira, estudante de Sistemas de Informação e desenvolvedor em formação. Projetos, tecnologia, aprendizado e trajetória."
       },
       "hero": {
@@ -649,7 +649,7 @@
         "description": "Sou estudante de Sistemas de Informação e desenvolvedor em formação. Construo projetos para aprender, experimentar e entender como a tecnologia funciona.",
         "descriptionMobile": "Estudante de Sistemas de Informação e desenvolvedor em formação, construindo projetos para aprender e evoluir.",
         "github": "Ver no GitHub",
-        "getStarted": "Conhecer meu trabalho"
+        "getStarted": "Conheça meus projetos"
       },
       "services": {
         "badge": "O que faço",

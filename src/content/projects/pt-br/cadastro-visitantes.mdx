@@ -1,0 +1,113 @@
+---
+title: "Cadastro de Visitantes"
+locale: pt-br
+description: "Aplicação PHP e MySQL utilizada como laboratório para estudar formulários, persistência, segurança, validação de dados, paginação e responsividade."
+url: "https://cadastro-visitantes.freehosting.dev/"
+repo: "https://github.com/israel-reis-pereira/cadastro-visitantes"
+tags: ["PHP", "MySQL", "MySQLi", "Segurança", "Responsividade"]
+featured: false
+order: 4
+year: 2024
+role: "Desenvolvedor"
+services: ["Desenvolvimento web", "Segurança", "Banco de dados"]
+meta: ["PHP + MySQL", "MySQLi", "Prepared Statements", "XSS"]
+icon: "shield-check"
+imageAlt: "Cadastro de Visitantes — aplicação PHP e MySQL voltada para estudo de formulários, persistência e segurança."
+---
+
+## O que é
+
+O **Cadastro de Visitantes** foi desenvolvido originalmente durante o curso Técnico em Desenvolvimento de Sistemas da ETEC Barretos.
+
+Durante a graduação em Sistemas de Informação, o projeto passou a ser utilizado como um laboratório de estudo contínuo, principalmente para aprofundar conhecimentos em PHP, banco de dados, formulários, validação e segurança.
+
+## Funcionalidades
+
+A aplicação possui:
+
+- cadastro de visitantes;
+- consulta de registros;
+- pesquisa;
+- alteração de registros;
+- exclusão de registros;
+- paginação dos resultados;
+- preservação dos valores digitados em situações de erro.
+
+## Banco de dados
+
+O projeto utiliza **MySQL/MariaDB** com **MySQLi**.
+
+Algumas decisões implementadas:
+
+- credenciais isoladas em arquivo de configuração;
+- charset `utf8mb4`;
+- organização centralizada da conexão;
+- fechamento adequado das conexões;
+- consultas parametrizadas.
+
+## Segurança
+
+A refatoração do projeto colocou bastante foco em segurança.
+
+Foram implementados:
+
+- Prepared Statements;
+- proteção contra SQL Injection;
+- validação dos dados recebidos;
+- limpeza de strings;
+- coerção de valores numéricos;
+- `htmlspecialchars()` para saída HTML;
+- restrição de acesso a diretórios por `.htaccess`;
+- isolamento das credenciais do banco.
+
+## Interface
+
+O projeto também foi utilizado para testar uma abordagem visual simples e responsiva.
+
+Entre as melhorias:
+
+- layout adaptável;
+- tabelas transformadas em cartões no mobile;
+- rótulos específicos para os dados em telas pequenas;
+- identidade visual em preto e branco;
+- feedback visual de interação.
+
+## O que estou estudando
+
+O projeto concentra meus estudos em:
+
+- PHP;
+- MySQL/MariaDB;
+- formulários;
+- validação;
+- segurança;
+- SQL;
+- responsividade;
+- organização de código.
+
+## Próximas possibilidades
+
+O roadmap ainda prevê:
+
+- Foreign Keys;
+- revisão da normalização;
+- filtros mais avançados;
+- autenticação;
+- separação das regras de negócio;
+- possível migração de MySQLi para PDO;
+- Repository/DAO;
+- possível refatoração para MVC.
+
+Esses pontos são possibilidades futuras e não fazem parte do que está implementado atualmente.
+
+## O que aprendi
+
+Este projeto reforçou principalmente a ideia de que uma aplicação pequena também precisa tratar corretamente entrada, armazenamento e saída dos dados.
+
+Foi também uma oportunidade para comparar uma implementação inicial mais simples com uma versão posteriormente revisada em relação à segurança e à organização.
+
+## Código e demonstração
+
+[Ver repositório no GitHub](https://github.com/israel-reis-pereira/cadastro-visitantes)
+
+[Ver projeto publicado](https://cadastro-visitantes.freehosting.dev/)

@@ -1,0 +1,47 @@
+---
+title: "Como configurei o formulário de contato do meu portfólio"
+description: "Implementação de um formulário de contato com Astro, validação e envio de emails através do Resend."
+publishedAt: 2026-10-04
+author: "Israel Reis Pereira"
+tags: ["astro", "resend", "email", "web"]
+featured: false
+locale: pt-br
+uid: "formulario-contato-resend"
+svgSlug: "formulario-contato"
+imageAlt: "Formulário de contato conectado a um serviço de email"
+---
+
+# Como configurei o formulário de contato
+
+Durante o desenvolvimento do meu portfólio, implementei um formulário de contato para permitir que visitantes enviem mensagens diretamente para meu email.
+
+## Tecnologias utilizadas
+
+A implementação utiliza Astro para o endpoint da API e Resend para realizar o envio das mensagens.
+
+## Validação
+
+Os dados enviados pelo formulário são validados antes do processamento.
+
+Entre os campos estão:
+
+- Nome
+- Email
+- Assunto
+- Mensagem
+
+Também foi utilizado um campo honeypot para ajudar a filtrar envios automatizados.
+
+## Envio do email
+
+Depois da validação, a aplicação utiliza a API do Resend para enviar a mensagem.
+
+A chave da API fica armazenada como variável de ambiente e não é exposta ao navegador.
+
+## O que aprendi
+
+Essa implementação mostrou como conectar um formulário frontend a um serviço externo de email mantendo as credenciais protegidas no servidor.
+
+## Conclusão
+
+O formulário agora permite receber mensagens diretamente pelo site sem precisar implementar um servidor de email próprio.

@@ -6,6 +6,7 @@ export type PageKey = string;
 export type PageSlugMap = Record<PageKey, Record<string, string>>;
 
 export const pageSlugs: PageSlugMap = {
+  home: { 'pt-br': '', en: '', },
   services: { 'pt-br': 'servicos', en: 'services', },
   projects: { 'pt-br': 'projetos', en: 'projects', },
   blog: { 'pt-br': 'blog', en: 'blog', },

@@ -1,0 +1,106 @@
+---
+title: "Catálogo de Jogos"
+locale: pt-br
+description: "Projeto iniciado durante o curso técnico e utilizado como laboratório contínuo para estudar PHP, MySQL, POO, modelagem de dados, segurança e refatoração."
+url: "https://catalogo-jogo.freehosting.dev/"
+repo: "https://github.com/israel-reis-pereira/catalogo-jogo"
+tags: ["PHP", "MySQL", "PDO", "POO", "Segurança"]
+featured: true
+order: 3
+year: 2024
+role: "Desenvolvedor"
+services: ["Desenvolvimento web", "Banco de dados", "Refatoração"]
+meta: ["Projeto acadêmico", "PHP + MySQL", "Prepared Statements", "POO"]
+icon: "database"
+imageAlt: "Catálogo de Jogos — aplicação PHP e MySQL utilizada como laboratório de desenvolvimento e refatoração."
+---
+
+## O que é
+
+O **Catálogo de Jogos** começou como um trabalho desenvolvido durante o curso Técnico em Desenvolvimento de Sistemas da ETEC Barretos.
+
+Com o tempo, o projeto deixou de ser apenas um trabalho acadêmico e passou a ser utilizado como um laboratório de estudo contínuo durante a graduação em Sistemas de Informação.
+
+A ideia é evoluir o sistema gradualmente enquanto aplico conceitos de programação, banco de dados, segurança e organização de código.
+
+## Funcionalidades atuais
+
+O projeto possui:
+
+- listagem dinâmica de jogos;
+- página individual de detalhes;
+- navegação utilizando identificadores;
+- relacionamento entre jogos, gêneros e plataformas;
+- separação entre imagem de capa e galeria.
+
+## Banco de dados
+
+Durante a evolução do projeto, a modelagem foi revisada para representar melhor as relações entre os dados.
+
+Entre as mudanças estão:
+
+- criação da entidade `Genero`;
+- normalização da tabela de gêneros;
+- relacionamento muitos-para-muitos entre jogos e plataformas;
+- organização das informações para permitir expansão futura do catálogo.
+
+## Programação Orientada a Objetos
+
+O projeto também foi utilizado para praticar POO.
+
+Foi criada a classe `Genero` e sua integração com a entidade `Jogo`, além de melhorias no encapsulamento e na organização das responsabilidades.
+
+## Segurança
+
+Uma parte importante da evolução foi corrigir problemas comuns de aplicações web.
+
+Foram aplicados:
+
+- Prepared Statements com PDO;
+- proteção contra SQL Injection;
+- validação dos parâmetros recebidos pela URL;
+- conversão de identificadores para inteiros;
+- tratamento básico de exceções;
+- `htmlspecialchars()` na saída HTML;
+- isolamento das credenciais do banco de dados em arquivo de configuração.
+
+## O que estou estudando
+
+Este projeto me permite observar como uma aplicação relativamente simples pode evoluir sem precisar ser reconstruída completamente a cada mudança.
+
+Os principais estudos envolvidos são:
+
+- modelagem relacional;
+- POO;
+- segurança;
+- refatoração;
+- separação de responsabilidades;
+- arquitetura de aplicações PHP.
+
+## Próximas possibilidades
+
+O roadmap atual inclui, entre outras possibilidades:
+
+- Foreign Keys;
+- índices;
+- revisão da normalização;
+- redução de conexões repetidas ao banco;
+- Repository/DAO;
+- CRUD completo;
+- sistema de pesquisa;
+- autenticação;
+- possível refatoração para MVC.
+
+Esses itens são tratados como etapas futuras, não como funcionalidades já implementadas.
+
+## O que aprendi
+
+O projeto mostrou, na prática, que segurança e organização podem ser melhoradas sem transformar uma aplicação didática em algo desnecessariamente complexo.
+
+Também serviu para perceber como decisões tomadas no início de um projeto podem limitar sua evolução posteriormente.
+
+## Código e demonstração
+
+[Ver repositório no GitHub](https://github.com/israel-reis-pereira/catalogo-jogo)
+
+[Ver projeto publicado](https://catalogo-jogo.freehosting.dev/)

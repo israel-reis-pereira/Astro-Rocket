@@ -35,8 +35,12 @@ export interface SiteConfig {
    */
   header?: {
     showSocialLinks?: boolean;
-  };
-  twitter?: {
+    };
+    twitter?: {
+      site: string;
+      creator: string;
+    };
+  whatsapp?: {
     site: string;
     creator: string;
   };
@@ -293,18 +297,16 @@ const siteConfig: SiteConfig = {
   },
   socialLinks: [
     'https://github.com/israel-reis-pereira',
-    'https://x.com/israelsilvareis',
     'https://www.linkedin.com/in/israel-silva-dos-reis-pereira',
-    'https://discord.com/users/926340772897370122',
-    'https://www.instagram.com/israelsilvadosreispereira/',
+    'https://wa.me/5517991489178',
   ],
   header: {
     // Altere para `true` para exibir os ícones de redes sociais (incluindo GitHub) no cabeçalho.
-    showSocialLinks: false,
+    showSocialLinks: true,
   },
-  twitter: {
-    site: 'https://x.com/israelsilvareis',
-    creator: '@israelsilvareis',
+  whatsapp: {
+    site: 'https://wa.me/5517991489178',
+    creator: '@israel.reis.pereira.dev',
   },
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
@@ -372,7 +374,7 @@ const siteConfig: SiteConfig = {
     // Ativado por padrão: o formulário verifica se possui as chaves e informa isso
     // apenas no ambiente de desenvolvimento. Defina RESEND_API_KEY e
     // RESEND_AUDIENCE_ID para fazê-lo funcionar.
-    enabled: true,
+    enabled: false,
   },
   blog: {
     postsPerPage: 12,

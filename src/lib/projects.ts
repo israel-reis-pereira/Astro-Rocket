@@ -10,6 +10,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import siteConfig from '@/config/site.config';
 import { defaultLocale, localizedPath, isEnabled, getLocales } from '@/i18n';
 import { tagToSlug, findTagBySlug } from '@/lib/tags';
+import { pageSlugs } from '@/config/page-routes';
 
 // Re-export the shared tag-slug helpers so callers can import everything
 // project-related from one place.
@@ -37,31 +38,42 @@ export function getProjectSlug(projectId: string, locale: string = defaultLocale
   return projectId.replace(localePrefix, '').replace(/\.mdx?$/, '');
 }
 
+function getProjectsRoute(locale: string = defaultLocale): string {
+  return pageSlugs.projects?.[locale] ?? pageSlugs.projects?.[defaultLocale] ?? 'projects';
+}
+
 /**
  * URL path for an individual project, locale-aware. The default locale stays at
  * the site root (`/projects/<slug>`); additional locales are prefixed
  * (`/<locale>/projects/<slug>`), matching `localizedPath`.
  */
-export function getProjectUrl(projectId: string, locale: string = defaultLocale): string {
-  return localizedPath(`/projects/${getProjectSlug(projectId, locale)}`, locale);
+export function getProjectUrl( projectId: string, locale: string = defaultLocale, ): string { 
+  const projectsRoute = getProjectsRoute(locale); 
+  const slug = getProjectSlug(projectId, locale); 
+  return localizedPath(`/${projectsRoute}/${slug}`, locale); 
 }
 
 /** URL of the projects index for a locale (`/projects` or `/<locale>/projects`). */
 export function getProjectsBaseUrl(locale: string = defaultLocale): string {
-  return localizedPath('/projects', locale);
+  const projectsRoute = getProjectsRoute(locale);
+  return localizedPath(`/${projectsRoute}`, locale);
 }
 
 /**
  * URL for a projects index page number, locale-aware. Page 1 is the projects
  * root (no `/page/1` segment), matching the routing in `projects/page/[page].astro`.
  */
-export function getProjectsPageUrl(page: number, locale: string = defaultLocale): string {
-  return page <= 1 ? getProjectsBaseUrl(locale) : localizedPath(`/projects/page/${page}`, locale);
+export function getProjectsPageUrl( page: number, locale: string = defaultLocale, ): string { 
+  if (page <= 1) { 
+  return getProjectsBaseUrl(locale); } 
+  const projectsRoute = getProjectsRoute(locale); 
+  return localizedPath(`/${projectsRoute}/page/${page}`, locale); 
 }
 
 /** URL for a project tag archive page, locale-aware. */
-export function getProjectTagUrl(tag: string, locale: string = defaultLocale): string {
-  return localizedPath(`/projects/tag/${tagToSlug(tag)}`, locale);
+export function getProjectTagUrl( tag: string, locale: string = defaultLocale, ): string { 
+  const projectsRoute = getProjectsRoute(locale); 
+  return localizedPath( `/${projectsRoute}/tag/${tagToSlug(tag)}`, locale, ); 
 }
 
 /**

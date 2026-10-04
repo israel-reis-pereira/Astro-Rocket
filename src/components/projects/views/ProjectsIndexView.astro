@@ -40,8 +40,8 @@ const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
 const totalPages = Math.max(1, Math.ceil(projects.length / PROJECTS_PER_PAGE));
 const pageProjects = projects.slice(0, PROJECTS_PER_PAGE);
 
-const contactUrl = localizedPath('/contact', locale);
-const aboutUrl = localizedPath('/about', locale);
+const contactUrl = localizedPath('/contato', locale);
+const aboutUrl = localizedPath('/sobre', locale);
 ---
 
 <PageLayout

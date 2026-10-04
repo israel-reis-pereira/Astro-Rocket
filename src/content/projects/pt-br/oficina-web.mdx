@@ -1,0 +1,46 @@
+---
+title: "Oficina.Web"
+locale: pt-br
+description: "MVP de um sistema web para gerenciamento do fluxo operacional de uma oficina mecânica, desenvolvido com .NET 10, ASP.NET Core e Blazor."
+repo: "https://github.com/israel-reis-pereira/oficina-web"
+tags: [".NET 10", "Blazor", "C#", "ASP.NET Core", "Bootstrap"]
+featured: true
+order: 0
+year: 2026
+role: "Desenvolvedor & Arquiteto"
+services: ["Desenvolvimento web", "Arquitetura", "UX operacional"]
+meta: ["MVP incremental", "Blazor Interactive Server", ".NET 10", "Bootstrap"]
+icon: "hammer"
+imageAlt: "Oficina.Web — sistema web em desenvolvimento para gerenciamento do fluxo operacional de uma oficina mecânica."
+---
+
+## O que é
+
+**Oficina.Web** é um sistema web desenvolvido para apoiar o gerenciamento do fluxo operacional de uma oficina mecânica.
+
+O projeto nasceu com uma preocupação diferente de simplesmente adicionar tecnologias ao sistema: primeiro validar a experiência, a navegação e o fluxo de trabalho; depois introduzir persistência, regras de negócio e abstrações somente quando houver uma necessidade real.
+
+Atualmente, o projeto está sendo desenvolvido como um **MVP incremental**, utilizando **.NET 10, ASP.NET Core e Blazor Web App com Interactive Server**.
+
+## O problema que o projeto busca resolver
+
+O sistema foi pensado para representar o atendimento de uma oficina desde a entrada do cliente e do veículo até a conclusão do serviço.
+
+O fluxo operacional planejado é:
+
+```text
+Cadastro
+   ↓
+Orçamento
+   ↓
+Aprovação
+   ↓
+50% de entrada
+   ↓
+Pedido das peças
+   ↓
+Execução do serviço
+   ↓
+Pagamento restante
+   ↓
+Entrega do veículo

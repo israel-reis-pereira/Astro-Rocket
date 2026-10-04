@@ -98,7 +98,7 @@ export interface ResolvedNavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
+  { label: 'Início', href: '/', order: 0, pageKey: 'home', labelKey: 'nav.items.home' },
   { label: 'Serviços', href: '/services', pageKey: 'services', order: 1, labelKey: 'nav.items.services', },
   { label: 'Projetos', href: '/projects', pageKey: 'projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', pageKey: 'blog', order: 3, labelKey: 'nav.items.blog' },
@@ -107,13 +107,12 @@ export const navItems: NavItem[] = [
 ];
 
 export const footerNavItems: NavItem[] = [
-  { label: 'Início', href: '/', order: 0, labelKey: 'nav.items.home' },
+  { label: 'Início', href: '/', order: 0, pageKey: 'home', labelKey: 'nav.items.home' },
   { label: 'Serviços', href: '/services', pageKey: 'services', order: 1, labelKey: 'nav.items.services', },
   { label: 'Projetos', href: '/projects', pageKey: 'projects', order: 2, labelKey: 'nav.items.projects' },
   { label: 'Blog', href: '/blog', pageKey: 'blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'Sobre', href: '/about', pageKey: 'about', order: 4, labelKey: 'nav.items.about' },
   { label: 'Contato', href: '/contact', pageKey: 'contact', order: 5, labelKey: 'nav.items.contact' },
-  { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', order: 6, external: true },
 ];
 
 export const legalLinks: LegalLink[] = [];
@@ -145,18 +144,8 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
       { label: 'FAQ', href: '/about#faq' },
       { label: 'E-mail', href: 'mailto:israelsilvapereirareis@gmail.com' },
       { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', external: true },
-      { label: 'X/Twitter', href: 'https://x.com/israelsilvareis', external: true },
-      {
-        label: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira',
-        external: true,
-      },
-      { label: 'Discord', href: 'https://discord.com/users/926340772897370122', external: true },
-      {
-        label: 'Instagram',
-        href: 'https://www.instagram.com/israelsilvadosreispereira/',
-        external: true,
-      },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira', external: true, },
+      { label: 'WhatsApp', href: 'https://wa.me/5517991489178', external: true, },
     ],
   },
 ];

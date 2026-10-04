@@ -189,9 +189,10 @@ function isActive(href: string): boolean {
 function getSocialIconData(url: string): { icon: string; label: string } {
   if (url.includes('github.com'))    return { icon: 'github',    label: 'GitHub' };
   if (url.includes('instagram.com')) return { icon: 'instagram', label: 'Instagram' };
-  if (url.includes('x.com') || url.includes('twitter.com')) return { icon: 'x-twitter', label: 'X' };
+  if (url.includes('x.com') || url.includes('twitter.com')) { return { icon: 'x-twitter', label: 'X' }; };
   if (url.includes('linkedin.com'))  return { icon: 'linkedin',  label: 'LinkedIn' };
   if (url.includes('bsky.app'))      return { icon: 'bluesky',   label: 'Bluesky' };
+  if (url.includes('wa.me') || url.includes('whatsapp.com')) { return { icon: 'whatsapp', label: 'WhatsApp' }; };
   if (url.includes('youtube.com'))   return { icon: 'youtube',   label: 'YouTube' };
   return { icon: 'link', label: 'Social' };
 }
@@ -208,7 +209,7 @@ function getNavIcon(href: string, pageKey?: string): string {
   return 'chevron-right';
 }
 
-const mobileSocialOrder = ['x.com', 'instagram.com', 'bsky.app', 'github.com', 'linkedin.com', 'youtube.com'];
+const mobileSocialOrder = [ 'x.com', 'instagram.com', 'bsky.app', 'github.com', 'linkedin.com', 'youtube.com', 'wa.me' ];
 const mobileSocialLinks = mobileSocialOrder
   .map((host) => siteConfig.socialLinks.find((u) => u.includes(host)))
   .filter((u): u is string => Boolean(u));
@@ -243,7 +244,7 @@ const buttonId = `${menuId}-button`;
                 resolves to exactly text-xl (20px). */}
             <span
               class={cn(
-                'font-display text-[clamp(1rem,16vw_-_2.2rem,1.25rem)] font-bold tracking-tight whitespace-nowrap',
+                'font-display text-[clamp(1rem,16vw_-_2.2rem,1.25rem)] font-bold tracking-tight',
                 isFloating ? 'hdr-logo-text' : (isInvert ? 'text-brand-600 dark:text-foreground lg:text-on-invert' : 'text-brand-600 dark:text-foreground')
               )}
             >
@@ -446,7 +447,7 @@ const buttonId = `${menuId}-button`;
         <div
           id={menuId}
           class={cn(
-            'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
+            'hidden max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
             isFloating
               ? 'rounded-b-2xl bg-background/95 backdrop-blur-xl'
               : 'border-border bg-background border-t'
@@ -455,7 +456,7 @@ const buttonId = `${menuId}-button`;
           aria-label={t('nav.mobileNav', locale)}
         >
           <div class={cn(
-            'mobile-menu-body py-3',
+            'mobile-menu-body py-2',
             isFloating ? 'px-3' : cn('mx-auto px-4', maxWidthClass)
           )}>
             {showSearch && (
@@ -486,7 +487,7 @@ const buttonId = `${menuId}-button`;
                       <a
                         href={resolvedHref}
                         class={cn(
-                          'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-3 text-base transition-colors',
+                          'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-2 text-base transition-colors',
                           active
                             ? 'mobile-menu-row-active'
                             : 'mobile-menu-row-inactive'

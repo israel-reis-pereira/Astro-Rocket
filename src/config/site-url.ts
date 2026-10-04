@@ -17,4 +17,4 @@
  * um site publicado sem `SITE_URL` deve deixar evidente que não está
  * configurado, em vez de silenciosamente declarar o domínio de outra pessoa.
  */
-export const SITE_URL_FALLBACK = 'https://example.com';
+export const SITE_URL_FALLBACK = 'https://israelreispereira.com.br';
