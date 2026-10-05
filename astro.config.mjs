@@ -7,7 +7,6 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel';
 import netlify from '@astrojs/netlify';
 import cloudflare from '@astrojs/cloudflare';
 import i18nConfig from './src/config/i18n.config.ts';
@@ -60,14 +59,17 @@ for (const file of ['.env.local', '.env']) {
  * Cloudflare Pages, as a Pages Function.
  */
 const deployTarget = process.env.DEPLOY_TARGET;
+
 function resolveAdapter() {
   switch (deployTarget) {
     case 'netlify':
       return netlify();
+
     case 'cloudflare':
       return cloudflare();
+
     default:
-      return vercel();
+      return cloudflare();
   }
 }
 
@@ -148,6 +150,7 @@ function pagefind() {
  */
 function faviconAssets() {
   const letter = SITE_NAME.charAt(0).toUpperCase();
+
   const pngSizes = {
     'favicon-32x32.png': 32,
     'apple-touch-icon.png': 180,
@@ -157,23 +160,55 @@ function faviconAssets() {
 
   return {
     name: 'favicon-assets',
+
     hooks: {
       'astro:build:done': async ({ dir, logger }) => {
-        // Imported here rather than at the top of this file: a static import
-        // of the sharp-backed module makes pagefind's own dynamic import above
-        // fail with "Vite module runner has been closed" (#600).
         const { buildFaviconSvg } = await import('./src/lib/favicon/svg.ts');
-        const { renderFaviconPng, renderFaviconIco } = await import('./src/lib/favicon/raster.ts');
+        const { renderFaviconPng, renderFaviconIco } =
+          await import('./src/lib/favicon/raster.ts');
+
         const out = fileURLToPath(dir);
 
-        await writeFile(join(out, 'favicon.svg'), buildFaviconSvg(letter, THEME_COLOR));
+        // SVG não depende de sharp e pode ser gerado diretamente.
+        await writeFile(
+          join(out, 'favicon.svg'),
+          buildFaviconSvg(letter, THEME_COLOR)
+        );
 
+        // Rasterização dos favicons.
+        // Cada conversão é executada separadamente para identificar
+        // exatamente qual tamanho falha sem interromper o diagnóstico.
         for (const [name, size] of Object.entries(pngSizes)) {
-          await writeFile(join(out, name), await renderFaviconPng(letter, THEME_COLOR, size));
+          try {
+            const png = await renderFaviconPng(letter, THEME_COLOR, size);
+            await writeFile(join(out, name), png);
+          } catch (error) {
+            logger.error(
+              `failed to generate ${name}: ${
+                error instanceof Error ? error.message : String(error)
+              }`
+            );
+            throw error;
+          }
         }
-        await writeFile(join(out, 'favicon.ico'), await renderFaviconIco(letter, THEME_COLOR));
 
-        logger.info(`wrote ${Object.keys(pngSizes).length + 2} favicon files to ${out}`);
+        try {
+          await writeFile(
+            join(out, 'favicon.ico'),
+            await renderFaviconIco(letter, THEME_COLOR)
+          );
+        } catch (error) {
+          logger.error(
+            `failed to generate favicon.ico: ${
+              error instanceof Error ? error.message : String(error)
+            }`
+          );
+          throw error;
+        }
+
+        logger.info(
+          `wrote ${Object.keys(pngSizes).length + 2} favicon files to ${out}`
+        );
       },
     },
   };
