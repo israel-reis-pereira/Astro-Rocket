@@ -1,4 +1,8 @@
-# Cloudflare configuration for Astro Rocket.
-
+# Cloudflare configuration for Astro Rocket
 name = "astro-rocket"
 compatibility_date = "2026-10-05"
+
+[vars]
+RESEND_FROM_EMAIL = "contato@israelreispereira.com.br"
+SITE_URL = "https://israelreispereira.com.br"
+SITE_URL_FALLBACK = "https://israelreispereira.com.br"
