@@ -190,6 +190,39 @@
     "unavailable": "This form is currently unavailable.",
     "error": "Unable to send the message. Please try again."
   },
+  "consent": {
+    "ui": {
+      "heading": "Cookie preferences",
+      "description": "We use cookies to improve your browsing experience, provide personalized content, and analyze our traffic.",
+      "acceptAll": "Accept all",
+      "declineAll": "Decline all",
+      "customize": "Customize",
+      "savePreferences": "Save preferences",
+      "settingsHeading": "Privacy settings",
+      "alwaysOnLabel": "Always on",
+      "privacyPolicyLabel": "Privacy Policy",
+      "bannerAriaLabel": "Cookie consent",
+      "reopenerAriaLabel": "Open cookie settings"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Necessary",
+        "description": "Essential cookies required for the site to work. They cannot be disabled."
+      },
+      "analytics": {
+        "label": "Analytics",
+        "description": "Help us understand how visitors use the site through anonymous usage data."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "description": "Used to show relevant ads and measure advertising campaigns across websites."
+      },
+      "preferences": {
+        "label": "Preferences",
+        "description": "Allow the site to remember choices such as your language or region."
+      }
+    }
+  },
   "theme": {
     "selectColourTheme": "Select colour theme",
     "colourTheme": "Colour theme",

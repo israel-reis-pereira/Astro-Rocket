@@ -190,6 +190,39 @@
     "unavailable": "Dit formulier is op dit moment niet beschikbaar.",
     "error": "Verzenden mislukt. Probeer het opnieuw."
   },
+  "consent": {
+    "ui": {
+      "heading": "Cookievoorkeuren",
+      "description": "We gebruiken cookies om je browse-ervaring te verbeteren, gepersonaliseerde inhoud aan te bieden en ons verkeer te analyseren.",
+      "acceptAll": "Alles accepteren",
+      "declineAll": "Alles weigeren",
+      "customize": "Aanpassen",
+      "savePreferences": "Voorkeuren opslaan",
+      "settingsHeading": "Privacy-instellingen",
+      "alwaysOnLabel": "Altijd actief",
+      "privacyPolicyLabel": "Privacybeleid",
+      "bannerAriaLabel": "Cookietoestemming",
+      "reopenerAriaLabel": "Cookie-instellingen openen"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Noodzakelijk",
+        "description": "Essentiële cookies die nodig zijn om de site te laten werken. Ze kunnen niet worden uitgeschakeld."
+      },
+      "analytics": {
+        "label": "Analyse",
+        "description": "Helpen ons begrijpen hoe bezoekers de site gebruiken via anonieme gebruiksgegevens."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "description": "Worden gebruikt om relevante advertenties te tonen en advertentiecampagnes op verschillende sites te meten."
+      },
+      "preferences": {
+        "label": "Voorkeuren",
+        "description": "Hiermee kan de site keuzes zoals je taal of regio onthouden."
+      }
+    }
+  },
   "theme": {
     "selectColourTheme": "Selecteer kleurthema",
     "colourTheme": "Kleurthema",
@@ -236,7 +269,7 @@
         "badge": "Over",
         "titleLead": "Astro Rocket —",
         "typingWords": ["Razendsnel", "Starter-thema", "44 Componenten", "12 Thema's", "Donkere modus", "Ingebouwde i18n"],
-        "typingWordsMobile": ["Razendsnel", "Starter-thema", "12 Thema's", "Donkere modus", "Ingebouwde i18n"],
+        "typingWordsMobile": ["Razendsnel", "Starter-thema", "12 Thema's", "Donkere modus"],
         "description": "Een gratis, open-source Astro 7 starter-thema om alles op te bouwen."
       },
       "whatYouGet": {

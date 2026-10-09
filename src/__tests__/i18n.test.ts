@@ -19,6 +19,13 @@ describe('i18n t() helper', () => {
     expect(t('common.readMore', 'en')).toBe('Read more');
   });
 
+  it('localizes consent banner and settings text', () => {
+    expect(t('consent.ui.acceptAll', 'en')).toBe('Accept all');
+    expect(t('consent.ui.acceptAll', 'pt-br')).toBe('Aceitar todos');
+    expect(t('consent.categories.analytics.label', 'en')).toBe('Analytics');
+    expect(t('consent.categories.analytics.label', 'pt-br')).toBe('Análise');
+  });
+
   it('returns the Dutch translation when locale is nl', () => {
     expect(t('common.readMore', 'nl')).toBe('Lees meer');
   });
@@ -103,7 +110,7 @@ describe('i18n localizedPath()', () => {
     });
 
     it('keeps the page key as the slug when no localized override exists', () => {
-      expect(localizedPagePath('about', 'pt-br')).toBe('/about');
+      expect(localizedPagePath('about', 'pt-br')).toBe('/sobre');
       expect(localizedPagePath('about', 'en')).toBe('/en/about');
     });
   });
@@ -178,7 +185,7 @@ describe('i18n swapLocaleInPath()', () => {
   });
 
   it('returns the path without a prefix when targeting the default locale', () => {
-    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/about');
+    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/sobre');
   });
 
   it('swaps localized static page slugs in both directions', () => {
@@ -188,7 +195,7 @@ describe('i18n swapLocaleInPath()', () => {
 
   it('keeps the existing same-slug behavior for static pages without overrides', () => {
     expect(swapLocaleInPath('/about', 'en')).toBe('/en/about');
-    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/about');
+    expect(swapLocaleInPath('/en/about', 'pt-br')).toBe('/sobre');
   });
 });
 

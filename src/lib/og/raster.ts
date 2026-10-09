@@ -6,11 +6,8 @@
  * integration in `astro.config.mjs` calls this from `astro:build:done`, which
  * always runs in Node whichever adapter is active.
  */
-import sharp from 'sharp';
 import { renderOgSvg, type OgImageOptions } from './svg.ts';
-
-const WIDTH = 1200;
-const HEIGHT = 630;
+import { runSharpTask } from '../sharp-worker.ts';
 
 /**
  * Rasterise the card to an opaque PNG buffer.
@@ -23,12 +20,7 @@ export async function renderOgPng(options: OgImageOptions): Promise<Buffer> {
   await warnIfTextCannotRender();
 
   const svg = renderOgSvg(options);
-  const brandColor = options.brandColor;
-  return sharp(Buffer.from(svg))
-    .resize(WIDTH, HEIGHT)
-    .flatten({ background: brandColor })
-    .png({ compressionLevel: 9 })
-    .toBuffer();
+  return runSharpTask({ kind: 'og', svg, brandColor: options.brandColor });
 }
 
 /**
@@ -63,10 +55,8 @@ async function probeTextRendering(): Promise<boolean> {
     '<text x="4" y="25" font-size="26" fill="#ffffff" ' +
     'font-family="system-ui, sans-serif" font-weight="700">Hg</text></svg>';
   try {
-    const pixels = await sharp(Buffer.from(probe)).flatten().greyscale().raw().toBuffer();
-    return pixels.some((value) => value > 40);
+    return runSharpTask({ kind: 'probe', svg: probe }).toString() === 'true';
   } catch {
     return true; // Never let the probe itself break a build.
   }
 }
-

@@ -445,6 +445,9 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['astro-icon > @iconify/tools > @iconify/utils > debug'],
+    },
   },
 
   security: {

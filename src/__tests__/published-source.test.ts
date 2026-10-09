@@ -23,7 +23,7 @@ import { globSync } from 'node:fs';
 const ROOT = new URL('../../', import.meta.url);
 
 /** "Save this as `path`" (or "Save it as"), then the next fenced block. */
-const CLAIM = /Save (?:this|it) as `([^`]+)`[^\n]*\n+```[a-z]*\n([\s\S]*?)^```$/gm;
+const CLAIM = /Save (?:this|it) as `([^`]+)`[^\r\n]*(?:\r?\n)+```[a-z]*\r?\n([\s\S]*?)^```\r?$/gm;
 
 interface Claim {
   post: string;

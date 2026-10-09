@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { formatDate } from '../lib/utils';
+import { defaultLocale } from '../i18n';
 
 // Date is constructed in local time (not parsed from a UTC string) so the
 // formatted day is stable regardless of the runner's timezone.
@@ -19,7 +20,6 @@ describe('formatDate()', () => {
   });
 
   it('falls back to the site default locale when none is passed', () => {
-    // Default config defaultLocale is 'en' → long English format
-    expect(formatDate(date)).toBe('June 24, 2026');
+    expect(formatDate(date)).toBe(formatDate(date, defaultLocale));
   });
 });

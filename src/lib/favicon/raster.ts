@@ -7,9 +7,9 @@
  * `astro.config.mjs`, which runs in `astro:build:done` — always in Node, on
  * every adapter.
  */
-import sharp from 'sharp';
 import pngToIco from 'png-to-ico';
 import { buildFaviconSvg } from './svg.ts';
+import { runSharpTask } from '../sharp-worker.ts';
 
 /** Rasterise the favicon SVG to a square PNG buffer of the given pixel size. */
 export async function renderFaviconPng(
@@ -19,7 +19,7 @@ export async function renderFaviconPng(
   fgColor = '#ffffff'
 ): Promise<Buffer> {
   const svg = buildFaviconSvg(letter, bgColor, fgColor, size);
-  return sharp(Buffer.from(svg)).resize(size, size).png().toBuffer();
+  return runSharpTask({ kind: 'favicon', svg });
 }
 
 /** Build a multi-size favicon.ico (16/32/48) from the outlined SVG. */

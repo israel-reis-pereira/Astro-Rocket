@@ -8,6 +8,7 @@
  */
 import { PUBLIC_CONSENT_ENABLED, PUBLIC_PRIVACY_POLICY_URL } from 'astro:env/client';
 import consentConfig from '@/config/consent.config';
+import { getLocaleFromPath, t } from '@/i18n';
 import Dialog from '@/components/ui/overlay/Dialog';
 import Button from '@/components/ui/form/Button';
 import Switch from '@/components/ui/form/Switch';
@@ -29,9 +30,23 @@ const {
 
 const consentEnabled = PUBLIC_CONSENT_ENABLED;
 const privacyPolicyUrl = PUBLIC_PRIVACY_POLICY_URL;
+const locale = getLocaleFromPath(Astro.url.pathname);
 
-// Merge UI text: props override config defaults
-const ui = { ...consentConfig.ui, ...uiOverrides };
+const ui = {
+  ...consentConfig.ui,
+  heading: t('consent.ui.heading', locale),
+  description: t('consent.ui.description', locale),
+  acceptAll: t('consent.ui.acceptAll', locale),
+  declineAll: t('consent.ui.declineAll', locale),
+  customize: t('consent.ui.customize', locale),
+  savePreferences: t('consent.ui.savePreferences', locale),
+  settingsHeading: t('consent.ui.settingsHeading', locale),
+  alwaysOnLabel: t('consent.ui.alwaysOnLabel', locale),
+  privacyPolicyLabel: t('consent.ui.privacyPolicyLabel', locale),
+  bannerAriaLabel: t('consent.ui.bannerAriaLabel', locale),
+  reopenerAriaLabel: t('consent.ui.reopenerAriaLabel', locale),
+  ...uiOverrides,
+};
 const alwaysOnLabel = alwaysOnLabelProp ?? ui.alwaysOnLabel ?? 'Always on';
 const privacyPolicyLabel = ui.privacyPolicyLabel ?? 'Privacy Policy';
 const bannerAriaLabel = ui.bannerAriaLabel ?? 'Cookie consent';
@@ -39,15 +54,26 @@ const reopenerAriaLabel = ui.reopenerAriaLabel ?? 'Open cookie settings';
 
 const isTop = position === 'top';
 
+const categories = Object.fromEntries(
+  Object.entries(consentConfig.categories).map(([key, category]) => [
+    key,
+    {
+      ...category,
+      label: t(`consent.categories.${key}.label`, locale),
+      description: t(`consent.categories.${key}.description`, locale),
+    },
+  ])
+);
+
 // Build category → GCM type mapping for dynamic GCM updates
 const categoryGcmMap: Record<string, string[]> = {};
-for (const [key, cat] of Object.entries(consentConfig.categories)) {
+for (const [key, cat] of Object.entries(categories)) {
   categoryGcmMap[key] = cat.gcmTypes;
 }
 const categoryGcmMapJson = JSON.stringify(categoryGcmMap);
 
 // Serialize config for client-side use
-const configJson = JSON.stringify(consentConfig);
+const configJson = JSON.stringify({ ...consentConfig, categories, ui });
 ---
 
 {consentEnabled && (
@@ -98,7 +124,7 @@ const configJson = JSON.stringify(consentConfig);
     <!-- Settings Panel via Dialog -->
     <Dialog id="consent-settings" title={ui.settingsHeading} size="md">
       <div class="consent-settings-body">
-        {Object.entries(consentConfig.categories).map(([key, cat]) => (
+        {Object.entries(categories).map(([key, cat]) => (
           <div class="consent-category" data-category={key}>
             <div class="consent-category-info">
               <span class="consent-category-label">{cat.label}</span>

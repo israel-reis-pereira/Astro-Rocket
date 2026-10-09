@@ -16,26 +16,23 @@ import {
   getSecondaryLocales,
 } from '@/lib/blog';
 
-// These run with the default i18n config (single locale 'en', i18n off), so
-// every URL must stay unprefixed — this is the non-breaking guarantee for the
-// single-locale sites that make up the majority of installs.
-describe('blog URL helpers (i18n disabled — default)', () => {
+// The configured site uses pt-br at the root and prefixes English routes.
+describe('blog URL helpers (pt-br default, English secondary)', () => {
   it('strips the locale prefix from a post id to get its slug', () => {
     expect(getPostSlug('en/hello-world')).toBe('hello-world');
-    expect(getPostSlug('nl/hallo-wereld', 'nl')).toBe('hallo-wereld');
+    expect(getPostSlug('pt-br/ola-mundo', 'pt-br')).toBe('ola-mundo');
     // No matching prefix → id returned unchanged.
-    expect(getPostSlug('hello-world', 'en')).toBe('hello-world');
+    expect(getPostSlug('hello-world', 'pt-br')).toBe('hello-world');
   });
 
-  it('builds an unprefixed post URL', () => {
-    expect(getPostUrl('en/hello-world')).toBe('/blog/hello-world');
-    // Even a non-default locale stays unprefixed while i18n is off.
-    expect(getPostUrl('nl/hallo-wereld', 'nl')).toBe('/blog/hallo-wereld');
+  it('builds post URLs for the default and secondary locales', () => {
+    expect(getPostUrl('pt-br/ola-mundo', 'pt-br')).toBe('/blog/ola-mundo');
+    expect(getPostUrl('en/hello-world', 'en')).toBe('/en/blog/hello-world');
   });
 
   it('builds the blog index base URL', () => {
     expect(getBlogBaseUrl()).toBe('/blog');
-    expect(getBlogBaseUrl('nl')).toBe('/blog');
+    expect(getBlogBaseUrl('en')).toBe('/en/blog');
   });
 
   it('maps page 1 to the blog root and pages 2+ to /blog/page/N', () => {
@@ -49,7 +46,7 @@ describe('blog URL helpers (i18n disabled — default)', () => {
     expect(getTagUrl('Web Performance')).toBe('/blog/tag/web-performance');
   });
 
-  it('exposes no secondary locales when i18n is off', () => {
-    expect(getSecondaryLocales()).toEqual([]);
+  it('exposes the configured secondary locale', () => {
+    expect(getSecondaryLocales()).toEqual(['en']);
   });
 });

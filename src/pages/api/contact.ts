@@ -1,6 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { RESEND_API_KEY, RESEND_FROM_EMAIL } from 'astro:env/server';
 import { z } from 'astro/zod';
 import { Resend } from 'resend';
 import siteConfig from '@/config/site.config';
@@ -36,6 +37,15 @@ export const POST: APIRoute = async ({ request }) => {
       honeypot: formData.get('honeypot')?.toString() || '',
     };
 
+    // Silently accept bot submissions before validation to avoid advertising
+    // the honeypot through a validation error.
+    if (data.honeypot) {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Validate
     const result = contactSchema.safeParse(data);
 
@@ -49,23 +59,14 @@ export const POST: APIRoute = async ({ request }) => {
         fieldErrors[field].push(error.message);
       }
 
-      return new Response(
-        JSON.stringify({ success: false, errors: fieldErrors }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Honeypot check (bot detection)
-    if (result.data.honeypot) {
-      return new Response(JSON.stringify({ success: true }), {
-        status: 200,
+      return new Response(JSON.stringify({ success: false, errors: fieldErrors }), {
+        status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
     // Send email via Resend
-    const apiKey = import.meta.env.RESEND_API_KEY;
-    if (!apiKey) {
+    if (!RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not set');
       return new Response(
         JSON.stringify({ success: false, errors: { form: ['Email service is not configured'] } }),
@@ -73,10 +74,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const resend = new Resend(apiKey);
+    const resend = new Resend(RESEND_API_KEY);
 
     const toEmail = siteConfig.email;
-    const fromEmail = import.meta.env.RESEND_FROM_EMAIL || toEmail;
+    const fromEmail = RESEND_FROM_EMAIL || toEmail;
     const siteLabel = siteConfig.name;
 
     const subject = result.data.subject
@@ -92,14 +93,17 @@ export const POST: APIRoute = async ({ request }) => {
         <p><strong>Name:</strong> ${escapeHtml(result.data.name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(result.data.email)}</p>
         <p><strong>Message:</strong></p>
-        <p>${escapeHtml(result.data.message).replace(/\n/g, '<br>')}</p>
+        <p>${escapeHtml(result.data.message).replace(/\r\n?/g, '\n').replace(/\n/g, '<br>')}</p>
       `,
     });
 
     if (error) {
       console.error('Resend error:', error);
       return new Response(
-        JSON.stringify({ success: false, errors: { form: [error.message || 'Failed to send email'] } }),
+        JSON.stringify({
+          success: false,
+          errors: { form: [error.message || 'Failed to send email'] },
+        }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
