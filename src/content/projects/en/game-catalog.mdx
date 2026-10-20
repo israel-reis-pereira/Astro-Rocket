@@ -1,0 +1,106 @@
+---
+title: "Game Catalog"
+locale: en
+description: "A project started during a technical course and used as a continuous lab to study PHP, MySQL, OOP, data modeling, security, and refactoring."
+url: "https://catalogo-jogo.freehosting.dev/"
+repo: "https://github.com/israel-reis-pereira/catalogo-jogo"
+tags: ["PHP", "MySQL", "PDO", "OOP", "Security"]
+featured: true
+order: 3
+year: 2024
+role: "Developer"
+services: ["Web development", "Database", "Refactoring"]
+meta: ["Academic project", "PHP + MySQL", "Prepared Statements", "OOP"]
+icon: "database"
+imageAlt: "Game Catalog — a PHP and MySQL application used as a development and refactoring lab."
+---
+
+## What it is
+
+The **Game Catalog** started as a project developed during the Systems Development Technical course at ETEC Barretos.
+
+Over time, it stopped being just an academic assignment and began serving as a continuous study lab during my Information Systems bachelor's degree.
+
+The core idea is to evolve the system gradually while applying software programming, database, security, and code organization concepts.
+
+## Current features
+
+The project includes:
+
+- dynamic game listing;
+- individual details page;
+- navigation using identifiers;
+- relationships among games, genres, and platforms;
+- separation between cover image and gallery.
+
+## Database
+
+During the project's evolution, the data modeling was revised to better represent the relationships between data points.
+
+Among the changes are:
+
+- creation of the `Genre` entity;
+- normalization of the genres table;
+- many-to-many relationship between games and platforms;
+- data organization structured to allow future expansions of the catalog.
+
+## Object-Oriented Programming
+
+The project was also used to practice OOP principles.
+
+The `Genre` class was created alongside its integration with the `Game` entity, resulting in improvements to encapsulation and the organization of responsibilities.
+
+## Security
+
+A major part of the development was fixing common web application vulnerabilities.
+
+The following were applied:
+
+- Prepared Statements with PDO;
+- protection against SQL Injection;
+- validation of parameters received through the URL;
+- casting identifiers to integers;
+- basic exception handling;
+- `htmlspecialchars()` on HTML output;
+- isolation of database credentials within a configuration file.
+
+## What I am studying
+
+This project allows me to observe how a relatively simple application can evolve without needing to be completely rebuilt from scratch with every single change.
+
+The main areas of study involved are:
+
+- relational modeling;
+- OOP;
+- security;
+- refactoring;
+- separation of concerns;
+- PHP application architecture.
+
+## Next possibilities
+
+The current roadmap includes, among other options:
+
+- Foreign Keys;
+- indexes;
+- normalization review;
+- reducing redundant database connections;
+- Repository/DAO pattern;
+- full CRUD implementation;
+- search system;
+- authentication;
+- potential refactoring to MVC.
+
+These items are treated as future development milestones, not as currently implemented features.
+
+## What I learned
+
+The project demonstrated in practice that security and organization can be significantly improved without making a learning application unnecessarily complex.
+
+It also helped me realize how decisions made at the very beginning of a project can restrict its architectural evolution later on.
+
+## Code and demo
+
+[View repository on GitHub](https://github.com/israel-reis-pereira/catalogo-jogo)
+
+[View live project](https://catalogo-jogo.freehosting.dev/)

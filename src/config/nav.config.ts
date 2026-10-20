@@ -141,7 +141,8 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
     titleKey: 'footer.groups.questions',
     title: 'Tem dúvidas?',
     links: [
-      { label: 'FAQ', href: '/about#faq' },
+      { label: 'FAQ', href: '/sobre#faq', locales: { en: { href: '/about#faq' } } },
+      { label: 'Privacidade', href: '/privacidade', labelKey: 'footer.groups.privacy', locales: { en: { href: '/privacy' },} },
       { label: 'E-mail', href: 'mailto:israelsilvapereirareis@gmail.com' },
       { label: 'GitHub', href: 'https://github.com/israel-reis-pereira', external: true },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/israel-silva-dos-reis-pereira', external: true, },

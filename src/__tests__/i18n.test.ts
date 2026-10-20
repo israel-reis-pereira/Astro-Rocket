@@ -109,6 +109,24 @@ describe('i18n localizedPath()', () => {
       expect(localizedPagePath('services', 'en')).toBe('/en/services');
     });
 
+    it('resolves the privacy policy slug in each locale', () => {
+      expect(localizedPagePath('privacy', 'pt-br')).toBe('/privacidade');
+      expect(localizedPagePath('privacy', 'en')).toBe('/en/privacy');
+    });
+
+    it('resolves Home page links to localized routes', () => {
+      expect(localizedPagePath('services', 'pt-br')).toBe('/servicos');
+      expect(localizedPagePath('projects', 'pt-br')).toBe('/projetos');
+      expect(localizedPagePath('about', 'pt-br')).toBe('/sobre');
+      expect(localizedPagePath('contact', 'pt-br')).toBe('/contato');
+      expect(localizedPagePath('blog', 'pt-br')).toBe('/blog');
+      expect(localizedPagePath('services', 'en')).toBe('/en/services');
+      expect(localizedPagePath('projects', 'en')).toBe('/en/projects');
+      expect(localizedPagePath('about', 'en')).toBe('/en/about');
+      expect(localizedPagePath('contact', 'en')).toBe('/en/contact');
+      expect(localizedPagePath('blog', 'en')).toBe('/en/blog');
+    });
+
     it('keeps the page key as the slug when no localized override exists', () => {
       expect(localizedPagePath('about', 'pt-br')).toBe('/sobre');
       expect(localizedPagePath('about', 'en')).toBe('/en/about');

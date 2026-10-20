@@ -1,0 +1,47 @@
+---
+title: "How I configured my portfolio's contact form"
+description: "Implementation of a contact form with Astro, validation, and email delivery using Resend."
+publishedAt: 2026-10-04
+author: "Israel Reis Pereira"
+tags: ["astro", "resend", "email", "web"]
+featured: false
+locale: en
+uid: "contact-form-resend"
+svgSlug: "contact-form"
+imageAlt: "Contact form connected to an email service"
+---
+
+# How I configured the contact form
+
+While developing my portfolio, I implemented a contact form to allow visitors to send messages directly to my email.
+
+## Technologies used
+
+The implementation uses Astro for the API endpoint and Resend to handle the message delivery.
+
+## Validation
+
+The data submitted through the form is validated before processing.
+
+The fields include:
+
+- Name
+- Email
+- Subject
+- Message
+
+A honeypot field was also used to help filter out automated submissions.
+
+## Email delivery
+
+After validation, the application uses the Resend API to send the message.
+
+The API key is stored as an environment variable and is not exposed to the browser.
+
+## What I learned
+
+This implementation demonstrated how to connect a frontend form to an external email service while keeping the credentials protected on the server.
+
+## Conclusion
+
+The form now allows receiving messages directly through the website without the need to set up a dedicated email server.

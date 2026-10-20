@@ -11,9 +11,21 @@ vi.mock('@/config/i18n.config', () => ({
   },
 }));
 
-import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config/nav.config';
+import {
+  getNavItems,
+  getLogoHref,
+  resolveNavItem,
+  footerLinkGroups,
+  type NavItem,
+} from '@/config/nav.config';
 
 describe('nav config — locale resolution (pt-br default, en secondary)', () => {
+  it('resolves the FAQ footer link to the localized About page', () => {
+    const faq = footerLinkGroups[0].links[0];
+    expect(resolveNavItem(faq, 'pt-br').href).toBe('/sobre#faq');
+    expect(resolveNavItem(faq, 'en').href).toBe('/en/about#faq');
+  });
+
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('pt-br');
     expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');

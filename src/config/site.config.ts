@@ -1,7 +1,7 @@
 import { SITE_URL, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION } from 'astro:env/server';
 import i18nConfig, { type I18nConfig } from './i18n.config';
 import { SITE_URL_FALLBACK } from './site-url';
-import { SITE_NAME, THEME_COLOR } from './branding';
+import { SITE_NAME, SITE_TAGLINE, THEME_COLOR } from './branding';
 
 export { i18nConfig };
 export type { I18nConfig };
@@ -278,7 +278,7 @@ const siteConfig: SiteConfig = {
   name: SITE_NAME,
   description:
     'Site pessoal de Israel Silva dos Reis Pereira, desenvolvedor em formação e estudante de Sistemas de Informação, com projetos, estudos e experiências em desenvolvimento de software.',
-  tagline: 'Desenvolvimento de software, projetos e aprendizado contínuo',
+  tagline: SITE_TAGLINE,
   footerNote: 'Desenvolvedor em formação · Barretos, São Paulo, Brasil',
   url: SITE_URL || SITE_URL_FALLBACK,
   // Gerado em tempo de build a partir de `name`, `tagline` e da cor da marca abaixo.

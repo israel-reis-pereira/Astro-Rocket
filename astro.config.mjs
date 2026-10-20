@@ -17,7 +17,8 @@ import {
   siteUrlDisagreement,
   disagreementMessage,
 } from './scripts/site-url-agreement.mjs';
-import { SITE_NAME, THEME_COLOR } from './src/config/branding.ts';
+import { SITE_NAME, SITE_TAGLINE, THEME_COLOR } from './src/config/branding.ts';
+import { resolveOgCardCopy } from './src/lib/og/svg.ts';
 
 /**
  * Load `.env` into `process.env` before anything below reads it.
@@ -280,8 +281,14 @@ function ogCards() {
           }
           if (!path.startsWith('/og/') || !path.endsWith('.png') || wanted.has(path)) continue;
           wanted.set(path, {
-            title: meta(html, 'og:title') || SITE_NAME,
-            subtitle: meta(html, 'og:description'),
+            ...resolveOgCardCopy(
+              path,
+              {
+                title: meta(html, 'og:title'),
+                subtitle: meta(html, 'og:description'),
+              },
+              { name: SITE_NAME, tagline: SITE_TAGLINE }
+            ),
             kind: KINDS.find(([re]) => re.test(path))?.[1],
           });
         }
@@ -406,8 +413,8 @@ export default defineConfig({
       SITE_URL: envField.string({ context: 'server', access: 'public', optional: true }),
       PUBLIC_GA_MEASUREMENT_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       PUBLIC_GTM_ID: envField.string({ context: 'client', access: 'public', optional: true }),
-      // Umami — privacy-friendly, cookieless analytics. Set the website ID to
-      // enable it; the src defaults to Umami Cloud, override it when self-hosting.
+      // Umami — optional. Set the website ID to enable it; the src defaults to
+      // Umami Cloud. When consent is enabled, the script waits for analytics consent.
       PUBLIC_UMAMI_WEBSITE_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       PUBLIC_UMAMI_SRC: envField.string({
         context: 'client',

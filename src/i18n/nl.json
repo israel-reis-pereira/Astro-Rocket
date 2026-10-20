@@ -255,7 +255,9 @@
       "site": "Site",
       "topics": "Onderwerpen",
       "projects": "Projecten",
-      "questions": "Vragen?"
+      "questions": "Vragen?",
+      "privacy": "Privacy",
+      "privacy": "Privacy"
     },
     "followOn": "Volg ons op {platform}"
   },
@@ -558,6 +560,36 @@
       "emailNote": "Stuur een bericht",
       "socialNote": "Volg mee",
       "basedIn": "Gevestigd in {country}"
+    },
+    "privacy": {
+      "title": "Privacyverklaring",
+      "description": "Hoe deze website contactberichten en optionele cookies verwerkt.",
+      "intro": "Deze verklaring beschrijft de gegevensverwerking die in deze website is geïmplementeerd. Dit is informatieve tekst en geen garantie van juridische naleving.",
+      "contactHeading": "Contact voor privacyverzoeken",
+      "sections": [
+        { "heading": "Verzamelde gegevens en doelen", "paragraphs": ["Wanneer je het contactformulier gebruikt, ontvangt de site je naam, e-mailadres, optioneel onderwerp en bericht. Deze gegevens worden gebruikt om je vraag te ontvangen en te beantwoorden. Een verborgen antispamveld wordt niet als bericht doorgestuurd wanneer het is ingevuld."] },
+        { "heading": "E-mailverwerking en leveranciers", "paragraphs": ["De server verstuurt geldige contactberichten via de e-maildienst Resend naar het ingestelde contactadres. Resend verwerkt het bericht voor bezorging. De afzender en inloggegevens zijn serverinstellingen; geheimen staan niet in de pagina. De code bevestigt niet dat Resend de enige betrokken infrastructuurleverancier is."] },
+        { "heading": "Bewaartermijn", "paragraphs": ["De code stelt geen vaste bewaartermijn vast voor berichten of leverancierslogboeken. Berichten kunnen in de ontvangende mailbox en systemen van leveranciers blijven volgens hun toepasselijke beleid. Neem voor inzage of verwijdering contact op via het adres hieronder."] },
+        { "heading": "Beveiliging en delen", "paragraphs": ["Het formulier valideert invoer en ontsnapt gebruikersinhoud voordat die in de e-mail wordt geplaatst. Dit garandeert geen absolute beveiliging. Gegevens worden met Resend gedeeld voor bezorging en kunnen door hosting- of infrastructuurleveranciers worden verwerkt; deze repository beschrijft hun voorwaarden niet volledig."] },
+        { "heading": "Cookies en optionele metingen", "paragraphs": ["De toestemmingsinterface bewaart een versiegebonden keuze in de lokale opslag van deze browser. Noodzakelijke functionaliteit blijft ingeschakeld. De code ondersteunt optionele categorieën voor analyse en marketing, maar dit betekent niet dat diensten actief zijn. Google Analytics, Google Tag Manager en Umami worden in strikte modus alleen geladen wanneer ze zijn ingesteld en na toestemming voor analyse. De eigenaar moet de productieconfiguratie bevestigen."] },
+        { "heading": "Keuzes en rechten", "paragraphs": ["Je kunt optionele categorieën weigeren, aanpassen of je keuze later wijzigen via de voorkeuren. Toepasselijke privacyrechten kunnen onder meer inzage, correctie, verwijdering en bezwaar omvatten. Stuur verzoeken naar het contactadres hieronder."] },
+        { "heading": "Wijzigingen", "paragraphs": ["Deze verklaring kan worden aangepast wanneer de website of gegevensverwerking verandert. De actuele versie staat op deze pagina; de code bevat geen afzonderlijk wijzigingslogboek of bijwerkdatum."] }
+      ]
+    },
+    "privacy": {
+      "title": "Privacyverklaring",
+      "description": "Hoe deze website contactberichten en optionele cookies verwerkt.",
+      "intro": "Deze verklaring beschrijft de gegevensverwerking die in deze website is geïmplementeerd. Dit is informatieve tekst en geen garantie van juridische naleving.",
+      "contactHeading": "Contact voor privacyverzoeken",
+      "sections": [
+        { "heading": "Verzamelde gegevens en doelen", "paragraphs": ["Wanneer je het contactformulier gebruikt, ontvangt de site je naam, e-mailadres, optioneel onderwerp en bericht. Deze gegevens worden gebruikt om je vraag te ontvangen en te beantwoorden. Een verborgen antispamveld wordt niet als bericht doorgestuurd wanneer het is ingevuld."] },
+        { "heading": "E-mailverwerking en leveranciers", "paragraphs": ["De server verstuurt geldige contactberichten via de e-maildienst Resend naar het ingestelde contactadres. Resend verwerkt het bericht voor bezorging. De afzender en inloggegevens zijn serverinstellingen; geheimen staan niet in de pagina. De code bevestigt niet dat Resend de enige betrokken infrastructuurleverancier is."] },
+        { "heading": "Bewaartermijn", "paragraphs": ["De code stelt geen vaste bewaartermijn vast voor berichten of leverancierslogboeken. Berichten kunnen in de ontvangende mailbox en systemen van leveranciers blijven volgens hun toepasselijke beleid. Neem voor inzage of verwijdering contact op via het adres hieronder."] },
+        { "heading": "Beveiliging en delen", "paragraphs": ["Het formulier valideert invoer en ontsnapt gebruikersinhoud voordat die in de e-mail wordt geplaatst. Dit garandeert geen absolute beveiliging. Gegevens worden met Resend gedeeld voor bezorging en kunnen door hosting- of infrastructuurleveranciers worden verwerkt; deze repository beschrijft hun voorwaarden niet volledig."] },
+        { "heading": "Cookies en optionele metingen", "paragraphs": ["De toestemmingsinterface bewaart een versiegebonden keuze in de lokale opslag van deze browser. Noodzakelijke functionaliteit blijft ingeschakeld. De code ondersteunt optionele categorieën voor analyse en marketing, maar dit betekent niet dat diensten actief zijn. Google Analytics, Google Tag Manager en Umami worden in strikte modus alleen geladen wanneer ze zijn ingesteld en na toestemming voor analyse. De eigenaar moet de productieconfiguratie bevestigen."] },
+        { "heading": "Keuzes en rechten", "paragraphs": ["Je kunt optionele categorieën weigeren, aanpassen of je keuze later wijzigen via de voorkeuren. Toepasselijke privacyrechten kunnen onder meer inzage, correctie, verwijdering en bezwaar omvatten. Stuur verzoeken naar het contactadres hieronder."] },
+        { "heading": "Wijzigingen", "paragraphs": ["Deze verklaring kan worden aangepast wanneer de website of gegevensverwerking verandert. De actuele versie staat op deze pagina; de code bevat geen afzonderlijk wijzigingslogboek of bijwerkdatum."] }
+      ]
     },
     "home": {
       "meta": {

@@ -1,0 +1,113 @@
+---
+title: "Visitor Registration"
+locale: en
+description: "A PHP and MySQL application used as a lab to study forms, persistence, security, data validation, pagination, and responsiveness."
+url: "https://cadastro-visitantes.freehosting.dev/"
+repo: "https://github.com/israel-reis-pereira/cadastro-visitantes"
+tags: ["PHP", "MySQL", "MySQLi", "Security", "Responsiveness"]
+featured: false
+order: 4
+year: 2024
+role: "Developer"
+services: ["Web development", "Security", "Database"]
+meta: ["PHP + MySQL", "MySQLi", "Prepared Statements", "XSS"]
+icon: "shield-check"
+imageAlt: "Visitor Registration — a PHP and MySQL application focused on studying forms, persistence, and security."
+---
+
+## What it is
+
+**Visitor Registration** was originally developed during the Systems Development Technical course at ETEC Barretos.
+
+During my Information Systems bachelor's degree, the project became a continuous study lab, primarily used to deepen my knowledge of PHP, databases, forms, validation, and security.
+
+## Features
+
+The application includes:
+
+- visitor registration;
+- record consultation;
+- search functionality;
+- record modification;
+- record deletion;
+- pagination of results;
+- preservation of typed values in case of errors.
+
+## Database
+
+The project uses **MySQL/MariaDB** with **MySQLi**.
+
+Some of the implemented decisions:
+
+- credentials isolated in a configuration file;
+- `utf8mb4` charset;
+- centralized connection management;
+- proper closing of connections;
+- parameterized queries.
+
+## Security
+
+The project refactoring put a strong focus on security.
+
+The following were implemented:
+
+- Prepared Statements;
+- protection against SQL Injection;
+- validation of received data;
+- string sanitization;
+- coercion of numerical values;
+- `htmlspecialchars()` for HTML output;
+- directory access restriction via `.htaccess`;
+- isolation of database credentials.
+
+## Interface
+
+The project was also used to test a simple and responsive visual approach.
+
+Among the improvements:
+
+- adaptable layout;
+- tables transformed into cards on mobile view;
+- specific data labels for small screens;
+- black and white visual identity;
+- visual interaction feedback.
+
+## What I am studying
+
+The project concentrates my studies on:
+
+- PHP;
+- MySQL/MariaDB;
+- forms;
+- validation;
+- security;
+- SQL;
+- responsiveness;
+- code organization.
+
+## Next possibilities
+
+The roadmap still plans for:
+
+- Foreign Keys;
+- normalization review;
+- advanced filters;
+- authentication;
+- separation of business logic;
+- potential migration from MySQLi to PDO;
+- Repository/DAO pattern;
+- potential refactoring to MVC.
+
+These points are future possibilities and are not part of what is currently implemented.
+
+## What I learned
+
+This project reinforced mainly the idea that even a small application needs to properly handle data input, storage, and output.
+
+It was also an opportunity to compare a simpler initial implementation with a version later revised for security and organization.
+
+## Code and demo
+
+[View repository on GitHub](https://github.com/israel-reis-pereira/cadastro-visitantes)
+
+[View live project](https://cadastro-visitantes.freehosting.dev/)

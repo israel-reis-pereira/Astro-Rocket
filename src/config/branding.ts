@@ -14,5 +14,8 @@
  */
 export const SITE_NAME = 'Israel Reis Pereira';
 
+/** Linha de identidade usada no rodapé e na imagem Open Graph padrão. */
+export const SITE_TAGLINE = 'Desenvolvimento de software, projetos e aprendizado contínuo';
+
 /** Cor da barra do navegador e preenchimento atrás da letra do favicon. */
 export const THEME_COLOR = '#006f36';

@@ -25,7 +25,7 @@ import siteConfig from '@/config/site.config';
 import { getPostUrl, getPublishedPosts } from '@/lib/blog';
 import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
-import { t, tData, defaultLocale, localizedPagePath, localizedPath } from '@/i18n';
+import { t, tData, defaultLocale, localizedPagePath } from '@/i18n';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -71,7 +71,7 @@ const posts = [...postItems]
 // the same `stack` collection so icons and links stay single-sourced. Seven logos
 // are wide enough to fill the constrained hero width and loop seamlessly on their
 // own; the Tech-stack section further down still shows the full stack.
-const heroStackOrder = ['Astro', 'Tailwind CSS', 'TypeScript', 'React', 'GitHub', 'Vercel', 'Claude'];
+const heroStackOrder = ['Astro', 'Cloudflare', 'GitHub Copilot', 'MySQL', 'PHP', 'Vercel', 'GitHub'];
 const heroStackItems = (await getCollection('stack'))
   .filter((e) => heroStackOrder.includes(e.data.name))
   .sort((a, b) => heroStackOrder.indexOf(a.data.name) - heroStackOrder.indexOf(b.data.name))
@@ -125,14 +125,12 @@ const cta = tData<{ badge: string; heading: string; description: string; primary
   locale
 )!;
 
-const servicesUrl = localizedPagePath('servicos', locale);
-const projectsUrl = localizedPath('/projetos', locale);
-const aboutUrl = localizedPath('/sobre', locale);
-const contactUrl = localizedPath('/contato', locale);
-const blogUrl = localizedPath('/blog', locale);
-// The getting-started guide lives at the default-locale URL; link there so the
-// CTA always resolves even before a locale has translated that post.
-const getStartedUrl = '/projetos/';
+const servicesUrl = localizedPagePath('services', locale);
+const projectsUrl = localizedPagePath('projects', locale);
+const aboutUrl = localizedPagePath('about', locale);
+const contactUrl = localizedPagePath('contact', locale);
+const blogUrl = localizedPagePath('blog', locale);
+const getStartedUrl = projectsUrl;
 
 // About-teaser copy with the configured location woven in (mirrors the original
 // page's conditional). Falls back to a location-free sentence when no city is set.

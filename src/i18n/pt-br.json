@@ -256,7 +256,8 @@
       "site": "Site",
       "topics": "Tópicos",
       "projects": "Projetos",
-      "questions": "Dúvidas?"
+      "questions": "Dúvidas?",
+      "privacy": "Privacidade"
     },
     "followOn": "Siga no {platform}"
   },
@@ -668,6 +669,21 @@
       "emailNote": "Entre em contato",
       "socialNote": "Acompanhe meu trabalho",
       "basedIn": "Localizado em {country}"
+    },
+    "privacy": {
+      "title": "Política de privacidade",
+      "description": "Como este site trata mensagens de contato e cookies opcionais.",
+      "intro": "Este site pessoal é mantido por Israel Silva dos Reis Pereira. Esta política explica como as mensagens de contato e o armazenamento opcional são tratados.",
+      "contactHeading": "Contato para solicitações de privacidade",
+      "sections": [
+        { "heading": "Dados coletados e finalidades", "paragraphs": ["Ao usar o formulário de contato, o site recebe o nome, o e-mail, o assunto opcional e a mensagem enviados por você. Esses dados são usados para receber e responder à solicitação. O formulário também inclui um campo oculto antispam; quando preenchido, o envio é tratado como bot e não é encaminhado como mensagem."] },
+        { "heading": "Processamento de e-mail e fornecedores", "paragraphs": ["Mensagens válidas do formulário são enviadas pelo serviço Resend para o endereço de contato configurado no site. A Cloudflare hospeda o site e pode processar dados das requisições para servir as páginas e o formulário. Os sistemas dos fornecedores podem tratar dados conforme seus próprios termos."] },
+        { "heading": "Retenção", "paragraphs": ["Esta política não informa um prazo fixo de retenção. As mensagens podem permanecer na caixa postal destinatária e nos sistemas dos fornecedores conforme as práticas aplicáveis. Use o contato abaixo para solicitar acesso ou exclusão."] },
+        { "heading": "Segurança e compartilhamento", "paragraphs": ["O formulário valida os campos enviados e escapa o conteúdo antes de incluí-lo no e-mail de notificação. Essas medidas não garantem segurança absoluta. Os dados são compartilhados com a Resend para entrega das mensagens e podem ser processados pela Cloudflare para operar o site."] },
+        { "heading": "Cookies e métricas opcionais", "paragraphs": ["A interface de consentimento armazena neste navegador uma escolha versionada no armazenamento local. A funcionalidade necessária permanece ativa; as categorias de análise, marketing e preferências ficam desativadas por padrão. O código oferece suporte a Google Analytics, Google Tag Manager e Umami, mas não confirma que algum deles esteja ativo em produção. Quando configurados no modo estrito, serviços de análise exigem consentimento para análise; o GTM também exige consentimento para marketing. Esta política, por si só, não ativa serviços opcionais."] },
+        { "heading": "Escolhas e direitos", "paragraphs": ["Você pode recusar categorias opcionais, personalizar sua escolha ou reabrir as preferências para alterá-la. Os direitos aplicáveis de proteção de dados podem incluir acesso, correção, exclusão, informação sobre o tratamento e oposição, entre outros previstos em lei. Envie solicitações ao contato abaixo."] },
+        { "heading": "Atualizações", "paragraphs": ["Esta política pode ser atualizada quando o site ou o tratamento de dados mudar. A versão vigente será publicada nesta página."] }
+      ]
     },
     "home": {
       "meta": {

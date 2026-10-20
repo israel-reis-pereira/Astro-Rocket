@@ -1,0 +1,36 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import siteConfig from '@/config/site.config';
+
+interface Props {
+  locale?: string;
+}
+
+interface Section {
+  heading: string;
+  paragraphs: string[];
+}
+
+const { locale = defaultLocale } = Astro.props;
+const sections = tData<Section[]>('pages.privacy.sections', locale) ?? [];
+---
+
+<PageLayout title={t('pages.privacy.title', locale)} description={t('pages.privacy.description', locale)}>
+  <article class="container mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="text-3xl font-bold text-foreground sm:text-4xl">{t('pages.privacy.title', locale)}</h1>
+    <p class="mt-4 text-foreground-muted">{t('pages.privacy.intro', locale)}</p>
+    <div class="mt-10 space-y-8">
+      {sections.map((section) => (
+        <section>
+          <h2 class="text-xl font-semibold text-foreground">{section.heading}</h2>
+          {section.paragraphs.map((paragraph) => <p class="mt-3 leading-7 text-foreground-muted">{paragraph}</p>)}
+          </section>
+        ))}
+        <section>
+          <h2 class="text-xl font-semibold text-foreground">{t('pages.privacy.contactHeading', locale)}</h2>
+          <p class="mt-3"><a class="text-brand-600 underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+        </section>
+    </div>
+  </article>
+</PageLayout>

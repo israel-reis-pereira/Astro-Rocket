@@ -195,6 +195,32 @@ function truncate(text: string, max: number): string {
 }
 
 
+/** Path for the site-wide OG image, used by every page without one of its own. */
+export const DEFAULT_OG_PATH = '/og/default.png';
+
+/**
+ * Title and subtitle drawn onto an OG card.
+ *
+ * `/og/default.png` is referenced by many pages, including the 404 page. The
+ * build hook that rasterises cards used to copy the first HTML file that
+ * pointed at that path — so a 404 titled "Página não encontrada" could become
+ * the site-wide share image. The default card always uses the site name and
+ * tagline instead.
+ */
+export function resolveOgCardCopy(
+  path: string,
+  page: { title?: string; subtitle?: string },
+  site: { name: string; tagline: string }
+): { title: string; subtitle: string } {
+  if (path === DEFAULT_OG_PATH) {
+    return { title: site.name, subtitle: site.tagline };
+  }
+  return {
+    title: page.title || site.name,
+    subtitle: page.subtitle ?? '',
+  };
+}
+
 /** Path (relative to site root) for a blog post's generated OG image. */
 export function getBlogOgPath(slug: string): string {
   return `/og/blog/${slug}.png`;
@@ -210,9 +236,8 @@ export function getProjectOgPath(slug: string): string {
   return `/og/projects/${slug}.png`;
 }
 
-/** Path for the site-wide OG image, used by every page without one of its own. */
 export function getDefaultOgPath(): string {
-  return '/og/default.png';
+  return DEFAULT_OG_PATH;
 }
 
 /**

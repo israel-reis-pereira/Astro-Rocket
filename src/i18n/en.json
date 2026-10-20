@@ -255,7 +255,8 @@
       "site": "Site",
       "topics": "Topics",
       "projects": "Projects",
-      "questions": "Questions?"
+      "questions": "Questions?",
+      "privacy": "Privacy"
     },
     "followOn": "Follow on {platform}"
   },
@@ -667,6 +668,21 @@
       "emailNote": "Get in touch",
       "socialNote": "Follow my work",
       "basedIn": "Based in {country}"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How this website handles contact messages and optional cookies.",
+      "intro": "This personal website is maintained by Israel Silva dos Reis Pereira. It explains how contact messages and optional storage are handled.",
+      "contactHeading": "Contact for privacy requests",
+      "sections": [
+        { "heading": "Information collected and purposes", "paragraphs": ["When you use the contact form, the site receives the name, email address, optional subject, and message you submit. These details are used to receive and respond to your inquiry. The form also includes a hidden anti-spam field; a filled field is treated as a bot submission and is not sent as a message."] },
+        { "heading": "Email processing and providers", "paragraphs": ["Valid contact messages are sent through Resend to the contact address configured for the site. Cloudflare hosts the site and may process request data to serve its pages and contact form. Provider systems may handle data under their own terms."] },
+        { "heading": "Retention", "paragraphs": ["No fixed retention period is stated here. Messages may remain in the recipient's mailbox and in provider systems under their applicable practices. Contact the address below to request access or deletion."] },
+        { "heading": "Security and sharing", "paragraphs": ["The form validates submitted fields and escapes user content before including it in a notification email. These measures do not guarantee absolute security. Data is shared with Resend to deliver messages and may be processed by Cloudflare to operate the site."] },
+        { "heading": "Cookies and optional measurement", "paragraphs": ["The consent interface stores a versioned choice in this browser's local storage. Necessary functionality remains enabled; analytics, marketing, and preference categories are off by default. The code supports Google Analytics, Google Tag Manager, and Umami, but does not confirm that any is active in production. When configured in strict mode, analytics services require analytics consent; GTM also requires marketing consent. No optional service is enabled by this notice alone."] },
+        { "heading": "Your choices and rights", "paragraphs": ["You can refuse optional categories, customize them, or reopen the preferences control to change your choice. Applicable data-protection rights may include access, correction, deletion, information about processing, and objection or other rights provided by law. Send a request to the contact address below."] },
+        { "heading": "Updates", "paragraphs": ["This notice may be updated when the site or its data handling changes. The current version is published on this page."] }
+      ]
     },
     "home": {
       "meta": {

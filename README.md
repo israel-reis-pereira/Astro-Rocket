@@ -292,7 +292,7 @@ GOOGLE_SITE_VERIFICATION=your-code
 BING_SITE_VERIFICATION=your-code
 ```
 
-Astro Rocket ships with built-in support for **Google Analytics 4**, **Google Tag Manager**, and **Umami**. For Umami, set `PUBLIC_UMAMI_WEBSITE_ID` (the UUID from your Umami dashboard) and the tracking script loads automatically. Umami is cookieless and stores no personal data, so it loads without the cookie-consent banner.
+Astro Rocket ships with built-in support for **Google Analytics 4**, **Google Tag Manager**, and **Umami**. None of them load unless their environment variables are set. When `PUBLIC_CONSENT_ENABLED` is true, Umami waits for analytics consent the same way GA4 does — cookieless is not consent-free. With consent off, optional analytics scripts stay unloaded.
 
 Copy the Website ID **and** the script `src` out of the tracking snippet Umami shows you, and set `PUBLIC_UMAMI_SRC` whenever that `src` is not `https://cloud.umami.is/script.js` — which covers self-hosting and Umami Cloud's other instances alike. Set the **Domain** on the Umami website record to your bare hostname (`yoursite.com`), since Umami rejects events whose origin does not match it.
 
@@ -633,7 +633,7 @@ Astro Rocket includes 44 components across four categories. All UI components us
 | Tabs | Horizontal tabbed content panels |
 | VerticalTabs | Vertical tab navigation |
 | Accordion | Collapsible content sections |
-| ConsentBanner | Cookie consent with Google Consent Mode v2 — accept, decline, or a settings panel. Renders only when `PUBLIC_CONSENT_ENABLED` is on |
+| ConsentBanner | Cookie consent (strict or Consent Mode v2) — accept, decline, or a settings panel. Renders only when `PUBLIC_CONSENT_ENABLED` is on |
 
 #### Layout (`ui/layout/`)
 
@@ -853,7 +853,7 @@ import SEO from '@/components/seo/SEO.astro';
 
 ### OG Image
 
-Every post, project and blog tag archive gets its own 1200×630 share card, drawn at build time from the page title and your brand colour and written out as a PNG under `/og/`. Pages without a card of their own use `/og/default.png`, generated from `name` and `tagline` in `src/config/site.config.ts`. Point `ogImage` at a file in `public/` to use your own instead.
+Every post, project and blog tag archive gets its own 1200×630 share card, drawn at build time from the page title and your brand colour and written out as a PNG under `/og/`. Pages without a card of their own use `/og/default.png`, generated from `SITE_NAME` and `SITE_TAGLINE` in `src/config/branding.ts` — not from the 404 page that also points at that path. Point `ogImage` at a file in `public/` to use your own instead.
 
 A post or project that has its own **raster** cover (`.png`, `.jpg`, `.webp`, `.gif`) uses that as its share image. An SVG cover does not: social platforms don't render SVG, and the theme's cover SVGs colour themselves from CSS custom properties that only exist on the page — fetched on their own, they come out transparent. Posts with an SVG cover get the generated card instead.
 

@@ -7,7 +7,7 @@ const consentConfig: ConsentConfig = {
 
   /** 'consent_mode_v2' = scripts carregam com padrões de negação e enviam sinais sem cookies
    *  'strict' = scripts ficam totalmente bloqueados até que o consentimento seja concedido */
-  mode: 'consent_mode_v2',
+  mode: 'strict',
 
   /** Chave do localStorage usada para armazenar as preferências */
   storageKey: 'cookie-consent',

@@ -16,7 +16,10 @@ const localeSchema = z
 
 // Blog collection with Content Layer API
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  loader: glob({
+    pattern: ['**/*.{md,mdx}', '!_en-old/**/*.{md,mdx}'],
+    base: './src/content/blog',
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string().max(100),
@@ -102,7 +105,10 @@ const faqs = defineCollection({
 
 // Projects collection — one MDX file per project
 const projects = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+  loader: glob({
+    pattern: ['**/*.{md,mdx}', '!_en-old/**/*.{md,mdx}'],
+    base: './src/content/projects',
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),

@@ -1,0 +1,12 @@
+---
+import PrivacyView from '@/components/pages/views/PrivacyView.astro';
+import { getSecondaryLocales } from '@/i18n';
+
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<PrivacyView locale={locale} />

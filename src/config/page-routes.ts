@@ -12,4 +12,5 @@ export const pageSlugs: PageSlugMap = {
   blog: { 'pt-br': 'blog', en: 'blog', },
   about: { 'pt-br': 'sobre', en: 'about', },
   contact: { 'pt-br': 'contato', en: 'contact', },
+  privacy: { 'pt-br': 'privacidade', en: 'privacy', },
 };

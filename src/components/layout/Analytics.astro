@@ -5,12 +5,9 @@
  * Conditionally loads analytics scripts based on environment variables.
  * Supports Google Analytics (GA4), Google Tag Manager, and Umami.
  *
- * When PUBLIC_CONSENT_ENABLED is true, integrates with Google Consent Mode v2:
- * - consent_mode_v2: Scripts load normally but with denied defaults (cookieless pings)
- * - strict: Scripts only load after explicit user consent
+ * Optional analytics scripts load only after explicit consent when enabled.
  *
- * Umami is privacy-friendly and cookieless by design, so it loads directly and
- * is not gated by the cookie-consent flow (there are no cookies to consent to).
+ * Umami is also gated because cookieless does not mean consent-free.
  *
  * Environment variables:
  * - PUBLIC_GA_MEASUREMENT_ID: Google Analytics 4 Measurement ID (e.g., G-XXXXXXXXXX)
@@ -92,7 +89,6 @@ for (const [key, cat] of Object.entries(consentConfig.categories)) {
 const hasGtm = !!gtmId;
 const hasGa = !!gaId && !gtmId;
 const hasAnalytics = !!(gaId || gtmId);
-const noConsent = !consentEnabled;
 const isV2 = consentEnabled && consentMode === 'consent_mode_v2';
 const isStrict = consentEnabled && consentMode === 'strict';
 
@@ -106,53 +102,83 @@ const analyticsDataJson = JSON.stringify({
   categoryDefaults,
   categoryGcmMap,
   analyticsCategoryKey,
+  umamiId: umamiId || null,
+  umamiSrc,
+  consentEnabled,
 });
 ---
 
-{/* ── Umami — privacy-friendly, cookieless analytics ──
-    Loads directly (no consent gating): Umami sets no cookies and stores no
-    personal data, so it needs no cookie banner. Self-host by overriding
-    PUBLIC_UMAMI_SRC. */}
+{/* ── Umami loads only after an explicit analytics choice. ── */}
 {hasUmami && (
-  <script is:inline async src={umamiSrc} data-website-id={umamiId}></script>
+  <script is:inline type="application/json" id="umami-data" set:html={analyticsDataJson} />
+)}
+
+{hasUmami && (
+  <script is:inline>
+    (function(){
+      if (window.__umamiConsentBound) return;
+      window.__umamiConsentBound = true;
+      const data = JSON.parse(document.getElementById('umami-data').textContent);
+      function allowed(categories) {
+        if (!data.consentEnabled) return false;
+        if (!categories || typeof categories !== 'object' || Array.isArray(categories)) return false;
+        for (const key of Object.keys(data.categoryDefaults)) {
+          if (typeof categories[key] !== 'boolean') return false;
+          if (data.categoryDefaults[key] && categories[key] !== true) return false;
+        }
+        return categories[data.analyticsCategoryKey] === true;
+      }
+      function load(categories) {
+        if (!allowed(categories)) return;
+        let script = document.getElementById('umami-analytics');
+        if (!script) {
+          script = document.createElement('script');
+          script.id = 'umami-analytics';
+          script.async = true;
+          script.src = data.umamiSrc;
+          script.dataset.websiteId = data.umamiId;
+          script.dataset.autoTrack = 'false';
+          script.onload = function() {
+            if (allowed(currentCategories()) &&
+                window.umami && typeof window.umami.track === 'function') window.umami.track();
+          };
+          document.head.appendChild(script);
+          return;
+        }
+        if (window.umami && typeof window.umami.track === 'function') window.umami.track();
+      }
+      function revoke() {
+        document.getElementById('umami-analytics')?.remove();
+      }
+      function currentCategories() {
+        try {
+          const stored = JSON.parse(localStorage.getItem(data.storageKey));
+          if (!stored || stored.version !== data.configVersion || !Number.isFinite(Date.parse(stored.timestamp))) return null;
+          if (!stored.categories || typeof stored.categories !== 'object' || Array.isArray(stored.categories)) return null;
+          for (const key of Object.keys(data.categoryDefaults)) {
+            if (typeof stored.categories[key] !== 'boolean') return null;
+            if (data.categoryDefaults[key] && stored.categories[key] !== true) return null;
+          }
+          return stored.categories;
+        } catch {
+          return null;
+        }
+      }
+      function sync(event) {
+        const categories = event && event.detail ? event.detail.categories : currentCategories();
+        if (allowed(categories)) load(categories);
+        else revoke();
+      }
+      window.addEventListener('consent-updated', sync);
+      document.addEventListener('astro:page-load', sync);
+      sync(null);
+    })();
+  </script>
 )}
 
 {/* Analytics data element — read by all inline scripts below */}
 {hasAnalytics && (
   <script is:inline type="application/json" id="analytics-data" set:html={analyticsDataJson} />
-)}
-
-{/* ── No consent: load GTM directly ── */}
-{noConsent && hasGtm && (
-  <script is:inline>
-    (function(){
-      const d = JSON.parse(document.getElementById('analytics-data').textContent);
-      const i = d.gtmId;
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      const f = document.getElementsByTagName('script')[0],
-        j = document.createElement('script');
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
-      f.parentNode.insertBefore(j, f);
-    })();
-  </script>
-)}
-
-{/* ── No consent: load GA directly ── */}
-{noConsent && hasGa && (
-  <>
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-    <script is:inline>
-      (function(){
-        const d = JSON.parse(document.getElementById('analytics-data').textContent);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(...args){window.dataLayer.push(args);}
-        gtag('js', new Date());
-        gtag('config', d.gaId);
-      })();
-    </script>
-  </>
 )}
 
 {/* ── Consent enabled: set consent defaults BEFORE loading scripts ── */}
@@ -168,8 +194,22 @@ const analyticsDataJson = JSON.stringify({
         const raw = localStorage.getItem(d.storageKey);
         if (raw) {
           const parsed = JSON.parse(raw);
-          if (parsed && parsed.version === d.configVersion) {
-            stored = parsed;
+          if (parsed && parsed.version === d.configVersion &&
+              typeof parsed.timestamp === 'string' && Number.isFinite(Date.parse(parsed.timestamp)) &&
+              parsed.categories && typeof parsed.categories === 'object' && !Array.isArray(parsed.categories)) {
+            const validCategories = {};
+            let valid = true;
+            const keys = Object.keys(d.categoryDefaults);
+            for (let i = 0; i < keys.length; i++) {
+              const key = keys[i];
+              if (typeof parsed.categories[key] !== 'boolean' ||
+                  (d.categoryDefaults[key] && parsed.categories[key] !== true)) {
+                valid = false;
+                break;
+              }
+              validCategories[key] = d.categoryDefaults[key] || parsed.categories[key];
+            }
+            if (valid) stored = { version: parsed.version, categories: validCategories };
           }
         }
       } catch { /* ignored */ }
@@ -242,25 +282,6 @@ const analyticsDataJson = JSON.stringify({
 )}
 {isStrict && hasGa && (
   <meta name="ga-id" content={gaId} />
-)}
-
-{/* ── Strict mode: conditionally load GTM if consent already granted ── */}
-{isStrict && hasGtm && (
-  <script is:inline>
-    (function(){
-      const d = JSON.parse(document.getElementById('analytics-data').textContent);
-      if (window.__consentState && window.__consentState.decided && window.__consentState.categories[d.analyticsCategoryKey]) {
-        const i = d.gtmId;
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        const f = document.getElementsByTagName('script')[0],
-          j = document.createElement('script');
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
-        f.parentNode.insertBefore(j, f);
-      }
-    })();
-  </script>
 )}
 
 {/* ── Strict mode: conditionally load GA if consent already granted ── */}
