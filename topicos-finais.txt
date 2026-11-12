@@ -1,0 +1,293 @@
+src\components\pages\views\HomeView.astro
+const servicesUrl = localizedPagePath('servicos', locale);
+const projectsUrl = localizedPath('/projetos', locale);
+const aboutUrl = localizedPath('/sobre', locale);
+const contactUrl = localizedPath('/contato', locale);
+const blogUrl = localizedPath('/blog', locale);
+// The getting-started guide lives at the default-locale URL; link there so the
+// CTA always resolves even before a locale has translated that post.
+const getStartedUrl = '/projetos/';
+
+
+**Uma das poucas coisas a se fazer agora é realizar os botões irem para a rota certa, por exemplo na página principal, os links estão definidos para rotas pt-br, o que causa erro quando vai na versão en, precisa realizar o tratamento para que quando clicado os botões cada um ir para sua lingua selecionada, uma sugestão:**
+// 1. Descobrimos as chaves (PageKey) de forma segura através dos caminhos padrão
+const servicesKey = getPageKeyFromPath('/servicos') || 'services';
+const projectsKey = getPageKeyFromPath('/projetos') || 'projects';
+const aboutKey = getPageKeyFromPath('/sobre') || 'about';
+const contactKey = getPageKeyFromPath('/contato') || 'contact';
+const blogKey = getPageKeyFromPath('/blog') || 'blog';
+
+// 2. A função localizedPagePath gera a URL perfeita (com /en/ se o locale for inglês)
+const servicesUrl = localizedPagePath(servicesKey as PageKey, locale);
+const projectsUrl = localizedPagePath(projectsKey as PageKey, locale);
+const aboutUrl = localizedPagePath(aboutKey as PageKey, locale);
+const contactUrl = localizedPagePath(contactKey as PageKey, locale);
+const blogUrl = localizedPagePath(blogKey as PageKey, locale);
+
+// O link do CTA sempre apontará para a página de projetos no idioma correto
+const getStartedUrl = projectsUrl;
+
+
+**Quanto a pagina privacidade tem outras sugestões a serem consideradas relevantes que pode ser utilizada para adaptar/ajustar de acordo com esse relatorio/proposta:** # Análise crítica da política de privacidade do Astro-Rocket
+
+Minha avaliação inicial: o texto é transparente e está bem encaminhado para um site pessoal ou portfólio, mas há alguns pontos que eu revisaria antes de considerá-lo pronto para produção. Não é necessário remover informações técnicas úteis nem transformar a página em um documento jurídico enorme. O objetivo é manter a transparência, eliminar ambiguidades e garantir que o texto corresponda ao comportamento real do site.
+
+Uma limitação importante: não consigo acessar o seu `localhost:4321` a partir daqui. A análise abaixo se baseia no texto que você forneceu, nas configurações do projeto compartilhadas anteriormente e nas referências oficiais da LGPD. Não é uma auditoria do código em execução nem uma certificação jurídica.
+
+## 1. Áreas de risco identificadas
+
+1. Retenção sem prazo definido
+
+Prioridade alta
+
+Trecho: “O código do site não define um prazo fixo de retenção...”
+
+É positivo admitir que não existe prazo implementado. O risco é deixar o visitante sem uma previsão prática de quando a mensagem será excluída. Defina uma regra operacional para a caixa postal e avalie a retenção dos fornecedores. Não invente um prazo na política antes de implementá-lo.
+
+2. Cookies e ferramentas de análise
+
+Prioridade alta
+
+Trecho: “Google Analytics, Google Tag Manager e Umami só são carregados...”
+
+O texto admite que o comportamento em produção não foi confirmado. É uma lacuna importante: o banner de consentimento não garante, sozinho, que os scripts estejam bloqueados antes da escolha ou que a recusa seja respeitada. Verifique o comportamento real da versão publicada. Cookies e Dados Pessoais
+
+3. Responsável pelo tratamento
+
+Trecho: a política apresenta somente um e-mail de contato.
+
+É útil esclarecer quem é responsável pelo site e pelo tratamento dos dados. Se você opera o site em nome próprio, identifique o responsável de maneira adequada. Não é necessário publicar CPF, endereço residencial ou outros dados pessoais desnecessários. A necessidade e a forma de indicação de um encarregado dependem do contexto e das regras aplicáveis. Serviços e Informações do Brasil
+
++1
+
+4. Compartilhamento com fornecedores
+
+Trecho: “podem ser tratados por fornecedores de hospedagem ou infraestrutura...”
+
+A formulação é honesta, mas genérica. Identifique os fornecedores que realmente participam do fluxo — por exemplo, Cloudflare e Resend, se confirmados na implementação — e explique sua função. Não afirme que existe transferência internacional ou que ela não existe sem verificar as condições efetivas dos serviços.
+
+5. Direitos descritos de forma genérica
+
+Trecho: “Os direitos aplicáveis ... podem incluir...”
+
+A expressão é cautelosa, mas pode ser mais útil ao visitante. Informe que os direitos dependem do caso e apresente exemplos claros, como confirmação do tratamento, acesso, correção e eliminação quando aplicável. Explique como fazer uma solicitação pelo e-mail de contato. Serviços e Informações do Brasil
+
++1
+
+6. Ausência de data da versão
+
+Trecho: “o código não mantém um histórico separado...”
+
+Não é necessário destacar ao visitante uma limitação interna do repositório. Uma data de atualização visível e mantida corretamente é mais útil. O histórico de versões pode ficar no Git, sem precisar ser publicado integralmente na página.
+
+## 2. O que eu amenizaria sem perder transparência
+
+O Copilot adotou uma postura defensiva: em vários trechos, descreve o que o código não garante. Isso é bom durante uma auditoria técnica, mas nem toda observação interna precisa aparecer na política pública.
+
+Eu faria estas alterações:
+
+| Texto atual | Minha recomendação |
+| --- | --- |
+| “Este aviso \[...\] não constitui garantia de conformidade jurídica.” | Simplificar para uma introdução informativa, sem sugerir que o documento substitui as obrigações legais. |
+| “O código do site não define um prazo fixo...” | Explicar a regra de retenção efetivamente adotada ou informar com clareza que o prazo está sendo definido, se isso ainda for verdade. |
+| “Este repositório não especifica integralmente os termos...” | Descrever os fornecedores confirmados e suas funções; deixar detalhes de auditoria do repositório fora da política. |
+| “Não há identificadores opcionais \[...\] no ambiente local examinado...” | Remover essa referência ao ambiente local e informar o que está realmente ativo no site publicado. |
+| “O código não mantém um histórico separado...” | Retirar essa observação e apresentar a data da última atualização da política. |
+| “Preferências também aparece como categoria...” | Se a categoria não tiver uma função real, removê-la do banner; caso contrário, explicar sua finalidade. |
+
+O princípio é simples: a política pública deve explicar o tratamento de dados ao visitante, não servir como relatório de limitações do código-fonte.
+
+## 3. O que precisa ser conferido no código
+
+Estas são as verificações técnicas que eu priorizaria antes de reescrever o texto.
+
+## Checklist de auditoria
+
+0 de 7
+
+[ ]Formulário de contato Confirmar os campos recebidos, a validação no servidor, a proteção antispam e o destino da mensagem.
+
+[ ]Resend e caixa postal Verificar quem recebe as mensagens, quais registros são mantidos e como a exclusão é realizada.
+
+[ ]Scripts de análise Testar se GA, GTM e Umami realmente ficam bloqueados antes do consentimento e após a recusa.
+
+[ ]Cookies e armazenamento local Inventariar cookies, localStorage e outros mecanismos; distinguir os estritamente necessários dos opcionais.
+
+[ ]Cloudflare e logs Consultar as configurações efetivas de produção e verificar quais dados podem ser registrados na infraestrutura.
+
+[ ]Direitos e solicitações Definir um processo para receber, verificar e responder aos pedidos dos titulares.
+
+[ ]Política publicada Confirmar que a versão de produção descreve o comportamento real, não apenas o ambiente de desenvolvimento.
+
+ Copiar checklist
+
+## 4. Atenção especial ao consentimento de cookies
+
+Esse é um dos pontos que eu não trataria apenas como melhoria textual.
+
+Segundo a orientação da ANPD, a utilização de cookies deve observar princípios como finalidade, necessidade e transparência, considerando o tratamento realizado. A solução adequada depende dos cookies e das tecnologias efetivamente utilizados. Cookies e Dados Pessoais
+
++1
+
+No seu caso, eu verificaria especificamente:
+
+- Se os scripts opcionais não são carregados antes do consentimento.
+- Se recusar é tão simples quanto aceitar.
+- Se alterar a escolha desativa os serviços anteriormente autorizados, quando aplicável.
+- Se o botão para reabrir as preferências realmente funciona.
+- Se o Google Tag Manager não carrega indiretamente outras ferramentas antes da autorização.
+- Se o armazenamento local guarda apenas a preferência necessária, sem incluir dados pessoais desnecessários.
+
+O fato de uma variável de análise não estar configurada localmente não prova que a versão de produção esteja livre de rastreamento.
+
+## 5. Minha recomendação de prioridade
+
+Prioridade 1 — Confirmar o comportamento real
+
+Verifique o formulário, os scripts de rastreamento, os cookies e os logs de produção. A política não corrige uma implementação que se comporte de forma diferente do que promete.
+
+Prioridade 2 — Definir retenção e responsabilidades
+
+Estabeleça uma regra razoável para mensagens recebidas, descarte de dados e atendimento de solicitações. Identifique o responsável pelo tratamento e os fornecedores realmente envolvidos.
+
+Prioridade 3 — Simplificar a política
+
+Retire comentários sobre limitações do repositório, use linguagem direta e publique uma data de atualização. Preserve os avisos sobre incertezas que realmente afetem o visitante.
+
+## 6. O que eu manteria
+
+Eu não removeria a transparência sobre:
+
+- os campos do formulário e a finalidade de responder ao contato;
+- o envio de mensagens pelo Resend, se confirmado;
+- a possibilidade de mensagens permanecerem na caixa postal;
+- as categorias de cookies realmente utilizadas;
+- o canal para exercer direitos relacionados aos dados pessoais;
+- os limites reais das medidas de segurança.
+
+A LGPD não exige que você publique detalhes de implementação desnecessários, mas exige que o tratamento seja realizado de acordo com as regras aplicáveis. Os princípios de finalidade, adequação, necessidade, transparência e segurança são especialmente relevantes para esse tipo de site. Planalto
+
++1
+
+Conclusão: eu não reescreveria toda a política imediatamente. Primeiro, validaria o comportamento de produção e a retenção. Depois, simplificaria os trechos que parecem notas de auditoria, sem esconder limitações reais. Isso tende a produzir uma página mais profissional, legível e coerente com a operação do seu portfólio.
+
+Esta é uma análise técnica e informativa, não um parecer jurídico nem uma declaração de conformidade com a LGPD. 
+
+**mais uma sugestão:**
+Sim. O seu planejamento tem vários pontos que se conectam diretamente à análise da política de privacidade do Astro-Rocket. Eu acrescentaria uma frente específica de privacidade, LGPD e minimização de dados, integrada à etapa 3, sem transformar a estabilização do projeto em uma refatoração ampla.
+
+O princípio mais importante é: a política deve refletir o comportamento real do site em produção, e não apenas o que o código parece permitir. Também não é necessário expor detalhes internos da infraestrutura para ser transparente com os visitantes.
+
+## 1\. Onde o planejamento se conecta à política de privacidade
+
+Etapa 3 — Consentimento e serviços opcionais
+
+Prioridade alta
+
+É o vínculo mais direto. Você já planejou testar as categorias de consentimento, os idiomas, o carregamento dos scripts e a persistência das escolhas.
+
+Melhoria: verificar se a recusa de análise realmente impede o carregamento e a execução dos rastreadores opcionais, em vez de confiar apenas no estado visual do banner. A ANPD recomenda transparência, controle pelo titular e limitação da coleta ao necessário. Serviços e Informações do Brasil
+
++1
+
+Etapa 4 — Resend e formulário de contato
+
+Prioridade alta
+
+Sua política informa que nome, e-mail, assunto e mensagem são encaminhados pelo Resend. O planejamento já determina preservar a integração que funciona.
+
+Melhoria: documentar a finalidade do formulário, os fornecedores envolvidos, a retenção e o procedimento para atender pedidos de titulares. Não é necessário trocar o Resend nem alterar suas chaves para fazer essa revisão.
+
+Etapa 4 — Cloudflare Observability
+
+Prioridade alta
+
+O plano recomenda logs e traces, mas já reconhece o risco de registrar informações pessoais.
+
+Melhoria: estabelecer uma política de logs mínimos. Registre rota, status HTTP, duração e resultado da operação; evite registrar mensagens de contato, endereços de e-mail, tokens e corpos completos das requisições. Os logs do Workers são armazenados na conta Cloudflare, portanto também precisam entrar no inventário de tratamento. Cloudflare Workers docs
+
++1
+
+Etapa 2 — Limpeza técnica e revisão do diff
+
+A política pode ficar desatualizada quando o código muda, mesmo que os testes continuem passando.
+
+Melhoria: revisar alterações que introduzam novos scripts, cookies, endpoints, fornecedores ou campos nos formulários antes de publicar.
+
+## 2\. Pontos de risco que eu acrescentaria ao planejamento
+
+| Ponto | Risco atual | Ação recomendada |
+| --- | --- | --- |
+| Identificação do responsável pelo tratamento | A política informa um e-mail, mas não esclarece suficientemente quem decide sobre o tratamento | Identificar o controlador e um canal de contato adequado |
+| Prazo de retenção | Não existe prazo fixo definido no código | Definir critérios de retenção e exclusão, considerando obrigações aplicáveis |
+| Consentimento e analytics | A configuração local não comprova o comportamento em produção | Testar os scripts efetivamente publicados e as três escolhas do banner |
+| Fornecedores | Resend é citado, mas os demais serviços podem não estar integralmente identificados | Inventariar hospedagem, analytics e outros serviços realmente ativos |
+| Direitos dos titulares | Existe um canal de contato, mas não um procedimento operacional documentado | Definir como receber, verificar e responder às solicitações |
+| Logs e traces | A observabilidade pode criar novos registros de dados | Adotar minimização, controle de acesso e retenção apropriada |
+| Atualização da política | Não há histórico nem data de revisão | Registrar a data da última revisão e atualizar quando o tratamento mudar |
+
+Esses itens são pontos de atenção, não uma conclusão de que seu site esteja em desconformidade. Para isso, seria necessário examinar a implementação real e o tratamento realizado em produção.
+
+A ANPD explica que o controlador é quem toma as principais decisões sobre o tratamento, enquanto o operador trata dados em nome do controlador. Essa distinção ajuda a documentar corretamente a relação entre o proprietário do site e os fornecedores. Serviços e Informações do Brasil
+
++1
+
+## 3\. Adição que eu faria ao seu arquivo de planejamento
+
+Eu acrescentaria uma etapa intermediária à seção 3 e uma verificação à seção 10. O texto abaixo pode ser incorporado ao documento sem substituir o restante do plano.
+
+Escrita
+
+### 3.1. Privacidade e LGPD — revisão incremental
+
+Objetivo: garantir que a política de privacidade descreva o tratamento de dados efetivamente realizado pelo Astro-Rocket, sem ampliar desnecessariamente o escopo da estabilização.
+
+**Etapa A — Inventário do tratamento**
+
+- Mapear os dados recebidos pelo formulário de contato e suas finalidades.
+- Identificar os fornecedores efetivamente envolvidos na hospedagem, entrega de e-mails, analytics e demais integrações ativas.
+- Verificar cookies, armazenamento local, scripts externos e requisições realizadas antes e depois das escolhas de consentimento.
+- Distinguir funcionalidades implementadas no código de serviços efetivamente habilitados em produção.
+
+**Etapa B — Política de privacidade**
+
+- Revisar a identificação do responsável pelo tratamento e o canal de contato.
+- Documentar as finalidades, os compartilhamentos, os critérios de retenção e os procedimentos de atendimento aos titulares.
+- Incluir data da última revisão da política.
+- Manter o texto objetivo, sem prometer segurança absoluta ou afirmar conformidade jurídica sem avaliação suficiente.
+
+**Etapa C — Consentimento**
+
+- Testar aceitar, recusar e personalizar as categorias opcionais.
+- Confirmar que as escolhas são persistidas e respeitadas após recarregar a página.
+- Validar os comportamentos em português e inglês.
+- Verificar se scripts opcionais são bloqueados conforme a política adotada.
+- Não habilitar novos rastreadores sem finalidade definida e revisão prévia.
+
+**Etapa D — Logs e observabilidade**
+
+- Registrar apenas os dados técnicos necessários para diagnóstico.
+- Não registrar segredos, tokens, mensagens completas, e-mails ou corpos de requisições com dados pessoais.
+- Verificar acessos, retenção e destino dos registros de observabilidade.
+- Evitar aumentar a coleta de dados apenas para facilitar o debugging.
+
+**Critério de conclusão**
+
+A revisão estará concluída quando a política corresponder ao comportamento validado em produção, as escolhas de consentimento tiverem sido testadas e os fornecedores e procedimentos relevantes estiverem documentados.
+
+Esta etapa é uma revisão técnica e operacional de privacidade, não uma certificação de conformidade com a LGPD. Questões jurídicas específicas devem ser avaliadas conforme as características reais do tratamento.
+
+## 4\. O que eu não mudaria agora
+
+Para preservar a estabilidade do projeto, eu evitaria:
+
+- Reconfigurar o Resend sem evidência de problema.
+- Ativar Google Analytics, Umami ou Bing só para completar uma lista de tarefas.
+- Adicionar mais categorias de cookies sem um serviço correspondente.
+- Criar um sistema complexo de gestão de consentimento se a implementação atual puder ser validada e corrigida.
+- Prometer um prazo de retenção que ainda não foi definido operacionalmente.
+- Fazer grandes alterações de arquitetura apenas para melhorar o texto da política.
+
+Minha recomendação final: primeiro valide o banner e os scripts em produção; em seguida, revise o inventário de fornecedores e a retenção; por último, ajuste a redação da política. Isso preserva o seu objetivo original de estabilizar o Astro-Rocket e transforma a privacidade em parte do processo normal de desenvolvimento, em vez de uma reestruturação paralela.
+
+Para consulta, os materiais mais úteis são o [Guia da ANPD sobre cookies e proteção de dados](<https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-cookies-e-protecao-de-dados-pessoais>) e a documentação de [Workers Logs da Cloudflare](<https://developers.cloudflare.com/workers/observability/logs/workers-logs/>).
